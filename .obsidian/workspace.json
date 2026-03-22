@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "README.md"
+              "title": "README"
             }
           }
         ]
@@ -194,7 +194,7 @@
   },
   "active": "7ece5429d7738089",
   "lastOpenFiles": [
-    "README.md.md",
+    "README.md",
     "homebackground/homepage_banner.jpeg",
     "homebackground",
     "error/QT_X11自动化配置.md",
