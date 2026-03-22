@@ -1,5 +1,8 @@
 ---
 banner: "![[homepage_banner.jpeg]]"
+---
+---
+banner: "![[homepage_banner.jpeg]]"
 banner_y: 1
 banner_lock: true
 cssclasses:

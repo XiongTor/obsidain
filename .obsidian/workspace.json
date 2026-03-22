@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3b3350a58d1b652f",
+        "id": "84ef2621bc85c27e",
         "type": "tabs",
         "children": [
           {
-            "id": "7ece5429d7738089",
+            "id": "686889784bad8bb2",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -192,8 +192,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7ece5429d7738089",
+  "active": "c1bc0e5462c3b33e",
   "lastOpenFiles": [
+    "Home.md",
+    "KEY.md",
+    "未命名 1.base",
+    "未命名.base",
     "README.md",
     "homebackground/homepage_banner.jpeg",
     "homebackground",
@@ -204,8 +208,6 @@
     "MOC",
     "ML/未命名.md",
     "ML",
-    "KEY.md",
-    "Home.md",
     "Diary/week/2026年第06周-2026-02-02.md",
     "Diary/week/2026年第12周-2026-03-16.md",
     "Diary/week/2026年第05周-2026-01-26.md",
@@ -224,13 +226,10 @@
     "Diary/diary/2026-03-03 星期二.md",
     "Diary/diary/2026-02-21 星期六.md",
     "Diary/diary/2026-02-20 星期五.md",
-    "Diary/diary/2026-02-18 星期三.md",
     "Diary/week",
     "Diary/diary",
     "Diary",
     "CS/Python/CS61A",
-    "CS/Python",
-    "CS",
     "imag/思绪衍生/file-20251024163809881.png",
     "imag/思绪衍生/file-20250725104114573.png",
     "imag/思绪衍生/file-20250523105853468.png",
