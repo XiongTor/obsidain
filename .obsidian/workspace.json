@@ -11,10 +11,15 @@
             "id": "7ece5429d7738089",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "README.md.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "README.md"
             }
           }
         ]
@@ -189,6 +194,7 @@
   },
   "active": "7ece5429d7738089",
   "lastOpenFiles": [
+    "README.md.md",
     "homebackground/homepage_banner.jpeg",
     "homebackground",
     "error/QT_X11自动化配置.md",
@@ -234,7 +240,6 @@
     "imag/基因组组装/file-20251008201517891.png",
     "imag/基因组组装/file-20251008201800653.png",
     "imag/基因组组装/file-20251008201329520.png",
-    "imag/基因组组装/file-20251008201259149.png",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
