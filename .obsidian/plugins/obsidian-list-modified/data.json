@@ -1,0 +1,72 @@
+{
+  "tags": "#dailynote",
+  "excludedFolders": "",
+  "ignoredNameContains": "",
+  "outputFormat": "- [[link]]",
+  "appendSpaceAfterHeadings": false,
+  "timeFormat": "YYYY-MM-DD",
+  "autoCreateLogNote": true,
+  "logNoteType": "daily",
+  "writeInterval": 0,
+  "autoCreatePrimaryHeading": false,
+  "primaryHeading": "NoteList",
+  "modifiedHeading": "Modified",
+  "separateCreated": false,
+  "createdHeading": "Created",
+  "separateDeleted": false,
+  "deletedHeading": "Deleted",
+  "lastTrackedDate": "2025-09-10",
+  "trackedFiles": [
+    {
+      "path": "Home.md",
+      "matchesCriteria": true,
+      "supposedList": "modified"
+    },
+    {
+      "path": "CSS/custom-links.css.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "CSS/custom-links.css",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@ 2017.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@_2024.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@ 2022.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@_2017.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@_2021.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/@_2022.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    },
+    {
+      "path": "reference/zotero.md",
+      "supposedList": "deleted",
+      "matchesCriteria": true
+    }
+  ],
+  "verboseModeEnabled": false
+}

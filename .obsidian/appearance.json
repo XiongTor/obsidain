@@ -1,0 +1,10 @@
+{
+  "theme": "obsidian",
+  "accentColor": "#1972e6",
+  "enabledCssSnippets": [
+    "custom-links"
+  ],
+  "nativeMenus": false,
+  "interfaceFontFamily": "",
+  "textFontFamily": ""
+}

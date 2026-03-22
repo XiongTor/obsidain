@@ -1,0 +1,15 @@
+{
+  "showCLICommands": false,
+  "addExtensionsToInternalLinks": "html",
+  "injectAppCSS": "light",
+  "injectThemeCSS": false,
+  "customCSSFile": null,
+  "displayYAMLFrontmatter": false,
+  "linkStrippingBehaviour": "text",
+  "highDPIDiagrams": true,
+  "pandoc": "D:\\software\\pandoc-3.7.0.1-windows-x86_64\\pandoc-3.7.0.1\\pandoc.exe",
+  "pdflatex": null,
+  "outputFolder": "D:\\obsidian_note\\pandoc_export",
+  "extraArguments": "--resource-path=D:/obsidian_note/own_library/",
+  "exportFrom": "md"
+}

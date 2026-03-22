@@ -1,0 +1,102 @@
+[
+  {
+    "project": "project\\Rosaceae_ILS\\全部代做事项汇总---2026.02.08-04.01.md",
+    "references": [
+      "references\\@Phylogenomic analyses reveal species relationships and phylogenetic incongruence with new member detected in allium subgenus cyathophora_2025.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\大纲.md",
+    "references": [
+      "references\\@Using all gene families vastly expands data available for phylogenomic inference_2022.md",
+      "references\\@_2022.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\思绪衍生.md",
+    "references": [
+      "references\\@Concatenation fails to describe the anomalous radiation of giant cockroaches (Blattodea_ Blaberidae) despite moderate to low discordance.md",
+      "references\\@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\1.数据收集与建树\\Orthofinder.md",
+    "references": [
+      "references\\@OrthoFinder_ phylogenetic orthology inference for comparative genomics.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\D-statistic.md",
+    "references": [
+      "references\\@Dsuite - Fast D-statistics and related admixture evidence from VCF files.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\ILS_GTEE_IH影响占比.md",
+    "references": [
+      "references\\@The perfect storm_ gene tree estimation error, incomplete lineage sorting, and ancient gene flow explain the most recalcitrant ancient angiosperm clade, malpighiales.md",
+      "references\\@The perfect storm_ Gene tree estimation error, incomplete lineage sorting, and ancient gene flow explain the most recalcitrant ancient angiosperm clade, malpighiales_2021.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\MSCquartets.md",
+    "references": [
+      "references\\@Gene tree discord, simplex plots, and statistical tests under the coalescent.md",
+      "references\\@GetOrganelle_ a fast and versatile toolkit for accurate de novo assembly of organelle genomes.md",
+      "references\\@Phyloseminar #116_ john rhodes (university of alaska).md",
+      "references\\@The perfect storm_ gene tree estimation error, incomplete lineage sorting, and ancient gene flow explain the most recalcitrant ancient angiosperm clade, malpighiales.md",
+      "references\\@The perfect storm_ Gene tree estimation error, incomplete lineage sorting, and ancient gene flow explain the most recalcitrant ancient angiosperm clade, malpighiales_2021.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\PhyloNetwork.md",
+    "references": [
+      "references\\@2017.md",
+      "references\\@PhyloNetworks_ A Package for Phylogenetic Networks_2017.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\QulBL.md",
+    "references": [
+      "references\\@Genomic architecture and introgression shape a butterfly radiation.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\2.核质冲突\\渐渗基因文献.md",
+    "references": [
+      "references\\@Insights from genomes into the evolutionary importance and prevalence of hybridization in nature_2019.md",
+      "references\\@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022.md",
+      "references\\@_2022.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\文献阅读\\paragone.md",
+    "references": [
+      "references\\@Ya Yang, Stephen A. Smith_2014.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\文献阅读\\Phylogenomic and Macroevolutionary Evidence for an Explosive Radiation of a Plant Genus in the Miocene.md",
+    "references": [
+      "references\\@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\文献阅读\\蟑螂，密码子模型建树.md",
+    "references": [
+      "references\\@Concatenation fails to describe the anomalous radiation of giant cockroaches (Blattodea_ Blaberidae) despite moderate to low discordance.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\流程记录\\AGS353.md",
+    "references": [
+      "references\\@Jianxiang Ma, Pengchuan Sun, Dandan Wang, Zhenyue Wang, Jiao Yang, Ying Li, Wenjie Mu, Renping Xu, Ying Wu, Congcong Dong, Nawal Shrestha, Jianquan Liu, Yongzhi Yang_2021.md"
+    ]
+  },
+  {
+    "project": "project\\Rosaceae_ILS\\流程记录\\orthofinder.md",
+    "references": [
+      "references\\@Jianxiang Ma, Pengchuan Sun, Dandan Wang, Zhenyue Wang, Jiao Yang, Ying Li, Wenjie Mu, Renping Xu, Ying Wu, Congcong Dong, Nawal Shrestha, Jianquan Liu, Yongzhi Yang_2021.md"
+    ]
+  }
+]

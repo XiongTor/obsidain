@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "5324373015726ba8",
+    "type": "split",
+    "children": [
+      {
+        "id": "3b3350a58d1b652f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7ece5429d7738089",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {},
+              "icon": "lucide-file",
+              "title": "新标签页"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ac0e7137e9805d3c",
+    "type": "split",
+    "children": [
+      {
+        "id": "53fba43fe3724721",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c1bc0e5462c3b33e",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a232109a4337fd69",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "ee3086b5d45aeb28",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "d55ffe5fddc1bba1",
+    "type": "split",
+    "children": [
+      {
+        "id": "7559848478832c9d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "79d02f9c2bae65f1",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "references/@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022 的反向链接列表"
+            }
+          },
+          {
+            "id": "6770bebcf96edee2",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "MSCquartets 的出链列表"
+            }
+          },
+          {
+            "id": "c721d33aeb98a0fe",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "c68690b9c1082b13",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "references/@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022 的大纲"
+            }
+          },
+          {
+            "id": "89ee8d7b299f8c83",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {},
+              "icon": "calendar-with-checkmark",
+              "title": "Calendar"
+            }
+          },
+          {
+            "id": "e02553b73f798db4",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 236.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "bases:新建数据库": false,
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "homepage:Open homepage": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "7ece5429d7738089",
+  "lastOpenFiles": [
+    "homebackground/homepage_banner.jpeg",
+    "homebackground",
+    "error/QT_X11自动化配置.md",
+    "error",
+    "MOC/Reference_list.md",
+    "MOC/Project.md",
+    "MOC",
+    "ML/未命名.md",
+    "ML",
+    "KEY.md",
+    "Home.md",
+    "Diary/week/2026年第06周-2026-02-02.md",
+    "Diary/week/2026年第12周-2026-03-16.md",
+    "Diary/week/2026年第05周-2026-01-26.md",
+    "Diary/week/2026年第01周-2026-12-29.md",
+    "Diary/week/2025年第47周-2025-11-17.md",
+    "Diary/week/2025年第39周-2025-09-22.md",
+    "Diary/week/2025年第46周-2025-11-10.md",
+    "Diary/week/2025年第44周-2025-10-27.md",
+    "Diary/week/2025年第41周-2025-10-06.md",
+    "Diary/week/2025年第38周-2025-09-15.md",
+    "Diary/diary/2026-03-17 星期二.md",
+    "Diary/diary/2026-03-11 星期三.md",
+    "Diary/diary/2026-03-10 星期二.md",
+    "Diary/diary/2026-03-09 星期一.md",
+    "Diary/diary/2026-03-04 星期三.md",
+    "Diary/diary/2026-03-03 星期二.md",
+    "Diary/diary/2026-02-21 星期六.md",
+    "Diary/diary/2026-02-20 星期五.md",
+    "Diary/diary/2026-02-18 星期三.md",
+    "Diary/week",
+    "Diary/diary",
+    "Diary",
+    "CS/Python/CS61A",
+    "CS/Python",
+    "CS",
+    "imag/思绪衍生/file-20251024163809881.png",
+    "imag/思绪衍生/file-20250725104114573.png",
+    "imag/思绪衍生/file-20250523105853468.png",
+    "imag/思绪衍生/file-20250514162559283.png",
+    "imag/基因组组装/file-20251029191416105.png",
+    "imag/基因组组装/file-20251029190647187.png",
+    "imag/基因组组装/file-20251008201517891.png",
+    "imag/基因组组装/file-20251008201800653.png",
+    "imag/基因组组装/file-20251008201329520.png",
+    "imag/基因组组装/file-20251008201259149.png",
+    "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
+  ]
+}

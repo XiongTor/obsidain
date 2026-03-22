@@ -1,0 +1,113 @@
+/*---------------------------内部链接样式优化---------------------------------------------*/
+
+.cm-hmd-internal-link .cm-underline {
+	color:#558bdd !important;	
+	font-weight: bold;
+}
+
+.internal-link {
+  color: #558bdd !important;   /* 字体颜色 */
+  font-weight: bold;           /* 字重 */
+  text-decoration: none !important;  /* 默认无下划线 */
+}
+
+/* 鼠标悬停时显示下划线 */
+.internal-link:hover {
+  text-decoration: underline !important;
+}
+
+/*---------------------------外部链接样式优化---------------------------------------------*/
+/* 外部链接取消右上角的链接图标和下划线 */
+.external-link {
+  color: #558bdd !important;   /* 字体颜色 */
+  font-weight: bold;           /* 字重 */
+  text-decoration: none !important;  /* 默认无下划线 */
+}
+.external-link:hover {
+  text-decoration: underline !important;
+}
+/*---------------------------页面边距优化---------------------------------------------*/
+body {
+	--file-line-width: 60rem;  # 默认值为 45rem
+}
+
+/*---------------------------美化dataview的表格---------------------------------------------*/
+/* ========== Dataview 表格美化 ========== */
+.dataview.table-view-table,
+.markdown-rendered table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  margin-top: 10px;
+  border: 1px solid #444;
+}
+
+/* 表头样式 */
+.dataview.table-view-table thead tr,
+.markdown-rendered table thead tr {
+  background-color: #226e67;  /* 青绿色 */
+  color: white;
+  text-align: left;
+}
+
+.dataview.table-view-table th,
+.markdown-rendered table th {
+  padding: 8px;
+  font-weight: bold;
+  border: 1px solid #444;
+}
+
+/* 表格内容 */
+.dataview.table-view-table td,
+.markdown-rendered table td {
+  padding: 8px;
+  border: 1px solid #444;
+}
+
+/* 行交替底色 */
+.dataview.table-view-table tbody tr:nth-child(even),
+.markdown-rendered table tbody tr:nth-child(even) {
+  background-color: #222;
+}
+
+.dataview.table-view-table tbody tr:nth-child(odd),
+.markdown-rendered table tbody tr:nth-child(odd) {
+  background-color: #333;
+}
+
+/*---------------------------自定义标题颜色---------------------------------------------*/
+/* 一级标题（#）
+.markdown-preview-view h1,
+.cm-header-1 {
+  color: #ac2011; /* 红色 */
+}
+
+/* 二级标题（##）
+.markdown-preview-view h2,
+.cm-header-2 {
+  color: #d65e0d; /* 蓝色 */
+} */
+
+/* 三级标题（###）
+.markdown-preview-view h3,
+.cm-header-3 {
+  color: #bcb60a; /* 绿色 */
+} */
+
+/* 四级标题（####）
+.markdown-preview-view h4,
+.cm-header-4 {
+  color: #2c9004; /* 橙色 */
+} */
+
+/* 五级标题（#####）
+.markdown-preview-view h5,
+.cm-header-5 {
+  color: #06c08e; /* 紫色 */
+} */
+
+/* 六级标题（######） */
+/* .markdown-preview-view h6,
+.cm-header-6 {
+  color: #1856c8; /* 灰色 */
+} */ */

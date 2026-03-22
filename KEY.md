@@ -1,0 +1,7 @@
+kimi
+sk-iDQh479Qxm85LS5el2PbdjbIIRJZa5BskN63AS66MWWPmssN
+用于openclaw,gateway:18789
+
+QQ机器人密钥
+yGYrAUo9UqCZwKi7WwMnEg8b5Z4Z5b8f
+

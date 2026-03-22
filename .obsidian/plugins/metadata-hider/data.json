@@ -1,0 +1,54 @@
+{
+  "autoFold": false,
+  "hideEmptyEntry": true,
+  "hideEmptyEntryInSideDock": false,
+  "propertiesVisible": "tags, speaker,title",
+  "propertyHideAll": "hide",
+  "entries": [
+    {
+      "name": "zotero-key",
+      "hide": {
+        "tableInactive": true,
+        "tableActive": true,
+        "fileProperties": false,
+        "allProperties": false
+      }
+    },
+    {
+      "name": "banner",
+      "hide": {
+        "tableInactive": true,
+        "tableActive": true,
+        "fileProperties": false,
+        "allProperties": false
+      }
+    },
+    {
+      "name": "banner_y",
+      "hide": {
+        "tableInactive": true,
+        "tableActive": true,
+        "fileProperties": false,
+        "allProperties": false
+      }
+    },
+    {
+      "name": "banner_lock",
+      "hide": {
+        "tableInactive": true,
+        "tableActive": true,
+        "fileProperties": false,
+        "allProperties": false
+      }
+    },
+    {
+      "name": "cssclasses",
+      "hide": {
+        "tableInactive": true,
+        "tableActive": true,
+        "fileProperties": false,
+        "allProperties": false
+      }
+    }
+  ]
+}

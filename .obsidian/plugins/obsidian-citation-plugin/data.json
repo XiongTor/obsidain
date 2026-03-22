@@ -1,0 +1,9 @@
+{
+  "citationExportFormat": "biblatex",
+  "literatureNoteTitleTemplate": "@{{title}}_{{year}}",
+  "literatureNoteFolder": "references",
+  "literatureNoteContentTemplate": "---\ntitle: \"{{title}}\"\nauthors: {{authorString}}\nyear: {{year}}\ncitekey: {{citekey}}\ntags: [paper, literature]\n---\n\n<div style=\"font-size: 28px; color: #C97C7C; margin-top: 0px;\">\n  {{title}}\n</div>\n\n**Authors:** {{authorString}}  \n**Year:** {{year}}  \n**Zotero:** [Open in Zotero]({{zoteroSelectURI}})\n\n---\n\n<div style=\"\n  border-radius: 8px;\n  background-color: #2f2d2d;\n  padding: 15px 20px;\n  margin-top: 15px;\n  color: #ddd6d6;\n  line-height: 1.6;\n  font-size: 16px;\n\">\n  <div style=\"font-size: 22px;font-weight: bold; color: #bbb3b3; margin-bottom: 8px;\">\n    ❝ Abstract\n  </div>\n  {{abstract}}\n</div>\n\n---\n\n## 1. 文献研究类群与使用的数据集\n\n\n\n## 2. 文献使用的主要方法\n\n\n\n\n## 3. 文献的主要内容与理论\n1） 核心问题：\n2）主要结论：\n3） 理论创新点：\n4） 与既有研究的关系：\n\n\n## 4. 思考\n\n\n\n\n\n",
+  "markdownCitationTemplate": "@{{citekey}}]",
+  "alternativeMarkdownCitationTemplate": "@{{citekey}}",
+  "citationExportPath": "E:\\xiong\\zotero\\obsidian_zotero.bib"
+}

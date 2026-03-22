@@ -1,0 +1,14 @@
+---
+title: Gene tree discord, simplex plots, and statistical tests under the coalescent
+authors: Elizabeth S Allman, Jonathan D Mitchell, John A Rhodes
+year: 2022
+tags:
+---
+
+[Gene tree discord, simplex plots, and statistical tests under the coalescent](zotero://select/items/@allmanGeneTreeDiscord2022)
+
+---
+
+## 被引用项目
+
+- [[MSCquartets]]
