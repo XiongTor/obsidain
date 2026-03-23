@@ -48,6 +48,7 @@ tags: [paper, literature]
 
 #### **SNP数据获取：**
 
+
 ## 2. 文献使用的主要方法
 #### 建树方法：
 串联法建树：RAxML建树，分别使用SNP和单拷贝直系同源基因建树
@@ -59,7 +60,7 @@ tags: [paper, literature]
 Phyparts
 SplitsTree
 PhyloNet
-D-statistics (Dfm): Dfm滑动窗口确定具体基因位置
+D-statistics (Dfm与Dxy): Dfm滑动窗口确定具体基因位置
 QuIBL： BIC显著性判断ILS，IH占比
 GO富集
 TreeMix（推断历史群体层面基因流动的方向和规模）
