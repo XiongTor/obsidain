@@ -2,12 +2,8 @@
 banner: "![[homepage_banner.jpeg]]"
 ---
 ---
-banner: "![[homepage_banner.jpeg]]"
-banner_y: 1
-banner_lock: true
-cssclasses:
-  - rightlane
----
+
+
 # <div style="font-size: 28px; color: #C97C7C; margin-top: -70px;"> 🎃  Homepage</div>
 ```contributionWidget
 id: 36211b43-2f14-493b-a553-bb53d9d8f338
