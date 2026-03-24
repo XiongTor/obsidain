@@ -27,6 +27,17 @@
 
 在下面的例子中，我们想要理解的是，为什么当我们执行`return = f(1, 2)`的时候会报错：
 首先我们来看看各个环境里有些什么：
-globel frame，我们定义了func f(x, y)和func g(a)
-当我们调用func f(1，2)的时候，我们将1赋值给了x
+globel frame，我们定义了func f(x, y)和func g(a)，注意，g(a)的def语句，即函数签名是在globel frame中执行的，所以其父级为 globel frame而不是 func f(x, y)。这与上文不同
+
+当我们执行f(1,2)是我们将 x = 1 , y = 2，此时返回g(1) ,此时的一个环境是 globel frame 与 f frame
+然后我们执行g(1)，调用函数，创建frame g 其父级为调用函数的父级，即globel frame，此时令a = 1 ，y=?，在frame g中找不到y 的赋值，去其父级globel frame中，发现也找不到，因此报错
+
+所以其实在执行f(x, y)的时候，我们有两个环境：
+环境一：globel frame  + f frame 在这个环境中，x=1, y=2
+环境二：globel frame + g frame 在这个环境中，a=1，找不到y
+
+即**函数的形参具有局部范围，f的frame无法作用于g的frame**
+
 ![](../../../imag/Lecture%205/file-20260324195551327.png)
+
+# 3. Function Composition 函数组合
