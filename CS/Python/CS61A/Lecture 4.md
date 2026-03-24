@@ -152,3 +152,9 @@ def make_adder(n):
 ![](../../../imag/Lecture%204/file-20260320215401128.png)
 ![](../../../imag/Lecture%204/file-20260320215501352.png)
 ![](../../../imag/Lecture%204/file-20260320215629618.png)
+
+
+
+## 相关链接
+- [README](README.md)
+- [[Lecture 5|下一讲]]
