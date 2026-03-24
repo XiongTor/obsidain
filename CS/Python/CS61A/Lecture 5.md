@@ -41,3 +41,26 @@ globel frame，我们定义了func f(x, y)和func g(a)，注意，g(a)的def语�
 ![](../../../imag/Lecture%205/file-20260324195551327.png)
 
 # 3. Function Composition 函数组合
+与上文类似，注意顺序与环境
+![](../../../imag/Lecture%205/file-20260324204335939.png)
+
+# 4. Lambda Expressions
+lambda表达式是评估为函数的表达式
+> 通过lambda将表达式评估为函数
+
+lambda重视创造一些简单的函数，由于它的特性
+同时在python中lambda使用较少，更多的使用def
+而在其它的编程语言中，lambda可能占据了一个较大的比例
+![](../../../imag/Lecture%205/file-20260324204947648.png)
+![](../../../imag/Lecture%205/file-20260324205046405.png)![](../../../imag/Lecture%205/file-20260324205140711.png)
+
+
+### lambda与def之间的区别
+仅仅在intrinsic name即函数的内在名字上有差异，def会返回函数被定义的名字，lambda直接返回lambda
+这个差别会体现在画环境图中
+
+![](../../../imag/Lecture%205/file-20260324205523125.png)
+![](../../../imag/Lecture%205/file-20260324205839133.png)
+
+
+# 5. Currying 柯里化
