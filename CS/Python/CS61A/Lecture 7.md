@@ -47,5 +47,25 @@ y 即 表达式最右侧的a ,也是主环境中的 a = 1
 
 # 2. return
 
-执行函数时候，当我们到达return的时候，函数结束
- 
+执行函数时候，当我们到达return的时候，函数结束 ![](../../../imag/Lecture%207/file-20260325204415232.png)
+
+# 3. Abstractions
+函数抽象就是给某个计算过程起名字，然后整个过程都用这个名字来引用，而不用担心具体的实现细节
+![](../../../imag/Lecture%207/file-20260325205907634.png)
+
+# 4. Choosing name
+Which vales deserve a Name
+- 避免写长难句
+- 变量name需要准确表达意义，尽量避免含糊的说法
+- 有一些约定俗成的name，可能需要记住
+![](../../../imag/Lecture%207/file-20260325205550079.png)
+
+
+# 5. Error & Tracebacks
+
+## Error 的三种形式：
+- syntax errors 在表达式执行之前就能被识别，是由于表达式本身的不正确导致的，例如缺半个括号
+- runtime errrors（type error） 在执行时出现的报错，会产生报错报告，可以溯源
+- logical errors 在python中检测不到，可以成功运行，但是无法输出你想要的结果，需要检查结果
+
+
