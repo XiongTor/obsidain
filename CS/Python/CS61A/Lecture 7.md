@@ -68,4 +68,5 @@ Which vales deserve a Name
 - runtime errrors（type error） 在执行时出现的报错，会产生报错报告，可以溯源
 - logical errors 在python中检测不到，可以成功运行，但是无法输出你想要的结果，需要检查结果
 
+有具体的降解如何解读报错，可以从该章节的第`24：15`开始观看
 

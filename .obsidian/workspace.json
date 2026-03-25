@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS/Python/CS61A/Lecture 7.md",
-                "mode": "source",
+                "file": "Home.md",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 7"
+              "title": "Home"
             }
           }
         ]
@@ -194,12 +194,15 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "promt/文献阅读.md",
+    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
+    "Home.md",
+    "CS/Python/CS61A/Lecture 7.md",
     "imag/Lecture 7/file-20260325205907634.png",
     "imag/Lecture 7/file-20260325205550079.png",
     "imag/Lecture 7/file-20260325204415232.png",
     "CS/Python/CS61A/Lecture 4.md",
     "CS/Python/CS61A/Lecture 3.md",
-    "CS/Python/CS61A/Lecture 7.md",
     "imag/Lecture 7/file-20260325202536746.png",
     "imag/Lecture 7",
     "生物信息学课程/Pangenome.md",
@@ -213,16 +216,13 @@
     "未命名.md",
     "未命名.base",
     "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "Diary/week/2026年第12周-2026-03-16.md",
-    "Home.md",
     "imag/Lecture 5/file-20260324205839133.png",
     "imag/Lecture 5/file-20260324205523125.png",
     "imag/Lecture 5/file-20260324205140711.png",
     "imag/Lecture 5/file-20260324205046405.png",
     "imag/Lecture 5/file-20260324204947648.png",
     "imag/Lecture 5/file-20260324204335939.png",
-    "imag/Lecture 5/file-20260324204254009.png",
     "imag/Lecture 5",
     "references/@An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)_2025.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
