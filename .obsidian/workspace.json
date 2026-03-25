@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS/Python/CS61A/Lecture 6.md",
+                "file": "CS/Python/CS61A/Lecture 7.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 6"
+              "title": "Lecture 7"
             }
           }
         ]
@@ -194,13 +194,14 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "CS/Python/CS61A/README.md",
     "CS/Python/CS61A/Lecture 6.md",
+    "CS/Python/CS61A/Lecture 7.md",
+    "CS/Python/CS61A/Lecture 5.md",
+    "CS/Python/CS61A/README.md",
     "CS/Python/CS61A/Lecture 1 Welcome.md",
     "CS/Python/CS61A/Lecture 2 names.md",
     "CS/Python/CS61A/Lecture 3.md",
     "CS/Python/CS61A/Lecture 4.md",
-    "CS/Python/CS61A/Lecture 5.md",
     "未命名.md",
     "未命名.base",
     "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
@@ -236,7 +237,6 @@
     "Diary/week/2026年第05周-2026-01-26.md",
     "Diary/week/2026年第01周-2026-12-29.md",
     "Diary/week/2025年第47周-2025-11-17.md",
-    "Diary/week/2025年第39周-2025-09-22.md",
     "Diary/week",
     "Diary/diary",
     "Diary",
