@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
+                "file": "CS/Python/CS61A/Lecture 6.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021"
+              "title": "Lecture 6"
             }
           }
         ]
@@ -194,11 +194,15 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
+    "CS/Python/CS61A/Lecture 5.md",
+    "CS/Python/CS61A/Lecture 6.md",
+    "未命名.md",
+    "未命名.base",
+    "CS/Python/CS61A/Lecture 4.md",
     "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
+    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "Diary/week/2026年第12周-2026-03-16.md",
     "Home.md",
-    "CS/Python/CS61A/Lecture 5.md",
     "imag/Lecture 5/file-20260324205839133.png",
     "imag/Lecture 5/file-20260324205523125.png",
     "imag/Lecture 5/file-20260324205140711.png",
@@ -211,10 +215,8 @@
     "imag/Lecture 5/file-20260324194001909.png",
     "imag/Lecture 5/file-20260324193412497.png",
     "imag/Lecture 5",
-    "CS/Python/CS61A/Lecture 4.md",
     "CS/Python/CS61A/Lecture 3.md",
     "references/@An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)_2025.md",
-    "未命名.base",
     "小工具记录/VS code同时上传到github与本地服务器.md",
     "project/Rosaceae_ILS/2.核质冲突/节点信息整理.md",
     "README.md",
@@ -235,8 +237,6 @@
     "Diary/week/2025年第39周-2025-09-22.md",
     "Diary/week/2025年第46周-2025-11-10.md",
     "Diary/week/2025年第44周-2025-10-27.md",
-    "Diary/week/2025年第41周-2025-10-06.md",
-    "Diary/week/2025年第38周-2025-09-15.md",
     "Diary/week",
     "Diary/diary",
     "Diary",
