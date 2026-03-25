@@ -64,3 +64,32 @@ lambda重视创造一些简单的函数，由于它的特性
 
 
 # 5. Currying 柯里化
+
+其核心机制为：链式闭包
+
+传统函数：
+```python
+def volume(l, w, h):
+    return l * w * h
+
+# 调用时必须给齐三个数
+print(volume(10, 5, 2))
+```
+柯里化：
+```python
+def curry_v(l):
+    def with_width(w):
+        def with_height(h):
+            return l * w * h  # 这里的 l 和 w 来自上两层
+        return with_height
+    return with_width
+
+# 拆解步骤看内存：
+step1 = curry_v(10)       # 产生一个闭包，记住了 l=10
+step2 = step1(5)          # 又产生一个闭包，记住了 w=5
+final_result = step2(2)   # 最终计算：10 * 5 * 2
+```
+- **普通函数**：一手交钱，一手交货（参数全给，结果出来）
+- **柯里化**：分期付款（参数一个一个给，最后给齐了再出结果）
+在实际应用中，如果你发现某个函数的前几个参数在一段时间内是固定的，你可以先“固定”住它们，生成一个新的函数。
+
