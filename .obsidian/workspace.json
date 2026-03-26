@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_ILS/流程记录/AGS353.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "AGS353"
             }
           }
         ]
@@ -194,9 +194,12 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/流程记录/orthofinder.md",
+    "project/Rosaceae_ILS/流程记录/chloroplast.md",
+    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
+    "references/@Widespread introgression across a phylogeny of 155 Drosophila genomes_2022.md",
     "Home.md",
     "promt/文献阅读.md",
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "CS/Python/CS61A/Lecture 7.md",
     "imag/Lecture 7/file-20260325205907634.png",
     "imag/Lecture 7/file-20260325205550079.png",
@@ -233,10 +236,7 @@
     "homebackground",
     "error/QT_X11自动化配置.md",
     "error",
-    "MOC/Reference_list.md",
-    "MOC/Project.md",
     "MOC",
-    "ML/未命名.md",
     "ML",
     "Diary/week",
     "Diary/diary",
