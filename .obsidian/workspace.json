@@ -11,10 +11,15 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
               "icon": "lucide-file",
-              "title": "新标签页"
+              "title": "D-statistic"
             }
           }
         ]
@@ -189,6 +194,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "梦记/2026.01.02.md",
     "模板/简易通用模板.md",
     "模板/流程记录模板.md",
@@ -217,7 +223,6 @@
     "project/Rosaceae_ILS/思绪衍生.md",
     "project/Rosaceae_ILS/全部代做事项汇总---2026.02.08-04.01.md",
     "project/Rosaceae_ILS/大纲.md",
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "imag/Lecture 7/file-20260325205907634.png",
     "imag/Lecture 7/file-20260325205550079.png",
     "imag/Lecture 7/file-20260325204415232.png",
