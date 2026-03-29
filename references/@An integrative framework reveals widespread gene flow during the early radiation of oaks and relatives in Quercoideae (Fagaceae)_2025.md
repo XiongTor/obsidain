@@ -46,7 +46,7 @@ tags: [paper, literature]
 #### **直系同源基因数据集：**
 通过OrthoFinder筛选组装出的包含**3973 single-copy orthologs**
 
-#### **SNP数据获取：**
+#### **SNP数据获取**
 
 
 ## 2. 文献使用的主要方法
