@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS/Python/CS61A/lecture 9.md",
+                "file": "project/Rosaceae_ILS/大纲.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "lecture 9"
+              "title": "大纲"
             }
           }
         ]
@@ -195,13 +195,13 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "CS/Python/CS61A/lecture 9.md",
     "CS/Python/CS61A/Lecture 1 Welcome.md",
     "CS/Python/CS61A/Lecture 2 names.md",
     "CS/Python/CS61A/Lecture 3.md",
     "CS/Python/CS61A/Lecture 4.md",
     "CS/Python/CS61A/Lecture 5.md",
     "CS/Python/CS61A/Lecture 6.md",
-    "CS/Python/CS61A/lecture 9.md",
     "CS/Python/CS61A/Lecture 8.md",
     "CS/Python/CS61A/Lecture 7.md",
     "CS/Python/CS61A/README.md",
