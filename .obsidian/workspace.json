@@ -173,12 +173,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 236.5,
-    "collapsed": true
+    "width": 236.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,12 +194,14 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Diary/week/2026年第14周-2026-03-30.md",
+    "Diary/week/2026年第12周-2026-03-16.md",
+    "Home.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "project/Rosaceae_ILS/文献阅读/paragone.md",
     "project/Rosaceae_ILS/文献阅读/Phylogenomic and Macroevolutionary Evidence for an Explosive Radiation of a Plant Genus in the Miocene.md",
-    "Home.md",
     "project/Rosaceae_ILS/大纲.md",
     "CS/Python/CS61A/lecture 9.md",
     "CS/Python/CS61A/Lecture 1 Welcome.md",
@@ -214,7 +215,6 @@
     "CS/Python/CS61A/README.md",
     "imag/Lecture 8/file-20260331201943685.png",
     "imag/Lecture 8",
-    "Diary/week/2026年第12周-2026-03-16.md",
     "references/@An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)_2025.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
@@ -226,7 +226,6 @@
     "未命名 1.base",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329140616779.png",
     "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
-    "project/Rosaceae_ILS/文献阅读/山茶属文章.md",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329132811758.png",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329132707149.png",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021",
