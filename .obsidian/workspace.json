@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "CS/Python/CS61A/lecture 9.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "lecture 9"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -177,7 +178,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 236.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,8 +196,11 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Diary/week/2026年第14周-2026-03-30.md",
+    "imag/lecture 9/file-20260408201902783.png",
+    "imag/lecture 9/file-20260408201644939.png",
+    "imag/lecture 9",
     "Home.md",
+    "Diary/week/2026年第14周-2026-03-30.md",
     "Diary/week/2026年第12周-2026-03-16.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
@@ -225,7 +230,6 @@
     "未命名.base",
     "未命名 1.base",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329140616779.png",
-    "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329132811758.png",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021/file-20260329132707149.png",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021",
@@ -234,12 +238,10 @@
     "imag/Lecture 7/file-20260325205907634.png",
     "imag/Lecture 7/file-20260325205550079.png",
     "imag/Lecture 7/file-20260325204415232.png",
-    "imag/Lecture 7/file-20260325202536746.png",
     "imag/Lecture 7",
     "imag/Lecture 5",
     "homebackground",
     "error",
-    "MOC",
-    "ML"
+    "MOC"
   ]
 }
