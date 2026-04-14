@@ -29,3 +29,20 @@ slicing总是会创造一个新的变量
 # 3. Processing Container Values 处理容器值
 
 ## Sequence aggregation 序列聚合
+接受可迭代参数并将它们聚合成单个值的函数  `sum`
+![](../../../imag/Lecture%2012/file-20260414204946691.png)
+
+值得注意的是`sum`还可以对list求和，要求输出一个空的list作为start
+![](../../../imag/Lecture%2012/file-20260414205110105.png)
+其它的如：
+max
+all
+![](../../../imag/Lecture%2012/file-20260414205526292.png)
+
+
+# 4. strings 字符串
+![|800](../../../imag/Lecture%2012/file-20260414205654424.png)
+
+### **当我们执行下列的这个‘curry......’的函数的时候，实际上我们创造了一个新的函数**
+![|800](../../../imag/Lecture%2012/file-20260414211046165.png)
+
