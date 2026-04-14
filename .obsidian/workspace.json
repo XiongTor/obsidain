@@ -177,8 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5,
-    "collapsed": true
+    "width": 236.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,6 +194,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Diary/week/2026年第14周-2026-03-30.md",
+    "Home.md",
     "CS/Python/CS61A/Lecture 10.md",
     "imag/Lecture 10/file-20260408220527970.png",
     "imag/Lecture 10/file-20260408220256491.png",
@@ -209,8 +210,6 @@
     "CS/Python/CS61A/lecture 9.md",
     "imag/lecture 9/file-20260408205223357.png",
     "imag/lecture 9",
-    "Home.md",
-    "Diary/week/2026年第14周-2026-03-30.md",
     "Diary/week/2026年第12周-2026-03-16.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
