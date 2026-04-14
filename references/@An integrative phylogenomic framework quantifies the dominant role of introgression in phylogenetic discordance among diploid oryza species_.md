@@ -1,18 +1,18 @@
 ---
-title: "An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)"
-authors: Shui‐Yin Liu, Ying‐Ying Yang, Qin Tian, Zhi‐Yun Yang, Shu‐Feng Li, Paul J. Valdes, Alex Farnsworth, Heather R. Kates, Carolina M. Siniscalchi, Robert P. Guralnick, Douglas E. Soltis, Pamela S. Soltis, Gregory W. Stull, Ryan A. Folk, Ting‐Shuang Yi
-year: 2025
-citekey: liuIntegrativeFrameworkReveals2025
+title: "An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species"
+authors: Hui-fang Li, Shuang-feng Dai, Tian-long Fang
+year: 
+citekey: liIntegrativePhylogenomicFramework
 tags: [paper, literature]
 ---
 
 <div style="font-size: 28px; color: #C97C7C; margin-top: 0px;">
-  An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)
+  An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species
 </div>
 
-**Authors:** Shui‐Yin Liu, Ying‐Ying Yang, Qin Tian, Zhi‐Yun Yang, Shu‐Feng Li, Paul J. Valdes, Alex Farnsworth, Heather R. Kates, Carolina M. Siniscalchi, Robert P. Guralnick, Douglas E. Soltis, Pamela S. Soltis, Gregory W. Stull, Ryan A. Folk, Ting‐Shuang Yi  
-**Year:** 2025  
-**Zotero:** [Open in Zotero](zotero://select/items/@liuIntegrativeFrameworkReveals2025)
+**Authors:** Hui-fang Li, Shuang-feng Dai, Tian-long Fang  
+**Year:**   
+**Zotero:** [Open in Zotero](zotero://select/items/@liIntegrativePhylogenomicFramework)
 
 ---
 
@@ -28,7 +28,7 @@ tags: [paper, literature]
   <div style="font-size: 22px;font-weight: bold; color: #bbb3b3; margin-bottom: 8px;">
     ❝ Abstract
   </div>
-  Although the frequency of ancient hybridization across the Tree of Life is greater than previously thought, little work has been devoted to uncovering the extent, timeline, and geographic and ecological context of ancient hybridization. Using an expansive new dataset of nuclear and chloroplast DNA sequences, we conducted a multifaceted phylogenomic investigation to identify ancient reticulation in the early evolution of oaks (Quercus). We document extensive nuclear gene tree and cytonuclear discordance among major lineages of Quercus and relatives in Quercoideae. Our analyses recovered clear signatures of gene flow against a backdrop of rampant incomplete lineage sorting, with gene flow most prevalent among major lineages of Quercus and relatives in Quercoideae during their initial radiation, dated to the Early‐Middle Eocene. Ancestral reconstructions including fossils suggest ancestors of Castanea + Castanopsis, Lithocarpus, and the Old World oak clade probably co‐occurred in North America and Eurasia, while the ancestors of Chrysolepis, Notholithocarpus, and the New World oak clade co‐occurred in North America, offering ample opportunity for hybridization in each region. Our study shows that hybridization—perhaps in the form of ancient syngameons like those seen today —has been a common and important process throughout the evolutionary history of oaks and their relatives. Concomitantly, this study provides a methodological framework for detecting ancient hybridization in other groups.
+  Background: Phylogenomic studies frequently reveal widespread gene tree discordance, primarily arising from incomplete lineage sorting (ILS) and hybridization and/or introgression. Disentangling these processes is especially challenging in rapidly radiating lineages. The genus Oryza, with its rapid diversification and multiple genome types, exemplifies this pervasive phylogenetic incongruence. We integrated multiple genomic datasets including whole-genome resequencing, transcriptomes, and published genomes from diploid Oryza species. Concatenation and multispecies coalescent analyses recovered a robust, congruent species tree, placing the FF and GG genome groups as a monophyletic basal clade, followed by successive divergence of the EE, CC, BB, and AA lineages, a topology differing from some prior hypotheses.
 </div>
 
 ---
@@ -78,7 +78,3 @@ r8s （推断分化时间）
 
 ## 4. 思考
 文章中目前最大的问题是，似乎忽略了**系统误差带来的干扰**，对于IH占比74.17的结论，几乎是只通过QuIBL的显著率来判断，而没有具体分析其ILS的可能情况，可能存在ILS强度低但是显著的情况，而这种低水平的ILS可能就是背景噪音造成的。同理IH的高占比也没有核实并作出相应解释。
-
-
-
-
