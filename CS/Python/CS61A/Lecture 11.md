@@ -43,5 +43,41 @@ digits * 2
 # 3.  For statements  For语句
 
 **使用for循环==不会==产生新的frame**
+![](../../../imag/Lecture%2011/file-20260414195300169.png)
 
+### 在for语句的头部直接进行序列的解包  do sequence unpacking right inside the header of the for statement
 
+为固定长度的sequence取了一个名字，被称之为解包
+![](../../../imag/Lecture%2011/file-20260414195658164.png)
+
+# 3 .Ranges  
+另一种序列，但并不是以list的形式展示
+`range()`生成一段连续的整数
+它包含起始值，但是不包含结束值
+例如
+```python
+>>> range(-2,2)
+>>> range(-2,2)
+# 可以使用list将range转换为list格式
+>>> list(range(-2,2))
+>>> [-2,-1,0,1]
+```
+
+![](../../../imag/Lecture%2011/file-20260414200237250.png)
+
+range的应用
+- 用于计算从0到n的所有正整数之和
+- 用于重复某个字符固定次数
+- 需要注意的是：
+```python
+def cheer():
+	for _ in range(3):  # 此处的"_"只是一种约定俗称的写法，让大家明白这个不打算使用任何的名字，只是为了输出下面print的东西
+		print("GO Bears !!! ")
+
+```
+![](../../../imag/Lecture%2011/file-20260414200731463.png)
+
+# 4. List Comprehensions  列表推导
+
+![](../../../imag/Lecture%2011/file-20260414201116140.png)
+![](../../../imag/Lecture%2011/file-20260414201137113.png)
