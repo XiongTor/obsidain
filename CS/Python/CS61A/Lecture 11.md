@@ -81,3 +81,6 @@ def cheer():
 
 ![](../../../imag/Lecture%2011/file-20260414201116140.png)
 ![](../../../imag/Lecture%2011/file-20260414201137113.png)
+
+
+[[Lecture 12|下一讲]]
