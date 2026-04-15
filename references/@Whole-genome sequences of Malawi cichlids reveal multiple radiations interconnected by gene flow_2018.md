@@ -34,6 +34,10 @@ tags: [paper, literature]
 ---
 
 ## 1. 文献研究类群与使用的数据集
+- 马拉维湖的马拉维湖慈鲷(*Malawi cichlids*)
+- 采集了主要谱系的73个物种，134个个体。涉及到7个主要的生态类群  
+![](../imag/@Whole-genome%20sequences%20of%20Malawi%20cichlids%20reveal%20multiple%20radiations%20interconnected%20by%20gene%20flow_2018/file-20260415100904143.png)
+
 
 
 
