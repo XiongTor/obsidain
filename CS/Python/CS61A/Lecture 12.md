@@ -68,3 +68,7 @@ strings 是一个序列，意味着我们可以计算它的长度，并选择其
 
 ## Dictionary comprehensions  字典推导
 
+可以理解为通过一个推导式来生成一个新的字典
+
+![](../../../imag/Lecture%2012/file-20260414215306051.png)
+![](../../../imag/Lecture%2012/file-20260414215317970.png)
