@@ -92,11 +92,15 @@ tags: [paper, literature]
 
 ## 3.7 辐射演化的起源问题
 _**A. calliptera**_ 在此前一直被认为是祖先态物种，但是全基因组显示其明确的作为岩栖组（mbuna）的姐妹群，仅有5.99%的滑动窗口树支持其作为祖先。
-且在尝试了采样其它地区的A. calliptera后，其仍能聚成一个单系群，并在去除岩栖组（mbuna）后，仍保持系统发育位置不变，说明其其嵌套位置并非由于后期的杂交所致。
-因此推测其祖先很可能是一种在生态位和表型上与 A. calliptera 及其他 Astatotilapia 属物种相似的河流广适性鱼类
-
+且在尝试了采样其它地区的A. calliptera后，其仍能聚成一个单系群，并在去除岩栖组（mbuna）后，仍保持系统发育位置不变，说明马拉维湖的慈稠嵌套位置并非由于后期的杂交所致。
+因此推测其祖先很可能是一种在生态位和表型上与 A. calliptera 及其他 Astatotilapia 属物种相似的河流广适性鱼类。因为观察到其基因组上存在一定差异，但是在形态上存在相似性，$A. calliptera$ 嵌套在其他亲缘关系较远但生态习性相似的 _Astatotilapia_ 物种的形态空间内
+![|500](../imag/@Whole-genome%20sequences%20of%20Malawi%20cichlids%20reveal%20multiple%20radiations%20interconnected%20by%20gene%20flow_2018/file-20260416173542868.png)![|300](../imag/@Whole-genome%20sequences%20of%20Malawi%20cichlids%20reveal%20multiple%20radiations%20interconnected%20by%20gene%20flow_2018/file-20260416173558511.png)
+因此作者提出了一个渐进式的三波爆发模型：
+- 远洋组（pelagic）辐射最早被播种
+- 接着是底栖组 + Utaka 组
+- 最后是岩栖组 mbuna
+将我们的世代突变率应用于观测到的基因组歧异度，我们得出这些支系之间的平均分化时间估计在 **46 万年前（ka）**至 **39 万年前**之间（假设每代三年）。这些估值点均落在马拉维湖古生态记录推测出的倒数第二次长期深水湖阶段内，而置信区间的上限则覆盖了约 80 万年前的第三次深水湖阶段。然而现存的所有 _A. calliptera_ 的共同祖先都非常年轻
 ## 4. 思考
-
 
 
 
