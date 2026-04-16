@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
+                "file": "CS/Python/CS61A/Lecture 13.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018"
+              "title": "Lecture 13"
             }
           }
         ]
@@ -196,6 +196,10 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "CS/Python/CS61A/Lecture 12.md",
+    "CS/Python/CS61A/Lecture 13.md",
+    "CS/Python/CS61A/README.md",
+    "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260416203007885.png",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260416173558511.png",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260416173542868.png",
@@ -204,16 +208,13 @@
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260416153614399.png",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "Home.md",
-    "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260415101722852.png",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260415100904143.png",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018",
     "Diary/diary/2026-04-14 星期二.md",
     "Diary/diary/2026-04-15 星期三.md",
-    "CS/Python/CS61A/Lecture 12.md",
     "imag/Lecture 12/file-20260414215317970.png",
     "imag/Lecture 12/file-20260414215306051.png",
-    "imag/Lecture 12/file-20260414212949921.png",
     "imag/Lecture 12",
     "CS/Python/CS61A/Lecture 11.md",
     "imag/Lecture 11",
@@ -238,7 +239,6 @@
     "CS/Python/CS61A/Lecture 2 names.md",
     "CS/Python/CS61A/Lecture 3.md",
     "CS/Python/CS61A/Lecture 4.md",
-    "CS/Python/CS61A/Lecture 5.md",
     "imag/Lecture 8",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021",
