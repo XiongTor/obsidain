@@ -62,6 +62,11 @@ tags: [paper, literature]
 - **Utaka 组**，其中一些物种与深海底栖组聚类更近，另一些则与浅海底栖组更近，**显示出基因流的可能**
 - **孔雀鲷属（_Aulonocara_）** 的两个物种——_A. stuartgranti_ 和 _A. steveni_，它们位于浅海和深海底栖组之间。尽管它们像许多深海底栖物种（包括其他 _Aulonocara_ 属鱼类）一样拥有扩大的侧线感觉器官，但它们通常生活在较浅的水域。
 ![](../imag/@Whole-genome%20sequences%20of%20Malawi%20cichlids%20reveal%20multiple%20radiations%20interconnected%20by%20gene%20flow_2018/file-20260416153614399.png)
+
+## 3.4 等位基因共享与树状关系的不一致
+根据上述结论，我们可以发现某些物种的位置十分摸棱两可，说明在基因组水平上可能处于明确定义的各个组别之间，说明不存在单一的进化树可以将这些物种联系起来
+同时使用D统计量中的$D_{min}$来进行验证，在不预先设置任何亲缘关系的前提下，计算了$D_{min}$值，发现
+ 
 ## 4. 思考
 
 
