@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
+                "file": "CS/Python/CS61A/Lecture 14.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021"
+              "title": "Lecture 14"
             }
           }
         ]
@@ -194,11 +194,17 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "README.md",
+    "KEY.md",
+    "Home.md",
+    "CS/Python/CS61A/Lecture 14.md",
+    "未命名 1.base",
+    "未命名.base",
+    "CS/Python/CS61A/Lecture 13.md",
+    "Diary/diary/2026-04-17 星期五.md",
+    "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species_.md",
-    "Diary/diary/2026-04-17 星期五.md",
-    "Home.md",
-    "CS/Python/CS61A/Lecture 13.md",
     "imag/Lecture 13/file-20260416223149034.png",
     "imag/Lecture 13/file-20260416221605186.png",
     "imag/Lecture 13/file-20260416220046310.png",
@@ -223,8 +229,6 @@
     "references/@An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)_2025.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/流程记录/tribe_final.md",
-    "未命名 1.base",
-    "未命名.base",
     "Diary/week/2026年第14周-2026-03-30.md",
     "imag/Lecture 10",
     "CS/Python/CS61A/lecture 9.md",
@@ -234,10 +238,6 @@
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "project/Rosaceae_ILS/文献阅读/paragone.md",
     "project/Rosaceae_ILS/文献阅读/Phylogenomic and Macroevolutionary Evidence for an Explosive Radiation of a Plant Genus in the Miocene.md",
-    "project/Rosaceae_ILS/大纲.md",
-    "CS/Python/CS61A/Lecture 1 Welcome.md",
-    "CS/Python/CS61A/Lecture 2 names.md",
-    "CS/Python/CS61A/Lecture 3.md",
     "imag/Lecture 8",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas",
     "imag/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021"
