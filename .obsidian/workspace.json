@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "CS/Python/CS61A/Lecture 12.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "Lecture 12"
             }
           }
         ]
@@ -194,15 +194,19 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "CS/Python/CS61A/Lecture 1 Welcome.md",
+    "CS/Python/CS61A/Lecture 11.md",
+    "CS/Python/CS61A/Lecture 10.md",
+    "CS/Python/CS61A/lecture 9.md",
     "CS/Python/CS61A/Lecture 8.md",
-    "CS/Python/CS61A/Lecture 7.md",
     "CS/Python/CS61A/Lecture 6.md",
     "CS/Python/CS61A/Lecture 5.md",
+    "CS/Python/CS61A/Lecture 4.md",
+    "CS/Python/CS61A/Lecture 7.md",
+    "Home.md",
+    "CS/Python/CS61A/Lecture 1 Welcome.md",
     "CS/Python/CS61A/Lecture 14.md",
     "README.md",
     "KEY.md",
-    "Home.md",
     "未命名 1.base",
     "未命名.base",
     "CS/Python/CS61A/Lecture 13.md",
@@ -228,15 +232,11 @@
     "Diary/diary/2026-04-14 星期二.md",
     "Diary/diary/2026-04-15 星期三.md",
     "imag/Lecture 12",
-    "CS/Python/CS61A/Lecture 11.md",
     "imag/Lecture 11",
-    "CS/Python/CS61A/Lecture 10.md",
     "references/@An integrative framework reveals widespread gene flow during the early radiation of oaks and relatives in Quercoideae (Fagaceae)_2025.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/流程记录/tribe_final.md",
-    "Diary/week/2026年第14周-2026-03-30.md",
     "imag/Lecture 10",
-    "CS/Python/CS61A/lecture 9.md",
     "imag/lecture 9",
     "imag/Lecture 8",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas",
