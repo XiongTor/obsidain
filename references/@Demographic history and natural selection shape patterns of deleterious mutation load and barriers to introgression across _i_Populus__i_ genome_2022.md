@@ -107,8 +107,9 @@ tags: [paper, literature]
 
 
 #### （3）定位基因组上的历史渗入区域------==主要关注内容==
-1. 通过TWISST来评判全基因组中不同的滑动窗口的拓扑占比。发现占比最高的拓扑与此前的NJ树的结果一致，最后进行了ABBA分析，通过D值和f4值来观察各个物种间的杂交渐渗情况
-![](../imag/@Demographic%20history%20and%20natural%20selection%20shape%20patterns%20of%20deleterious%20mutation%20load%20and%20barriers%20to%20introgression%20across%20_i_Populus__i_%20genome_2022/file-20260420163430965.png)
+1. 通过TWISST来评判全基因组中不同的滑动窗口的拓扑占比。发现占比最高的拓扑与此前的NJ树的结果一致，最后进行了ABBA分析，通过D值和f4值来观察各个物种间的杂交渐渗情况。
+2. 考虑到琼岛杨可能的克隆繁殖现象，因此后续不将其纳入考量范围内
+![|675](../imag/@Demographic%20history%20and%20natural%20selection%20shape%20patterns%20of%20deleterious%20mutation%20load%20and%20barriers%20to%20introgression%20across%20_i_Populus__i_%20genome_2022/file-20260420163430965.png)
 
 ## 4. 思考
 
