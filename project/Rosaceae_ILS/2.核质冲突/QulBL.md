@@ -272,12 +272,20 @@ count：此拓扑在输入的所有拓扑中出现的次数
 - 是否可以基于渐渗的算法直接替换
 
 
+# 计算每一个基因中的ILS和IH贡献度和概率
+通过运行下列脚本实现
+```bash 
+python perlocus_formatter.py treefile_path quibl_out_csv_path triplet output_filepath canonical_outgroup
+```
+脚本位置在: [QUIBL](https://github.com/miriammiyagi/QuIBL/blob/master/analysis/perlocus_formatter.py)
 
 # 深化研究
 #### 1. 对比“物种树一致的基因树”与“冲突的基因树”的内部支长分布。如果两者在 QuIBL 估计下的 $2N_e$ 转换值非常接近，说明 ILS 是主导因素。
 #### 2. 观察 IH 信号的 $\Delta BIC$ 值。如果大部分 $\Delta BIC$ 很小（例如 < 10），倾向于认为冲突是由 ILS 驱动的。
 ### 3. 统计内部枝长的ILS和IH的概率分别是多少
 ### 4. 统计每一个基因的ILS贡献度和IH概率
+
+
 
 ---
 
