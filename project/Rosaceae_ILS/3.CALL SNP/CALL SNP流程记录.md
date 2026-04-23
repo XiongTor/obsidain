@@ -55,7 +55,7 @@ tt=$(cat wgs_srr.txt)
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/SRR15237912
 for i in $tt; do 
   name=$(basename $i) 
-  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Argentina_anserina ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
+  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Malus_domestica ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
 done
 	
 # bwa men是比对命令，
@@ -88,10 +88,10 @@ tt=$(cat wgs_srr.txt)
 for i in $tt; do 
   name=$(basename $i) 
   #给bam文件建立索引 
-  samtools index ./${name}.srt.bam 
+  # samtools index ./${name}.srt.bam 
   #利用samtools的bedcov命令统计各条染色体上的reads mapping结果 
   # samtools bedcov trapa_48chr_size.bed ../Z2030_srt.bam > Z2030_48chr_readconunts.txt 
   # 接着查看mapping率 
-  # samtools flagstat Z2019_srt.bam > Stat/${i}_flagstat
+  samtools flagstat ${name}.srt.bam > Stat/${name}_flagstat
 done
 ```
