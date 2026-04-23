@@ -36,11 +36,41 @@ conda install bioconda::bwa
 
 # 开始分析
 
-## BWA建立基因组index
+## 1. BWA建立基因组索引 (index)
 ```bash
 bwa index Argentina_anserina_GDR.fasta -p Argentina_anserina
 # BWA是将测序数据比对到参考基因组的工具，包含BWA-backtrack, BWA-SW和**BWA-MEM**后者最新，适合70-1Mbp的长序列，最快最准
+# 可以新增参数 -a 用于指定建立索引的算法,如果不加，bwa会自动选取最佳算法
 # 参数-p str 输出前缀（-a str BWT索引构建算法 （is和bwtsw））
-# 耗时：基因组大小：400M 16：47 -- 
+# 耗时：基因组大小：419M Real time: 484.811 sec; CPU: 482.100 sec
 ```
 
+## 2. BWA循环序列比对
+```bash
+
+tt=$(cat wgs_srr.txt)
+
+for i in $tt;do
+  name=$(basename $i)
+  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Argentina_anserina_GDR.fasta ${i}_1.fq.gz ${i}_2.fq.gz | samtools view -b -@ 30 - | samtools sort -m 10g -@ 30 - > ${name}.srt.bam
+done
+	
+# bwa men是比对命令，
+# -R 是给每个文件加head
+# -M 将次优比对标记为supplementary（兼容Picard等工具，**GATK流程推荐加**）  来源claude解释
+# @RG 
+#├── ID:sample # Read Group ID（样本名） 
+#├── LB:sample # 文库名 
+#├── SM:sample # 样本名（GATK等工具识别的关键字段） 
+#└── PL:ILLUMINA # 测序平台
+# Argentina_anserina_GDR.fasta是参考基因组
+# -t 是线程，后面跟参考序列路径和R1R2两个文件，之间需要空格，
+# 管道符“|” 后是将前面生成的sam文件转化为bam文件
+
+# samtools
+# `-b`输出为 BAM 格式（输入是SAM）
+# `-@ 30`使用 30 个额外线程进行压缩
+# `-m 10g`每线程最大使用 10GB 内存，共约 300GB，**请确认服务器内存足够**
+# `-@ 30`使用 30 个线程排序
+
+```
