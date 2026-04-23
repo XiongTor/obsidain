@@ -49,10 +49,13 @@ bwa index Argentina_anserina_GDR.fasta -p Argentina_anserina
 ```bash
 
 tt=$(cat wgs_srr.txt)
-
-for i in $tt;do
-  name=$(basename $i)
-  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Argentina_anserina_GDR.fasta ${i}_1.fq.gz ${i}_2.fq.gz | samtools view -b -@ 30 - | samtools sort -m 10g -@ 30 - > ${name}.srt.bam
+# wgs_srr.txt
+# /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR14125374
+# /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR12321225
+# /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/SRR15237912
+for i in $tt; do 
+  name=$(basename $i) 
+  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Argentina_anserina ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
 done
 	
 # bwa men是比对命令，
@@ -67,10 +70,13 @@ done
 # -t 是线程，后面跟参考序列路径和R1R2两个文件，之间需要空格，
 # 管道符“|” 后是将前面生成的sam文件转化为bam文件
 
+# 2>${name}_map.log  记录每个样本的 bwa 日志
+
 # samtools
 # `-b`输出为 BAM 格式（输入是SAM）
 # `-@ 30`使用 30 个额外线程进行压缩
 # `-m 10g`每线程最大使用 10GB 内存，共约 300GB，**请确认服务器内存足够**
 # `-@ 30`使用 30 个线程排序
 
+# 运行时间 ：17：33 -- 
 ```
