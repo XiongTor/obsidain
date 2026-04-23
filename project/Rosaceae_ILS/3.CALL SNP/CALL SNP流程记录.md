@@ -38,7 +38,7 @@ conda install bioconda::bwa
 
 ## 1. BWA建立基因组索引 (index)
 ```bash
-bwa index Argentina_anserina_GDR.fasta -p Argentina_anserina
+bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 # BWA是将测序数据比对到参考基因组的工具，包含BWA-backtrack, BWA-SW和**BWA-MEM**后者最新，适合70-1Mbp的长序列，最快最准
 # 可以新增参数 -a 用于指定建立索引的算法,如果不加，bwa会自动选取最佳算法
 # 参数-p str 输出前缀（-a str BWT索引构建算法 （is和bwtsw））
@@ -55,7 +55,7 @@ tt=$(cat wgs_srr.txt)
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/SRR15237912
 for i in $tt; do 
   name=$(basename $i) 
-  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Malus_domestica ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
+  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Fragaria_nilgerrensis ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
 done
 	
 # bwa men是比对命令，
@@ -94,4 +94,20 @@ for i in $tt; do
   # 接着查看mapping率 
   samtools flagstat ${name}.srt.bam > Stat/${name}_flagstat
 done
+
+# mappint结果解读：
+70240225 + 0 in total (QC-passed reads + QC-failed reads)
+10971791 + 0 secondary
+0 + 0 supplementary
+0 + 0 duplicates
+65845435 + 0 mapped (93.74% : N/A)
+59268434 + 0 paired in sequencing
+29634217 + 0 read1
+29634217 + 0 read2
+43645908 + 0 properly paired (73.64% : N/A)
+53564446 + 0 with itself and mate mapped
+1309198 + 0 singletons (2.21% : N/A)
+7904680 + 0 with mate mapped to a different chr
+5222178 + 0 with mate mapped to a different chr (mapQ>=5)
+
 ```
