@@ -80,3 +80,17 @@ done
 
 # 运行时间 ：17：33 -- 
 ```
+
+## 3. Samtools统计亚基因组覆盖度及mapping率
+```bash
+
+tt=$(cat wgs_srr.txt)
+for i in $tt; do 
+  name=$(basename $i) 
+#给bam文件建立索引 
+samtools index ../${name}.srt.bam 
+#利用samtools的bedcov命令统计各条染色体上的reads mapping结果 
+samtools bedcov trapa_48chr_size.bed ../Z2030_srt.bam > Z2030_48chr_readconunts.txt 
+# 接着查看mapping率 
+samtools flagstat Z2019_srt.bam > Stat/${i}_flagstat;done
+```
