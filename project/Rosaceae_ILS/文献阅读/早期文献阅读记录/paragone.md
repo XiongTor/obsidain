@@ -7,7 +7,7 @@ tags:
   - 旁系同源去除方法
 ---
 # 参考文献
-[@Ya Yang, Stephen A. Smith\_2014](../../../references/@Ya%20Yang,%20Stephen%20A.%20Smith_2014.md)
+[@Ya Yang, Stephen A. Smith\_2014](../../../../references/@Ya%20Yang,%20Stephen%20A.%20Smith_2014.md)
 # Github
 [Paragone_old_2015](https://bitbucket.org/yangya/phylogenomic_dataset_construction/src/master/)
 [Paragone_new_2018](https://bitbucket.org/yanglab/phylogenomic_dataset_construction/src/master/)
@@ -17,7 +17,7 @@ tags:
 
 ## 1. 流程说明
 下图为文献中提到的旁系同源去除方法流程图。
-![](../../../imag/paragone/msu245f1p.jpg)
+![](../../../../imag/paragone/msu245f1p.jpg)
 
 
 # **基于本人的理解，可以大致将其划分为以下几个关键的步骤：**
@@ -27,7 +27,7 @@ tags:
 3. Markov Clustering (MCL 聚类)： 利用过滤后的 BLAST 结果构图并聚类，生成初步的“同源基因簇（Homology Clusters）”。这些簇里通常包含基因家族的所有成员（包括所有拷贝和异构体）。
 ==**在这一步骤里需要额外注意的是，进行分簇时尽量进行粗分簇，过于严苛可能会导致基因的同源性出现问题**==
 一般来讲并不会执行这一步，这一步是针对全流程而言，即不适用hybpiper等工具，而是直接从原始序列开始使用paragone的话才会使用到这一步骤，因此对于我们的研究，其不是打碎基因的元凶，目前看来基因碎成小块更有可能是Cutting deep paralogs步骤时，将允许的内部枝长设置的过于严苛，导致很容易断开成两半。
-![](../../../imag/paragone/file-20260105173653017.png)
+![](../../../../imag/paragone/file-20260105173653017.png)
 
 ## 2）序列清理和同源树构建
 1. Alignment and tree inference (比对与建树)：
@@ -50,13 +50,13 @@ tags:
 **优点**：最大化利用数据矩阵，不需要外类群。适合那些外群物种不明确或难以获取的非模式生物研究
 **缺点**：当存在基因组复制时，MI会在每次检测到重复分类单元名称时断开正交关系，且不尊重生物学事实
 **具体操作**：如下图所示，MI会将红色框和绿色框分开，因为这两个框中存在重复的物种，分开的两个子树都会保留。同时外类群会和绿框聚到一起，因为绿框中的物种数量更多。
-![](../../../imag/paragone/file-20260107174853456.png)
+![](../../../../imag/paragone/file-20260107174853456.png)
 ### RT(rooted tree)
 **基本原理**：从根部出发往tips端走。只要看到一个节点左右两边出现了相同物种，就在这里切一刀，去除物种数量少的一枝
 **优点**：符合生物学事实，按照基因重复时间挑选分支。适用于存在大量基因/基因组复制的分类群
 **缺点**：需高质量且与内群系统发育上截然不同的外群分类单元
 **具体操作**：如下图所示，RT会在内类群的每一个节点进行判断，如节点一的“79688”会被保留，且不会在1号几点切开，因为“79688”仅有一份。而在2号和3号节点，数量少的分支会被直接舍弃，因为其存在重复且分支包含的物种数量过少，不足默认的阈值4个taxon。如果分支存在重复且较少的分支中的tips数量大于4，则会被切开并保留为两棵树。
-![](../../../imag/paragone/file-20260107175110225.png)
+![](../../../../imag/paragone/file-20260107175110225.png)
 **与MO的区别在于：** RT要求外群不可纳入最终正交基因集，且在存在多个连续外群时效果最佳
 ### MO (monophyletic outgroups)
 **基本原理**：同RT，但是要求外类群必须全部为单系
@@ -71,12 +71,12 @@ tags:
 
 原文描述如下：
 **原理描述：**
-![](../../../imag/paragone/file-20260105175948335.png)
-![](../../../imag/paragone/file-20260105180002383.png)
+![](../../../../imag/paragone/file-20260105175948335.png)
+![](../../../../imag/paragone/file-20260105180002383.png)
 
 **优缺点描述**
-![](../../../imag/paragone/file-20260105180038374.png)
-![](../../../imag/paragone/file-20260105180048770.png)
+![](../../../../imag/paragone/file-20260105180038374.png)
+![](../../../../imag/paragone/file-20260105180048770.png)
 
 
 ## 讨论
@@ -95,4 +95,4 @@ tags:
 
 ## 相关文献链接
 
-- [[@Ya Yang, Stephen A. Smith_2014]]
+- [[../../../../references/@Ya Yang, Stephen A. Smith_2014]]

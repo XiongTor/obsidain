@@ -31,4 +31,4 @@ tags:
 
 ## 被引用项目
 
-- [[paragone]]
+- [[../project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone]]

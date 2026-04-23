@@ -4,7 +4,7 @@ date: 2025-05-14
 tags:
   - Oreocharis
   - 马铃苣苔属
-reference: "[[../../../references/@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene]]"
+reference: "[[../../../../references/@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene]]"
 ---
 ### 主要探讨内容：
 - ==ILS==不完全谱系筛选在Oreocharis中的影响程度如何，主要涉及QS，MSCquartets，MDS等方法
@@ -15,4 +15,4 @@ reference: "[[../../../references/@Phylogenomic and macroevolutionary evidence f
 
 ## 相关文献链接
 
-- [[@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene]]
+- [[../../../../references/@Phylogenomic and macroevolutionary evidence for an explosive radiation of a plant genus in the miocene]]
