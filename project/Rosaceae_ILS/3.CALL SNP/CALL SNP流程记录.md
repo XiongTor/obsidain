@@ -171,5 +171,5 @@ done
 # 生成.fai索引，记录每条染色体在 fasta 文件中的精确位置
 samtools faidx Fragaria_nilgerrensis.fasta
 # 生成.dist索引字典，确认基因组有哪些染色体，核对输入文件是否匹配
-picard CreateSequenceDictionary R=wisteria_genome.fa O=wisteria_genome.dict
+picard CreateSequenceDictionary R=Fragaria_nilgerrensis.fasta O=Fragaria_nilgerrensis.fasta.dict
 ```
