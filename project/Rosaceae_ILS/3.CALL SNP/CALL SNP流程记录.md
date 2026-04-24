@@ -86,7 +86,6 @@ done
 ```bash
 tt=$(cat wgs_srr.txt)
 
-# 提取mapping率
 for i in $tt; do 
   name=$(basename $i) 
   #给bam文件建立索引 
@@ -94,7 +93,7 @@ for i in $tt; do
   #利用samtools的bedcov命令统计各条染色体上的reads mapping结果 
   # samtools bedcov trapa_48chr_size.bed ../Z2030_srt.bam > Z2030_48chr_readconunts.txt 
   # 接着查看mapping率 
-  # samtools flagstat ${name}.srt.bam > Stat/${name}_flagstat
+  samtools flagstat ${name}.srt.bam > mapping/${name}_flagstat
   # 汇总
   mapping=$(cat mapping/${name}_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
   prop_mapping=$(cat mapping/${name}_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
@@ -120,6 +119,7 @@ sed -i '1i species properly_paired/mapped' mapping/total_result.txt
 
 1. 利用samtools进行简单的过滤，主要去除unmapped和mate unmapped的reads
 2. 去除PCR的重复，PCR扩增数多，出现扩增错误，影响SNP识别置信度。此步骤目前有很多软件可以实现，主流应该还是使用`picard`或者`sambamba`，`picard`在此前似乎一直是惯用方法，但无法多线程运行。`sambamba`相对较新，且可以使用多线程，速度较快，本次使用`sambamba`进行分析。
+3. 注意使用下列的sambamba命令后会同时生成bam文件的索引`.bam.bai`，但是当你使用其它方式进行清理的话，可能不会自动生成，还需要后续加入新的命名来生成重测序文件的bam索引
 参考：
 [简书比较sambamba和picard](https://www.jianshu.com/p/e20a3b73dcd0)
 [sambamba_github](https://github.com/biod/sambamba)
@@ -155,10 +155,20 @@ done
 # 运行完毕后最好再次检查一下mapping率
 for i in $tt; do 
   name=$(basename $i) 
-  samtools flagstat ${name}.srt_flt.markdup.bam > Stat/${name}.srt_flt.markdup_flagstat
+  samtools flagstat ${name}.srt_flt.markdup.bam > mapping/${name}.srt_flt.markdup_flagstat
   # 汇总
   mapping=$(cat mapping/${name}.srt_flt.markdup_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
   prop_mapping=$(cat mapping/${name}.srt_flt.markdup_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
   echo -e "$name $prop_mapping/$mapping" >> mapping/total_result_markdup_flagstat.txt
 done
+
+# 理论上最终结果的mapping率应该是100%，毕竟去除了unmapped部分和重复的部分
+```
+
+## 5. 给参考基因组建立所用，用于snp calling
+```bash
+# 生成.fai索引，记录每条染色体在 fasta 文件中的精确位置
+samtools faidx Fragaria_nilgerrensis.fasta
+# 生成.dist索引字典，确认基因组有哪些染色体，核对输入文件是否匹配
+java -jar picard.jar CreateSequenceDictionary R=wisteria_genome.fa O=wisteria_genome.dict
 ```
