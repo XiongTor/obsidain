@@ -30,6 +30,7 @@ conda create -n snp
 # 安装相关包，已有可以不用安装
 conda install bioconda::bwa
 conda install bioconda::gatk
+conda install bioconda::picard
 conda install bioconda::bcftools
 conda install bioconda::sambamba
 
@@ -165,10 +166,10 @@ done
 # 理论上最终结果的mapping率应该是100%，毕竟去除了unmapped部分和重复的部分
 ```
 
-## 5. 给参考基因组建立所用，用于snp calling
+## 5. 给参考基因组建立索引，用于snp calling
 ```bash
 # 生成.fai索引，记录每条染色体在 fasta 文件中的精确位置
 samtools faidx Fragaria_nilgerrensis.fasta
 # 生成.dist索引字典，确认基因组有哪些染色体，核对输入文件是否匹配
-java -jar picard.jar CreateSequenceDictionary R=wisteria_genome.fa O=wisteria_genome.dict
+picard CreateSequenceDictionary R=wisteria_genome.fa O=wisteria_genome.dict
 ```
