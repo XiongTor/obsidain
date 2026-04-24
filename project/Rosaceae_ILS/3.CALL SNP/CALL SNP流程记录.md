@@ -174,7 +174,7 @@ gatk CreateSequenceDictionary -R Fragaria_nilgerrensis.fasta
 # 此处的gatk为gatk4,注意检查版本
 ```
 
-# 6.GATK生成GVCF文件
+## 6.GATK生成GVCF文件
 ```bash
 # 不分染色体，直接对每个样本生成gVCF
 tt=$(cat wgs_srr.txt)
@@ -185,8 +185,29 @@ for i in $tt; do
     -I ./${name}.srt_flt.markdup.bam \
     -ERC GVCF \
     -O ${name}.g.vcf.gz \
-    1>log/log_${name}.txt 2>&1
+    1>log/log_${name}.txt 2>&1 &
 done
 
 # -ERC GVCF：输出gvcf文件，而非一般vcf文件
+# 耗时 19：38---
+```
+
+## 7. CombineGVCFs 合并3个样本的gVCF
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" CombineGVCFs \
+    -R /path/Fragaria_nilgerrensis.fasta \
+    -V sample1.g.vcf.gz \
+    -V sample2.g.vcf.gz \
+    -V sample3.g.vcf.gz \
+    -O combined.g.vcf.gz \
+    1>log_combine.txt 2>&1
+```
+
+## 8. GenotypeGVCFs群体联合Call SNP
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
+    -R /path/Fragaria_nilgerrensis.fasta \
+    -V combined.g.vcf.gz \
+    -O raw.vcf.gz \
+    1>log_genotype.txt 2>&1
 ```

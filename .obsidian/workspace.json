@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "3e15bedfcaaefa35",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "4277deaa0f544632",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -20,6 +20,21 @@
               },
               "icon": "lucide-file",
               "title": "CALL SNP流程记录"
+            }
+          },
+          {
+            "id": "759375bbd72f2af2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CS/Python/CS61A/Lecture 14.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Lecture 14"
             }
           }
         ]
@@ -79,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -194,11 +208,18 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "4277deaa0f544632",
   "lastOpenFiles": [
-    "Home.md",
+    "CS/Python/CS61A/Lecture 14.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "project/Rosaceae_ILS/流程记录/AGS353.md",
+    "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "references/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022.md",
+    "references/@An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species_.md",
+    "CS/Python/CS61A/Lecture 13.md",
+    "未命名.base",
+    "未命名 1.base",
+    "Home.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/山茶属文章.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
@@ -223,13 +244,6 @@
     "CS/Python/CS61A/Lecture 12.md",
     "CS/Python/CS61A/Lecture 11.md",
     "CS/Python/CS61A/Lecture 10.md",
-    "CS/Python/CS61A/lecture 9.md",
-    "CS/Python/CS61A/Lecture 8.md",
-    "CS/Python/CS61A/Lecture 6.md",
-    "CS/Python/CS61A/Lecture 5.md",
-    "CS/Python/CS61A/Lecture 4.md",
-    "未命名 1.base",
-    "未命名.base",
     "imag/Lecture 13/file-20260416223149034.png",
     "imag/Lecture 13/file-20260416221605186.png",
     "imag/Lecture 13/file-20260416220046310.png",
