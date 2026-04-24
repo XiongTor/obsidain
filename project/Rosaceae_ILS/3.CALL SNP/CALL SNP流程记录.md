@@ -119,15 +119,34 @@ sed -i '1i species properly_paired/mapped' mapping/total_result.txt
 ## 4. Samtools进行简单的过滤
 
 利用samtools进行简单的过滤，主要去除unmapped和mate unmapped的reads
+同时去除PCR的重复，PCR扩增数多，出现扩增错误，影响SNP识别置信度
 
 ```bash
 tt=$(cat wgs_srr.txt)
 
-# 简单过滤
+# 简单过滤，去除unmapped和mate unmapped的reads
 for i in $tt; do 
   name=$(basename $i) 
   samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
 done
-
 # 耗时 28min 三个物种
+
+# GATK去除PCR重复
+java -Xmx4g -XX:ParallelGCThreads=2 \
+    -jar picard.jar MarkDuplicates \
+    I=b58_1.sorted.bam \
+    O=b58_1.markup.bam \
+    CREATE_INDEX=true \
+    REMOVE_DUPLICATES=true \
+    M=b58_1.marked_dup_metrics.txt
+
+# -Xmx4g 最大分配 4GB 内存给 JVM，内存不足可调大
+# -XX:ParallelGCThreads=2 JVM 垃圾回收使用 2个线程，减少内存管理开销
+# -jar picard.jar 指定运行 picard 的 jar 包
+# I= 输入文件，即上一步排序好的 BAM
+# O= 输出文件名
+# CREATE_INDEX=true 同时生成 `.bai` 索引文件，省去单独运行 `samtools index` 的步骤
+# REMOVE_DUPLICATES=true 直接删除重复 reads；若设为 `false` 则只标记不删除（保留但打上FLAG）
+# M= 输出一个统计文件，记录重复率等信息，建议保留用于质控报告
+
 ```
