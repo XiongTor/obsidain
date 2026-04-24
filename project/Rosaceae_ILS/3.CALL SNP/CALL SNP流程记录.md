@@ -81,10 +81,11 @@ done
 # 运行时间 ：1h 20线程 3.7G数据量
 ```
 
-## 3. Samtools统计亚基因组覆盖度及mapping率
+## 3. Samtools统计mapping率
 ```bash
 tt=$(cat wgs_srr.txt)
 
+# 提取mapping率
 for i in $tt; do 
   name=$(basename $i) 
   #给bam文件建立索引 
@@ -92,22 +93,38 @@ for i in $tt; do
   #利用samtools的bedcov命令统计各条染色体上的reads mapping结果 
   # samtools bedcov trapa_48chr_size.bed ../Z2030_srt.bam > Z2030_48chr_readconunts.txt 
   # 接着查看mapping率 
-  samtools flagstat ${name}.srt.bam > Stat/${name}_flagstat
+  # samtools flagstat ${name}.srt.bam > Stat/${name}_flagstat
+  # 汇总
+  mapping=$(cat mapping/${name}_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
+  prop_mapping=$(cat mapping/${name}_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
+  echo -e "$name $prop_mapping/$mapping" >> mapping/total_result.txt
 done
 
-# mappint结果解读：
-70240225 + 0 in total (QC-passed reads + QC-failed reads)
-10971791 + 0 secondary
-0 + 0 supplementary
-0 + 0 duplicates
-65845435 + 0 mapped (93.74% : N/A)
-59268434 + 0 paired in sequencing
-29634217 + 0 read1
-29634217 + 0 read2
-43645908 + 0 properly paired (73.64% : N/A)
-53564446 + 0 with itself and mate mapped
-1309198 + 0 singletons (2.21% : N/A)
-7904680 + 0 with mate mapped to a different chr
-5222178 + 0 with mate mapped to a different chr (mapQ>=5)
+sed -i '1i species properly_paired/mapped' mapping/total_result.txt
 
+# mappint结果解读：
+#注释：  
+# total：分析的总reads数（bam文件所有行数）
+# mapped：比对上的reads数（总体比对率）
+# paired in sequencing：成对的reads总数
+# read1：属于reads1的reads数量
+# read2：属于reads2的reads数量
+# properly paired：正确配对的reads数量
+# with itself and mate mapped：一对reads均比对上的reads数
+# singletons：只有单条reads比对上的reads数
+# 以上计数均以reads条数计，一对reads计为两条
+```
+
+## 4. Samtools进行简单的过滤
+
+利用samtools进行简单的过滤，主要去除unmapped和mate unmapped的reads
+
+```bash
+tt=$(cat wgs_srr.txt)
+
+# 简单过滤
+for i in $tt; do 
+  name=$(basename $i) 
+  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
+done
 ```
