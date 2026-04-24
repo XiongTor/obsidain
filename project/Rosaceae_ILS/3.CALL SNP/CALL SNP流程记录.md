@@ -29,8 +29,7 @@ conda create -n snp
 
 # 安装相关包，已有可以不用安装
 conda install bioconda::bwa
-conda install bioconda::gatk
-conda install bioconda::picard
+mamba install -c bioconda -c conda-forge gatk4 #使用mamba安装快一些
 conda install bioconda::bcftools
 conda install bioconda::sambamba
 
@@ -171,5 +170,6 @@ done
 # 生成.fai索引，记录每条染色体在 fasta 文件中的精确位置
 samtools faidx Fragaria_nilgerrensis.fasta
 # 生成.dist索引字典，确认基因组有哪些染色体，核对输入文件是否匹配
-picard CreateSequenceDictionary R=Fragaria_nilgerrensis.fasta O=Fragaria_nilgerrensis.fasta.dict
+gatk CreateSequenceDictionary -R Fragaria_nilgerrensis.fasta
+# 此处的gatk为gatk4,注意检查版本
 ```
