@@ -30,8 +30,8 @@ conda create -n snp
 # 安装相关包，已有可以不用安装
 conda install bioconda::bwa
 conda install bioconda::gatk
-
-
+conda install bioconda::bcftools
+conda install bioconda::sambamba
 
 ```
 
@@ -118,35 +118,36 @@ sed -i '1i species properly_paired/mapped' mapping/total_result.txt
 
 ## 4. Samtools进行简单的过滤
 
-利用samtools进行简单的过滤，主要去除unmapped和mate unmapped的reads
-同时去除PCR的重复，PCR扩增数多，出现扩增错误，影响SNP识别置信度
+1. 利用samtools进行简单的过滤，主要去除unmapped和mate unmapped的reads
+2. 去除PCR的重复，PCR扩增数多，出现扩增错误，影响SNP识别置信度。此步骤目前有很多软件可以实现，主流应该还是使用`picard`或者`sambamba`，`picard`在此前似乎一直是惯用方法，但无法多线程运行。`sambamba`相对较新，且可以使用多线程，速度较快，本次使用`sambamba`进行分析。
+参考：
+[简书比较sambamba和picard](https://www.jianshu.com/p/e20a3b73dcd0)
+[sambamba_github](https://github.com/biod/sambamba)
+
 
 ```bash
 tt=$(cat wgs_srr.txt)
 
-# 简单过滤，去除unmapped和mate unmapped的reads
 for i in $tt; do 
   name=$(basename $i) 
-  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
+  # samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
+  sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_markdup_log.txt  &
 done
-# 耗时 28min 三个物种
+# 注意会自动挂在后台
+# 去除unmapped耗时 28min 三个物种
+# 去除pcr重复，耗时 12：00--
 
-# GATK去除PCR重复
-java -Xmx4g -XX:ParallelGCThreads=2 \
-    -jar picard.jar MarkDuplicates \
-    I=b58_1.sorted.bam \
-    O=b58_1.markup.bam \
-    CREATE_INDEX=true \
-    REMOVE_DUPLICATES=true \
-    M=b58_1.marked_dup_metrics.txt
+# 去除PCR重复
+# sambamba-markdup  [options]  <input.bam>  [<input2.bam> [...]]  <output.bam>
+# 输入 BAM 必须是排序后的文件，否则报错
+# 如果出现Too many open files报错，需要通过使用ulimit -n 8000或添加--overflow-list-size=600000来解决
 
-# -Xmx4g 最大分配 4GB 内存给 JVM，内存不足可调大
-# -XX:ParallelGCThreads=2 JVM 垃圾回收使用 2个线程，减少内存管理开销
-# -jar picard.jar 指定运行 picard 的 jar 包
-# I= 输入文件，即上一步排序好的 BAM
-# O= 输出文件名
-# CREATE_INDEX=true 同时生成 `.bai` 索引文件，省去单独运行 `samtools index` 的步骤
-# REMOVE_DUPLICATES=true 直接删除重复 reads；若设为 `false` 则只标记不删除（保留但打上FLAG）
-# M= 输出一个统计文件，记录重复率等信息，建议保留用于质控报告
-
+# -r / --remove-duplicates直接删除重复reads；不加此参数则只标记不删除
+# -t / --nthreads使用线程数，支持真正多线程，这是相比picard最大优势
+# -l / --compression-level输出BAM压缩级别 0-9，0最快不压缩，9最慢压缩率最高，默认6
+# -p / --show-progress在终端显示进度条，方便监控
+# --tmpdir临时文件目录，默认 /tmp，建议指定到有大空间的目录
+# --hash-table-size262144哈希表大小，用于配对read；建议设为 覆盖度 × 插入片段长度，数值越大越快但越占内存
+# --overflow-list-size200000溢出列表大小；哈希表放不下的read会进入此列表等待配对，增大可减少临时文件数量
+# --io-buffer-size128(MB)读写BAM时两个缓冲区各自的大小，增大可提高IO速度
 ```
