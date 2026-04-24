@@ -151,4 +151,14 @@ done
 # --hash-table-size262144哈希表大小，用于配对read；建议设为 覆盖度 × 插入片段长度，数值越大越快但越占内存
 # --overflow-list-size200000溢出列表大小；哈希表放不下的read会进入此列表等待配对，增大可减少临时文件数量
 # --io-buffer-size128(MB)读写BAM时两个缓冲区各自的大小，增大可提高IO速度
+
+# 运行完毕后最好再次检查一下mapping率
+for i in $tt; do 
+  name=$(basename $i) 
+  samtools flagstat ${name}.srt_flt.markdup.bam > Stat/${name}.srt_flt.markdup_flagstat
+  # 汇总
+  mapping=$(cat mapping/${name}.srt_flt.markdup_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
+  prop_mapping=$(cat mapping/${name}.srt_flt.markdup_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
+  echo -e "$name $prop_mapping/$mapping" >> mapping/total_result_markdup_flagstat.txt
+done
 ```
