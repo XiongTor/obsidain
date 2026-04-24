@@ -135,7 +135,8 @@ for i in $tt; do
 done
 # 注意会自动挂在后台
 # 去除unmapped耗时 28min 三个物种
-# 去除pcr重复，耗时 12：00--
+# 去除pcr重复，耗时 10min 三个物种
+# 总计约38 min可全部结束
 
 # 去除PCR重复
 # sambamba-markdup  [options]  <input.bam>  [<input2.bam> [...]]  <output.bam>
