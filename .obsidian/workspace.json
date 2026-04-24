@@ -28,16 +28,17 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CS/Python/CS61A/Lecture 14.md",
+                "file": "CS/Python/CS61A/lecture 9.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Lecture 14"
+              "title": "lecture 9"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -208,15 +209,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4277deaa0f544632",
+  "active": "759375bbd72f2af2",
   "lastOpenFiles": [
-    "CS/Python/CS61A/Lecture 14.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "CS/Python/CS61A/lecture 9.md",
+    "CS/Python/CS61A/Lecture 10.md",
+    "CS/Python/CS61A/Lecture 11.md",
+    "CS/Python/CS61A/Lecture 12.md",
+    "CS/Python/CS61A/Lecture 13.md",
+    "CS/Python/CS61A/Lecture 14.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "references/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022.md",
     "references/@An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species_.md",
-    "CS/Python/CS61A/Lecture 13.md",
     "未命名.base",
     "未命名 1.base",
     "Home.md",
@@ -240,10 +245,6 @@
     "Diary/diary/2026-04-20 星期一.md",
     "模板/Diary.md",
     "Diary/diary/2026-04-18 星期六.md",
-    "Diary/diary/2026-04-17 星期五.md",
-    "CS/Python/CS61A/Lecture 12.md",
-    "CS/Python/CS61A/Lecture 11.md",
-    "CS/Python/CS61A/Lecture 10.md",
     "imag/Lecture 13/file-20260416223149034.png",
     "imag/Lecture 13/file-20260416221605186.png",
     "imag/Lecture 13/file-20260416220046310.png",
