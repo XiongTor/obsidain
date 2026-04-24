@@ -29,6 +29,7 @@ conda create -n snp
 
 # 安装相关包，已有可以不用安装
 conda install bioconda::bwa
+conda install bioconda::gatk
 
 
 
@@ -45,7 +46,7 @@ bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 # 耗时：基因组大小：419M Real time: 484.811 sec; CPU: 482.100 sec
 ```
 
-## 2. BWA循环序列比对
+## 2. BWA循环序列比对以及格式转换
 ```bash
 
 tt=$(cat wgs_srr.txt)
@@ -127,4 +128,6 @@ for i in $tt; do
   name=$(basename $i) 
   samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
 done
+
+# 耗时 28min 三个物种
 ```
