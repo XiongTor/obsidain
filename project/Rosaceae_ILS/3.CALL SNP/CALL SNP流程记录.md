@@ -173,3 +173,20 @@ samtools faidx Fragaria_nilgerrensis.fasta
 gatk CreateSequenceDictionary -R Fragaria_nilgerrensis.fasta
 # 此处的gatk为gatk4,注意检查版本
 ```
+
+# 6.GATK生成GVCF文件
+```bash
+# 不分染色体，直接对每个样本生成gVCF
+tt=$(cat wgs_srr.txt)
+for i in $tt; do 
+  name=$(basename $i) 
+  gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
+    -R ./Fragaria_nilgerrensis.fasta \
+    -I ./${name}.srt_flt.markdup.bam \
+    -ERC GVCF \
+    -O ${name}.g.vcf.gz \
+    1>log/log_${name}.txt 2>&1
+done
+
+# -ERC GVCF：输出gvcf文件，而非一般vcf文件
+```
