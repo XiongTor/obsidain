@@ -189,18 +189,20 @@ for i in $tt; do
 done
 
 # -ERC GVCF：输出gvcf文件，而非一般vcf文件
-# 耗时 19：38---
+# 耗时 12h 三个物种，平均5G
 ```
 
 ## 7. CombineGVCFs 合并3个样本的gVCF
 ```bash
-gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" CombineGVCFs \
-    -R /path/Fragaria_nilgerrensis.fasta \
-    -V sample1.g.vcf.gz \
-    -V sample2.g.vcf.gz \
-    -V sample3.g.vcf.gz \
+gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
+    -R Fragaria_nilgerrensis.fasta \
+    -V ERR12321225.g.vcf.gz \
+    -V ERR14125374.g.vcf.gz \
+    -V SRR15237912.g.vcf.gz \
     -O combined.g.vcf.gz \
     1>log_combine.txt 2>&1
+
+# 耗时 ：15：30---
 ```
 
 ## 8. GenotypeGVCFs群体联合Call SNP
