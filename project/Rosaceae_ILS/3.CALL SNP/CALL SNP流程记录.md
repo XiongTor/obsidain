@@ -49,7 +49,7 @@ bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 ## 2. BWA循环序列比对以及格式转换
 ```bash
 
-tt=$(cat wgs_srr.txt)
+tt=$(cat wgs_srr_outgroup.txt)
 # wgs_srr.txt
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR14125374
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR12321225
