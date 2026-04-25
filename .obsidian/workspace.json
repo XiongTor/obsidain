@@ -37,7 +37,8 @@
               "title": "CALL SNP流程记录"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,11 +208,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e02553b73f798db4",
+  "active": "f0c5c57ff4345f73",
   "lastOpenFiles": [
+    "Diary/week/2026年第17周-2026-04-20.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
-    "Diary/week/2026年第17周-2026-04-20.md",
     "Home.md",
     "CS/Python/CS61A/Lecture 12.md",
     "CS/Python/CS61A/Lecture 11.md",
