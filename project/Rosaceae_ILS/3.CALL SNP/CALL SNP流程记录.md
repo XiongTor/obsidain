@@ -49,14 +49,14 @@ bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 ## 2. BWA循环序列比对以及格式转换
 ```bash
 
-tt=$(cat wgs_srr_outgroup.txt)
+tt=$(cat micromeles_srr.txt)
 # wgs_srr.txt
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR14125374
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR12321225
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/SRR15237912
 for i in $tt; do 
   name=$(basename $i) 
-  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Fragaria_nilgerrensis ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
+  bwa mem -t 20 -M -R "@RG\tID:${name}\tSM:${name}" Malus_domestica ${i}_1.fq.gz ${i}_2.fq.gz 2>${name}_map.log|samtools view -b -@ 30 -|samtools sort -m 4g -@ 30 - > ${name}.srt.bam
 done
 	
 # bwa men是比对命令，

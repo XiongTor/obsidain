@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "CALL SNP流程记录"
             }
           }
         ]
@@ -194,10 +194,10 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "Diary/week/2026年第17周-2026-04-20.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
-    "Home.md",
     "CS/Python/CS61A/Lecture 12.md",
     "CS/Python/CS61A/Lecture 11.md",
     "CS/Python/CS61A/Lecture 10.md",
