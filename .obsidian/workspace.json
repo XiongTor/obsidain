@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018"
+              "title": "CALL SNP流程记录"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -177,7 +178,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 236.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,6 +196,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022.md",
     "project/Rosaceae_ILS/流程记录/tribe_final.md",
@@ -213,7 +216,6 @@
     "未命名.base",
     "未命名 1.base",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/山茶属文章.md",
-    "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
     "project/Rosaceae_ILS/3.CALL SNP",
     "project/Rosaceae_ILS/大纲.md",
     "project/Rosaceae_ILS/全部代做事项汇总---2026.02.08-04.01.md",

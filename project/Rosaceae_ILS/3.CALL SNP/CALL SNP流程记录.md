@@ -199,6 +199,7 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -V ERR12321225.g.vcf.gz \
     -V ERR14125374.g.vcf.gz \
     -V SRR15237912.g.vcf.gz \
+    -V Elaeagnus_angustifolia_Armenia.g.vcf.gz \
     -O combined.g.vcf.gz \
     1>log_combine.txt 2>&1
 
