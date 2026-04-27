@@ -168,9 +168,9 @@ done
 ## 5. 给参考基因组建立索引，用于snp calling
 ```bash
 # 生成.fai索引，记录每条染色体在 fasta 文件中的精确位置
-samtools faidx Fragaria_nilgerrensis.fasta
+samtools faidx Malus_domestica.fa
 # 生成.dist索引字典，确认基因组有哪些染色体，核对输入文件是否匹配
-gatk CreateSequenceDictionary -R Fragaria_nilgerrensis.fasta
+gatk CreateSequenceDictionary -R Malus_domestica.fa
 # 此处的gatk为gatk4,注意检查版本
 ```
 
@@ -203,13 +203,13 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -O combined.g.vcf.gz \
     1>log_combine.txt 2>&1
 
-# 耗时 ：15：30---
+# 耗时 ：7min 
 ```
 
 ## 8. GenotypeGVCFs群体联合Call SNP
 ```bash
-gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
-    -R /path/Fragaria_nilgerrensis.fasta \
+gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
+    -R Fragaria_nilgerrensis.fasta \
     -V combined.g.vcf.gz \
     -O raw.vcf.gz \
     1>log_genotype.txt 2>&1
