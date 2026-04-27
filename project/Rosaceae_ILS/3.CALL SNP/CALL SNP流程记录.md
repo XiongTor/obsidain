@@ -49,7 +49,7 @@ bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 ## 2. BWA循环序列比对以及格式转换
 ```bash
 
-tt=$(cat micromeles_srr.txt)
+tt=$(cat wgs_srr_outgroup.txt)
 # wgs_srr.txt
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR14125374
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR12321225
@@ -176,20 +176,58 @@ gatk CreateSequenceDictionary -R Malus_domestica.fa
 
 ## 6.GATK生成GVCF文件
 ```bash
-# 不分染色体，直接对每个样本生成gVCF
+# 不分染色体，直接对每个样本生成gVCF。
 tt=$(cat wgs_srr.txt)
 for i in $tt; do 
   name=$(basename $i) 
-  gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
+  gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
     -R ./Fragaria_nilgerrensis.fasta \
     -I ./${name}.srt_flt.markdup.bam \
     -ERC GVCF \
     -O ${name}.g.vcf.gz \
     1>log/log_${name}.txt 2>&1 &
 done
-
 # -ERC GVCF：输出gvcf文件，而非一般vcf文件
 # 耗时 12h 三个物种，平均5G
+
+# 如果样本数量过多，基因组过大，可以考虑分染色体并行，提高运行效率，但是运行更加复杂=========================
+# 根据你的参考基因组创建
+cat > chr.list << EOF
+chr0
+chr1
+chr2
+chr3
+chr4
+chr5
+chr6
+chr7
+EOF
+
+cat > sample.list << EOF
+sample1
+sample2
+sample3
+EOF
+
+mkdir -p tmp log
+# 为每个样本建立目录
+cat sample.list | while read sample; do
+    mkdir -p ${sample}
+done
+
+# HaplotypeCaller 分染色体生成gVCF
+cat chr.list | while read chr; do
+    cat sample.list | while read sample; do
+        gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
+            -R ./Fragaria_nilgerrensis.fasta \
+            -I ./${sample}.srtflt.markdup.bam \
+            -L ${chr} \
+            -ERC GVCF \
+            -O ${sample}/${sample}.${chr}.g.vcf.gz \
+            1>log/log_${sample}_${chr}.txt 2>&1
+    done
+done
+
 ```
 
 ## 7. CombineGVCFs 合并3个样本的gVCF
@@ -202,6 +240,21 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -V Elaeagnus_angustifolia_Armenia.g.vcf.gz \
     -O combined.g.vcf.gz \
     1>log_combine.txt 2>&1
+    
+
+# 分染色体的版本 ================================================================================
+cat chr.list | while read chr; do
+    # 生成每条染色体的gvcf列表
+    cat sample.list | while read sample; do
+        echo "-V ${sample}/${sample}.${chr}.g.vcf.gz"
+    done > gvcf.${chr}.list
+
+    gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" CombineGVCFs \
+        -R ./Fragaria_nilgerrensis.fasta \
+        $(cat gvcf.${chr}.list) \
+        -O ${chr}.combined.g.vcf.gz \
+        1>log/log_combine_${chr}.txt 2>&1
+done
 
 # 耗时 ：7min 
 ```
@@ -213,4 +266,25 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
     -V combined.g.vcf.gz \
     -O raw.vcf.gz \
     1>log_genotype.txt 2>&1
+
+# 分染色体的情况 ================================================================================
+cat chr.list | while read chr; do
+    gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
+        -R ./Fragaria_nilgerrensis.fasta \
+        -V ${chr}.combined.g.vcf.gz \
+        -O ${chr}.raw.vcf.gz \
+        1>log/log_genotype_${chr}.txt 2>&1
+done
+
+# MergeVcfs 合并所有染色体VCF
+# 生成vcf列表（注意顺序）
+cat chr.list | while read chr; do
+    echo "-I ${chr}.raw.vcf.gz"
+done > raw_vcf.list
+
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" MergeVcfs \
+    $(cat raw_vcf.list) \
+    -O all.merge_raw.vcf \
+    1>log/log_merge.txt 2>&1
 ```
+
