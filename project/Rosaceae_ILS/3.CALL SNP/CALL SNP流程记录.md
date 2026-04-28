@@ -240,7 +240,8 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -V Elaeagnus_angustifolia_Armenia.g.vcf.gz \
     -O combined.g.vcf.gz \
     1>log_combine.txt 2>&1
-    
+
+# 耗时 ：7min 
 
 # 分染色体的版本 ================================================================================
 cat chr.list | while read chr; do
@@ -256,7 +257,7 @@ cat chr.list | while read chr; do
         1>log/log_combine_${chr}.txt 2>&1
 done
 
-# 耗时 ：7min 
+
 ```
 
 ## 8. GenotypeGVCFs群体联合Call SNP
@@ -266,6 +267,9 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
     -V combined.g.vcf.gz \
     -O raw.vcf.gz \
     1>log_genotype.txt 2>&1
+
+
+# 耗时50min
 
 # 分染色体的情况 ================================================================================
 cat chr.list | while read chr; do
@@ -288,3 +292,57 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" MergeVcfs \
     1>log/log_merge.txt 2>&1
 ```
 
+## 9. 提取 SNP
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
+    -R Fragaria_nilgerrensis.fasta \
+    -V raw.vcf.gz \
+    --select-type SNP \
+    -O all.raw.snp.vcf
+    
+# 耗时 2min
+```
+
+# 10. 提取INDEL
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
+    -R Fragaria_nilgerrensis.fasta \
+    -V raw.vcf.gz \
+    --select-type INDEL \
+    -O all.raw.indel.vcf
+```
+
+## 11. 过滤SNP
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
+    -R Fragaria_nilgerrensis.fasta \
+    -V all.raw.snp.vcf \
+    --filter-expression "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" \
+    --filter-name "SNP_filter" \
+    -O all.filter.snp.vcf
+```
+
+## 12. 过滤 INDEL
+```bash
+gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
+    -R Fragaria_nilgerrensis.fasta \
+    -V all.raw.indel.vcf \
+    --filter-expression "QD < 2.0 || FS > 200.0 || SOR > 10.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" \
+    --filter-name "INDEL_filter" \
+    -O all.filter.indel.vcf
+```
+
+## 13. 提取过滤后的 SNP 和 INDEL
+```bash
+# 过滤后SNP
+gatk SelectVariants \
+    -V all.filter.snp.vcf \
+    --exclude-filtered \
+    -O all.filtered.snp.vcf
+
+# 过滤后INDEL
+gatk SelectVariants \
+    -V all.filter.indel.vcf \
+    --exclude-filtered \
+    -O all.filtered.indel.vcf
+```
