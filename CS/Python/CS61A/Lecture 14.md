@@ -83,5 +83,27 @@ def leaves(tree)：
 
 # 第三个例子，给树的所有leaves加一，或者给所有的nodes加一
 def increment_leaves(t):
+	"""Return a tree like t but with leaf labels incremented."""
+	if is_leaf(t):
+		return tree(label(t) + 1)
+	else:
+		bs = [increment_leaves(b) for b in branches(t)]
+		return tree(label(t),bs)
 
+def increment(t):
+	"""Return a tree like t but with all labels incremented."""
+	return tree(label(t) + 1 ,[increment(b) for b in branches(t)])
 ```
+
+
+# 3. Tree的更多功能
+## 3.1 tree print 如何打印一个树的结构
+```python
+# indent用于表示缩进的多少
+def print_tree(t,indent = 0):
+	print(' '*indent + str(labet(t)))
+	for b in branches(t):
+		print_tree(b,indent+1)
+```
+
+## 3.2 Summing Paths
