@@ -4,7 +4,7 @@ date: "2026-04-17"
 authors: Tao Xiong
 tags:
 ---
-# Trees
+# 1. Trees
 树状结构描述：
 - 每一个树有一个root和一系列的branch
 - 每一个branch都是一个树
@@ -14,6 +14,8 @@ tags:
 - 树上的位置被称之为node
 - 每一个node有一个label代表了它的值
 - 每一个node可以被表述为另一个node的父节点或者子节点  
+
+下图的例子本身是一个斐波那契树
 ![|750](../../../imag/Lecture%2014/file-20260428185701522.png)
 
 ### 树的抽象化
@@ -48,5 +50,17 @@ def is_tree(tree):
 def is_leaf(tree):
 	return not branches(tree)
 
+tree(1,[tree(5,[tree(7)]),tree(6)])
 ```
 
+# 2. Tree processing
+以tree为输入的或者输出的函数，其本身通常都是tree递归的
+**处理树的叶子，基本上是处理树的基本情况**，意思是一般以处理树的叶子为处理树的常规操作
+
+```python
+# 简单的例子，计算一个tree的leaves数量
+def count_leaves(t):
+	if is_leaf(t):
+		return 1
+
+```
