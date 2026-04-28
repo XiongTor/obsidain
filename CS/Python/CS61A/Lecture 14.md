@@ -107,3 +107,6 @@ def print_tree(t,indent = 0):
 ```
 
 ## 3.2 Summing Paths
+![](../../../imag/Lecture%2014/file-20260428211022833.png)
+
+[[Lecture 15|下一讲]]
