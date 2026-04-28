@@ -17,7 +17,7 @@ tags:
 
 # 参考流程
 [菱角](https://app.yinxiang.com/fx/54e06bd9-9ff1-4eab-b4f9-c914923c2e1c)
-
+[GATK官方文档教程](https://gatk.broadinstitute.org/hc/en-us/articles/360035531112--How-to-Filter-variants-either-with-VQSR-or-by-hard-filtering)
 # 数据准备
 **参考**：最好是染色体级别全基因组序列，蔷薇科GDR网站中的数据示例，[Argentina anserina](https://www.rosaceae.org/Analysis/24757635)
 **准备call snp的物种**：WGS重测序数据即可，尽量选取数据质量较优的（.fq结尾，需要进行质量控制和清洗）
@@ -310,6 +310,8 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
     -V raw.vcf.gz \
     --select-type INDEL \
     -O all.raw.indel.vcf
+    
+# 耗时 1.3min
 ```
 
 ## 11. 过滤SNP
