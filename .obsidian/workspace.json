@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "f4f720237e0f6bdb",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "e877f3fc96c47060",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -194,8 +193,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "e877f3fc96c47060",
   "lastOpenFiles": [
+    "CS/Python/CS61A/Lecture 13.md",
+    "未命名 2.base",
+    "未命名 1.base",
+    "CS/Python/CS61A/Lecture 14.md",
+    "imag/Lecture 14/file-20260428190249438.png",
     "imag/Lecture 14/file-20260428185701522.png",
     "imag/Lecture 14",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
@@ -212,11 +216,8 @@
     "CS/Python/CS61A/Lecture 11.md",
     "CS/Python/CS61A/Lecture 10.md",
     "CS/Python/CS61A/lecture 9.md",
-    "CS/Python/CS61A/Lecture 13.md",
-    "CS/Python/CS61A/Lecture 14.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "references/@An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species_.md",
-    "未命名 1.base",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/山茶属文章.md",
     "project/Rosaceae_ILS/3.CALL SNP",
     "project/Rosaceae_ILS/大纲.md",
@@ -237,11 +238,8 @@
     "imag/Lecture 13/file-20260416215051236.png",
     "imag/Lecture 13/file-20260416214624689.png",
     "imag/Lecture 13/file-20260416212438410.png",
-    "imag/Lecture 13/file-20260416212206525.png",
     "imag/Lecture 13",
-    "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018/file-20260416203007885.png",
     "imag/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018",
-    "imag/Lecture 12",
-    "imag/Lecture 11"
+    "imag/Lecture 12"
   ]
 }
