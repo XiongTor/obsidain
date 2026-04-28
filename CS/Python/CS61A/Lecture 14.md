@@ -62,5 +62,26 @@ tree(1,[tree(5,[tree(7)]),tree(6)])
 def count_leaves(t):
 	if is_leaf(t):
 		return 1
+	else:
+		branch_counts = [count_leaves(b) for b in branches(t)]
+		return sum(branch_counts)
+ 
+# 第二个例子，实现一个leaves函数，使得它可以返回树的叶子标签列表
+# sum函数计算list的总和时的特性，其会得到一个总的list,包含所有list的元素，eg：
+# sum拼接列表的时候需要指定一个空list来作为起始
+>>> sum([[1],[2,3],[4]],[]) # 注意这里套了一个list  [[]]
+>>> [1,2,3,4]
+>>> sum
+
+
+def leaves(tree)：
+	if is_leaf(tree)：
+		return [label(tree)]
+	else:
+		return sum([leaves(f) for f in branches(tree)],[])
+
+
+# 第三个例子，给树的所有leaves加一，或者给所有的nodes加一
+def increment_leaves(t):
 
 ```
