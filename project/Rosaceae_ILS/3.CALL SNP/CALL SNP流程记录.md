@@ -368,6 +368,11 @@ vcftools \
 # --maf 最小等位基因频率为 0.05，去除稀有等位基因 
 # --max-missing-count  最大丢失个体数为零
 # --hwe 去除不满足哈温平衡 (p<0.001)的位点
+
+
+# 去除连锁不平衡位点
+plink --vcf XXvcf --indep-pairwise 50 10 0.2 --out XXX --allow-extra-chr
+plink --vcf XX.vcf --extract XXX.prune.in --recode vcf-iid --out XXXX --allow-extra-chr
 ```
 
 ## 12. 过滤 INDEL---视情况可不做
