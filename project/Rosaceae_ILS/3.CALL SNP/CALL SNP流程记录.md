@@ -34,6 +34,7 @@ conda install bioconda::bwa
 mamba install -c bioconda -c conda-forge gatk4 #使用mamba安装快一些
 conda install bioconda::bcftools
 conda install bioconda::sambamba
+mamba install bioconda::plink
 
 ```
 
@@ -354,14 +355,13 @@ vcftools \
 # vcftools进一步过滤
 vcftools \
 --vcf all.filter.snp.vcf \
---maf 0.01 \
+--maf 0.05 \
 --max-missing-count 0.5 \
 --min-meanDP 3 \
 --max-meanDP 114 \
 --recode --recode-INFO-all \
 --hwe 0.001 \
---out all.filter_vcftools_gatk_missing0.5_maf0.01_final.vcf.gz
-
+--out all.filter_vcftools_gatk_missing0.5_maf0.05
 # 是针对群体遗传层面的控制，主要是对MAF、缺失率和HWE过滤
 # 可参考：https://pixy.readthedocs.io/en/latest/guide/pixy_guide.html#create-a-populations-file
 # https://www.programmersought.com/article/62766635261/
@@ -371,10 +371,25 @@ vcftools \
 
 
 # 去除连锁不平衡位点
-plink --vcf XXvcf --indep-pairwise 50 10 0.2 --out XXX --allow-extra-chr
-plink --vcf XX.vcf --extract XXX.prune.in --recode vcf-iid --out XXXX --allow-extra-chr
+# 参考：https://www.cog-genomics.org/plink/1.9/data
+
+plink --vcf all.filter_vcftools_gatk_missing0.5_maf0.05.recode.vcf \
+      --indep-pairwise 50 10 0.2 \
+      --out all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.vcf \
+      --allow-extra-chr \
+      --double-id
+      
+plink --vcf all.filter_vcftools_gatk_missing0.5_maf0.05.recode.vcf \
+      --extract all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.vcf.prune.in \
+      --recode vcf-iid \
+      --out all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.pruned \
+      --allow-extra-chr \
+      --double-id
 ```
 
+
+
+# 下列步骤可以不进行
 ## 12. 过滤 INDEL---视情况可不做
 ```bash
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
