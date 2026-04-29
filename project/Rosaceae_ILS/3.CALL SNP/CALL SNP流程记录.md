@@ -84,7 +84,7 @@ done
 
 ## 3. Samtools统计mapping率
 ```bash
-tt=$(cat wgs_srr_single.txt)
+tt=$(cat wgs_outgroup2.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
@@ -100,7 +100,7 @@ for i in $tt; do
   echo -e "$name $prop_mapping/$mapping" >> mapping/total_single_result.txt
 done
 
-sed -i '1i species properly_paired/mapped' mapping/total_single_result.txt
+sed -i '1i species properly_paired/mapped' mapping/total_outgroup2_result.txt
 
 # mappint结果解读：
 #注释：  
@@ -130,7 +130,7 @@ tt=$(cat wgs_srr_single.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
-  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
+  # samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
   sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_single_markdup_log.txt  &
 done
 # 注意会自动挂在后台
@@ -177,11 +177,11 @@ gatk CreateSequenceDictionary -R Malus_domestica.fa
 ## 6.GATK生成GVCF文件
 ```bash
 # 不分染色体，直接对每个样本生成gVCF。
-tt=$(cat wgs_srr.txt)
+tt=$(cat wgs_srr_single.txt)
 for i in $tt; do 
   name=$(basename $i) 
   gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
-    -R ./Fragaria_nilgerrensis.fasta \
+    -R ./Malus_domestica.fa \
     -I ./${name}.srt_flt.markdup.bam \
     -ERC GVCF \
     -O ${name}.g.vcf.gz \
