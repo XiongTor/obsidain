@@ -340,6 +340,12 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 # ReadPosRankSum Read Position Rank Sum`≥ -8.0`负值过大 → Alt 等位基因偏向出现在 reads 末端
 # 总而言之，是针对测序质量的评估，保留那些质量足够高、链偏倚不显著、比对质量均匀且变异不局限于读段末端的位点。
 
+# 计算仅包含通过缺失率过滤的位点的深度并输出：
+vcftools \
+--gzvcf all.filter.snp.vcf \
+--max-missing 0.5 \
+--site-mean-depth \
+--out all_filter_snp_output_prefix.txt
 
 # vcftools进一步过滤
 vcftools \
