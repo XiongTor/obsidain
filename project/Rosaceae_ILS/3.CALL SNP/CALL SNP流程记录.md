@@ -338,6 +338,8 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 # MQRMS Mapping Quality`MQ ≥ 40.0`数值过低 → 支撑 reads 比对质量差，多比对区域
 # MQRankSum Mapping Quality Rank Sum`≥ -12.5`负值过大 → Alt 等位基因 reads 比对质量显著低于 Ref
 # ReadPosRankSum Read Position Rank Sum`≥ -8.0`负值过大 → Alt 等位基因偏向出现在 reads 末端
+# 总而言之，是针对测序质量的评估，保留那些质量足够高、链偏倚不显著、比对质量均匀且变异不局限于读段末端的位点。
+
 
 # vcftools进一步过滤
 vcftools \
@@ -348,7 +350,9 @@ vcftools \
 --hwe 0.001 \
 --out all.filter_vcftools_gatk_missing0.5_maf0.01_final.vcf.gz
 
-
+# 是针对群体遗传层面的控制，主要是对MAF、缺失率和HWE过滤
+# 可参考：https://pixy.readthedocs.io/en/latest/guide/pixy_guide.html#create-a-populations-file
+# https://www.programmersought.com/article/62766635261/
 # --maf 最小等位基因频率为 0.05，去除稀有等位基因 
 # --max-missing-count  最大丢失个体数为零
 # --hwe 去除不满足哈温平衡 (p<0.001)的位点
