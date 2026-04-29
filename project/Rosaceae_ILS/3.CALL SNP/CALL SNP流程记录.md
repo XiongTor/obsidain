@@ -335,11 +335,11 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 # vcftools进一步过滤
 vcftools \
 --vcf all.filter.snp.vcf \
---maf 0.05 \
---max-missing-count 0 \
+--maf 0.01 \
+--max-missing-count 0.5 \
 --recode --recode-INFO-all \
 --hwe 0.001 \
---out all.filter_vcftools_gatk_final.vcf.gz
+--out all.filter_vcftools_gatk_missing0.5_maf0.01_final.vcf.gz
 
 
 # --maf 最小等位基因频率为 0.05，去除稀有等位基因 
