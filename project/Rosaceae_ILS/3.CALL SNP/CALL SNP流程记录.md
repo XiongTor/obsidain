@@ -126,12 +126,12 @@ sed -i '1i species properly_paired/mapped' mapping/total_outgroup3_result.txt
 
 
 ```bash
-tt=$(cat wgs_srr_single.txt)
+tt=$(cat wgs_outgroup3.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
   samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
-  sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_single_markdup_log.txt  &
+  sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_outgroup3_markdup_log.txt  &
 done
 # 注意会自动挂在后台
 # 去除unmapped耗时 28min 三个物种
@@ -181,7 +181,7 @@ tt=$(cat wgs_srr_single.txt)
 for i in $tt; do 
   name=$(basename $i) 
   gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
-    -R ./Malus_domestica.fa \
+    -R ./Fragaria_nilgerrensis.fasta \
     -I ./${name}.srt_flt.markdup.bam \
     -ERC GVCF \
     -O ${name}.g.vcf.gz \
