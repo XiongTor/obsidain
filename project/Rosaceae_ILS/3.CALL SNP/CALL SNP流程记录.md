@@ -331,6 +331,13 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -O all.filter.snp.vcf
     
 # 9min
+# QD Quality by Depth（质量/深度）`QD ≥ 2.0`数值过低 → 质量相对于深度偏低，可能是噪音
+# QUA LPhred-scaled quality score`QUAL ≥ 30.0`绝对值过低 → 整体变异调用置信度不足
+# SOR Strand Odds Ratio（链平衡）`SOR ≤ 3.0`数值过高 → 链偏倚明显，低深度时比 FS 更可靠
+# FSF isher Strand（费希尔链偏倚）`FS ≤ 60.0`数值过高 → 链偏倚显著，高深度数据敏感
+# MQRMS Mapping Quality`MQ ≥ 40.0`数值过低 → 支撑 reads 比对质量差，多比对区域
+# MQRankSum Mapping Quality Rank Sum`≥ -12.5`负值过大 → Alt 等位基因 reads 比对质量显著低于 Ref
+# ReadPosRankSum Read Position Rank Sum`≥ -8.0`负值过大 → Alt 等位基因偏向出现在 reads 末端
 
 # vcftools进一步过滤
 vcftools \
@@ -345,7 +352,6 @@ vcftools \
 # --maf 最小等位基因频率为 0.05，去除稀有等位基因 
 # --max-missing-count  最大丢失个体数为零
 # --hwe 去除不满足哈温平衡 (p<0.001)的位点
-
 ```
 
 ## 12. 过滤 INDEL---视情况可不做
