@@ -49,7 +49,7 @@ bwa index Fragaria_nilgerrensis.fasta -p Fragaria_nilgerrensis
 ## 2. BWA循环序列比对以及格式转换
 ```bash
 
-tt=$(cat wgs_srr_outgroup2.txt)
+tt=$(cat wgs_srr_outgroup3.txt)
 # wgs_srr.txt
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR14125374
 # /data/xiongtao/project/Rosaceae/Rosaceae_cytonuclear/seqdata/trimmomatic/ERR12321225
@@ -84,7 +84,7 @@ done
 
 ## 3. Samtools统计mapping率
 ```bash
-tt=$(cat wgs_outgroup2.txt)
+tt=$(cat wgs_srr_outgroup.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
@@ -130,7 +130,7 @@ tt=$(cat wgs_srr_single.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
-  # samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
+  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
   sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_single_markdup_log.txt  &
 done
 # 注意会自动挂在后台
