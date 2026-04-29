@@ -18,6 +18,8 @@ tags:
 # 参考流程
 [菱角](https://app.yinxiang.com/fx/54e06bd9-9ff1-4eab-b4f9-c914923c2e1c)
 [GATK官方文档教程](https://gatk.broadinstitute.org/hc/en-us/articles/360035531112--How-to-Filter-variants-either-with-VQSR-or-by-hard-filtering)
+[简书](https://www.jianshu.com/p/f9c948a6c7de)
+其它参考资料见本地
 # 数据准备
 **参考**：最好是染色体级别全基因组序列，蔷薇科GDR网站中的数据示例，[Argentina anserina](https://www.rosaceae.org/Analysis/24757635)
 **准备call snp的物种**：WGS重测序数据即可，尽量选取数据质量较优的（.fq结尾，需要进行质量控制和清洗）
@@ -303,7 +305,7 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
 # 耗时 2min
 ```
 
-# 10. 提取INDEL
+# 10. 提取INDEL---视情况可不做
 ```bash
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
     -R Fragaria_nilgerrensis.fasta \
@@ -327,9 +329,26 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -filter "MQRankSum < -12.5" --filter-name "MQRankSum-12.5" \
     -filter "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" \
     -O all.filter.snp.vcf
+    
+# 9min
+
+# vcftools进一步过滤
+vcftools \
+--vcf all.filter.snp.vcf \
+--maf 0.05 \
+--max-missing-count 0 \
+--recode --recode-INFO-all \
+--hwe 0.001 \
+--out all.filter_vcftools_gatk_final.vcf.gz
+
+
+# --maf 最小等位基因频率为 0.05，去除稀有等位基因 
+# --max-missing-count  最大丢失个体数为零
+# --hwe 去除不满足哈温平衡 (p<0.001)的位点
+
 ```
 
-## 12. 过滤 INDEL
+## 12. 过滤 INDEL---视情况可不做
 ```bash
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -R Fragaria_nilgerrensis.fasta \
@@ -347,7 +366,7 @@ gatk SelectVariants \
     --exclude-filtered \
     -O all.filtered.snp.vcf
 
-# 过滤后INDEL
+# 过滤后INDEL---可不做，如果前面没有过滤
 gatk SelectVariants \
     -V all.filter.indel.vcf \
     --exclude-filtered \
