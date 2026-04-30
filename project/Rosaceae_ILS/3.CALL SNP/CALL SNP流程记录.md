@@ -133,8 +133,8 @@ tt=$(cat wgs_outgroup3.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
-  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam
-  sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_outgroup3_markdup_log.txt  &
+  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam  2>>log/samtools_view_log.txt  &
+  sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_markdup_log.txt  &
 done
 # 注意会自动挂在后台
 # 去除unmapped耗时 28min 三个物种
@@ -180,11 +180,11 @@ gatk CreateSequenceDictionary -R Malus_domestica.fa
 ## 6.GATK生成GVCF文件
 ```bash
 # 不分染色体，直接对每个样本生成gVCF。
-tt=$(cat wgs_srr_single.txt)
+tt=$(cat wgs_srr.txt)
 for i in $tt; do 
   name=$(basename $i) 
   gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" HaplotypeCaller \
-    -R ./Fragaria_nilgerrensis.fasta \
+    -R ./Malus_domestica.fasta \
     -I ./${name}.srt_flt.markdup.bam \
     -ERC GVCF \
     -O ${name}.g.vcf.gz \
@@ -240,8 +240,8 @@ gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -V ERR12321225.g.vcf.gz \
     -V ERR14125374.g.vcf.gz \
     -V SRR15237912.g.vcf.gz \
-    -V Elaeagnus_angustifolia_Armenia.g.vcf.gz \
-    -O combined.g.vcf.gz \
+    -V SRR13526594.g.vcf.gz \
+    -O combined_outgroup3.g.vcf.gz \
     1>log_combine.txt 2>&1
 
 # 耗时 ：7min 
