@@ -339,14 +339,15 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -O all.filter.snp.vcf
     
 # 9min
-# QD Quality by Depth（质量/深度）`QD ≥ 2.0`数值过低 → 质量相对于深度偏低，可能是噪音
-# QUA LPhred-scaled quality score`QUAL ≥ 30.0`绝对值过低 → 整体变异调用置信度不足
-# SOR Strand Odds Ratio（链平衡）`SOR ≤ 3.0`数值过高 → 链偏倚明显，低深度时比 FS 更可靠
-# FSF isher Strand（费希尔链偏倚）`FS ≤ 60.0`数值过高 → 链偏倚显著，高深度数据敏感
-# MQRMS Mapping Quality`MQ ≥ 40.0`数值过低 → 支撑 reads 比对质量差，多比对区域
-# MQRankSum Mapping Quality Rank Sum`≥ -12.5`负值过大 → Alt 等位基因 reads 比对质量显著低于 Ref
-# ReadPosRankSum Read Position Rank Sum`≥ -8.0`负值过大 → Alt 等位基因偏向出现在 reads 末端
-# 总而言之，是针对测序质量的评估，保留那些质量足够高、链偏倚不显著、比对质量均匀且变异不局限于读段末端的位点。
+
+# 上述参数为gatk推荐默认参数，实际可以根据画出来的分布频率图尝试调整
+# QUAL  变异置信度的绝对值。综合多种证据的Phred-scaled质量分，代表该位点存在变异的概率。
+# QD (Quality by Depth)  信噪比 (Signal-to-Noise Ratio)。将变异置信度(QUAL)除以该位点非ref样本的深度，抵消深度对QUAL值的夸大作用，避免假高QUAL
+# SOR (Strand Odds Ratio)  优化的链偏好性指标。用基于似然比的方法定量链偏好程度，值越大偏好性越强。与FS相比，在高深度或极端链偏时更稳健
+# FS (FisherStrand)  链偏好性经典指标。用Fisher精确检验计算正负链支持数差异的p值，以Phred分值表示，值越高链偏好越显著
+# MQ (RMSMappingQuality) 位点比对质量的综合评估。计算支持该变异所有reads (包括Ref) 比对质量的“均方根”，反映该区域reads整体的平均比对质量
+# MQRankSum  支持ref与alt等位基因reads的比对质量秩和检验z-score。负值表示支持alt等位基因的reads比对质量显著低于ref，可能是比对错误（假阳性）
+# ReadPosRankSum  支持ref与alt等位基因reads在read中位置的秩和检验z-score。负值表示支持alt基因的reads更倾向在read的两端，可能是片段化等造成的假阳性
 
 
 
