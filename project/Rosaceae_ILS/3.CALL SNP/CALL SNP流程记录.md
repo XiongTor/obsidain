@@ -319,6 +319,13 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
 
 ## 11. 过滤SNP
 ```bash
+# 统计“硬过滤”相关指标在VCF文件中的分布频率
+gatk VariantsToTable \
+    -V all.raw.snp.vcf \
+    -F CHROM -F POS -F QD -F QUAL -F SOR -F FS -F MQ -F MQRankSum -F ReadPosRankSum \
+    -O snp_annotations_gatk.table
+
+
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -R Fragaria_nilgerrensis.fasta \
     -V all.raw.snp.vcf \
@@ -341,8 +348,6 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 # ReadPosRankSum Read Position Rank Sum`≥ -8.0`负值过大 → Alt 等位基因偏向出现在 reads 末端
 # 总而言之，是针对测序质量的评估，保留那些质量足够高、链偏倚不显著、比对质量均匀且变异不局限于读段末端的位点。
 
-
-# 去除连锁不平衡位点：
 
 
 # 计算仅包含通过缺失率过滤的位点的深度并输出：
