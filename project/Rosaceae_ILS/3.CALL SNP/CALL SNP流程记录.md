@@ -299,9 +299,9 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" MergeVcfs \
 ```bash
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
     -R Fragaria_nilgerrensis.fasta \
-    -V raw.vcf.gz \
+    -V raw_outgroup3.vcf.gz \
     --select-type SNP \
-    -O all.raw.snp.vcf
+    -O all.raw.outgroup3.snp.vcf
     
 # 耗时 2min
 ```
