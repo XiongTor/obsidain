@@ -267,9 +267,9 @@ done
 ```bash
 gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" GenotypeGVCFs \
     -R Fragaria_nilgerrensis.fasta \
-    -V combined.g.vcf.gz \
-    -O raw.vcf.gz \
-    1>log_genotype.txt 2>&1
+    -V combined_outgroup3.g.vcf.gz \
+    -O raw_outgroup3.vcf.gz \
+    1>log_outgroup3_genotype.txt 2>&1
 
 
 # 耗时50min
