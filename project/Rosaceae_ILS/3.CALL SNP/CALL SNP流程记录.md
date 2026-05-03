@@ -87,7 +87,7 @@ done
 
 ## 3. Samtools统计mapping率
 ```bash
-tt=$(cat wgs_outgroup3.txt)
+tt=$(cat wgs_srr_outgroup3.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
@@ -133,7 +133,7 @@ tt=$(cat wgs_outgroup3.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
-  # samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam  2>>log/samtools_view_log.txt  &
+  samtools view -q 20 -f 0x0002 -F 0X0004 -F 0X0008 -b ${name}.srt.bam >${name}.srt_flt.bam  2>>log/samtools_view_log.txt  &
   sambamba markdup  -t 4  -r  -p  --tmpdir=./tmp/ ${name}.srt_flt.bam  ${name}.srt_flt.markdup.bam  2>>log/sambamba_markdup_log.txt  &
 done
 # 注意会自动挂在后台
@@ -237,9 +237,9 @@ done
 ```bash
 gatk --java-options "-Xmx200g -Djava.io.tmpdir=./tmp" CombineGVCFs \
     -R Fragaria_nilgerrensis.fasta \
-    -V ERR12321225.g.vcf.gz \
-    -V ERR14125374.g.vcf.gz \
-    -V SRR15237912.g.vcf.gz \
+    -V SRR14099059.g.vcf.gz \
+    -V SRR15691171.g.vcf.gz \
+    -V Micromeles_alnifolia.g.vcf.gz \
     -V SRR13526594.g.vcf.gz \
     -O combined_outgroup3.g.vcf.gz \
     1>log_combine.txt 2>&1
