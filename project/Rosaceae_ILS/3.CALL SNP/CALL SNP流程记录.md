@@ -321,14 +321,14 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" SelectVariants \
 ```bash
 # 统计“硬过滤”相关指标在VCF文件中的分布频率
 gatk VariantsToTable \
-    -V all.raw.snp.vcf \
+    -V all.raw.outgroup3.snp.vcf \
     -F CHROM -F POS -F QD -F QUAL -F SOR -F FS -F MQ -F MQRankSum -F ReadPosRankSum \
-    -O snp_annotations_gatk.table
+    -O snp_annotations_outgroup3_gatk.table
 
 
 gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -R Fragaria_nilgerrensis.fasta \
-    -V all.raw.snp.vcf \
+    -V all.raw.outgroup3.snp.vcf \
     -filter "QD < 2.0" --filter-name "QD2" \
     -filter "QUAL < 30.0" --filter-name "QUAL30" \
     -filter "SOR > 3.0" --filter-name "SOR3" \
@@ -336,7 +336,7 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
     -filter "MQ < 40.0" --filter-name "MQ40" \
     -filter "MQRankSum < -12.5" --filter-name "MQRankSum-12.5" \
     -filter "ReadPosRankSum < -8.0" --filter-name "ReadPosRankSum-8" \
-    -O all.filter.snp.vcf
+    -O all.filter.outgroup3.snp.vcf
     
 # 9min
 
@@ -353,21 +353,21 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 
 # 计算仅包含通过缺失率过滤的位点的深度并输出：
 vcftools \
---gzvcf all.filter.snp.vcf \
+--gzvcf all.raw.outgroup3.snp.vcf \
 --max-missing 0.5 \
 --site-mean-depth \
---out all_filter_snp_output_prefix.txt
+--out all_filter_snp_output3_prefix.txt
 
 # vcftools进一步过滤
 vcftools \
---vcf all.filter.snp.vcf \
+--vcf all.raw.outgroup3.snp.vcf \
 --maf 0.05 \
 --max-missing-count 0.5 \
 --min-meanDP 3 \
---max-meanDP 114 \
+--max-meanDP 123 \
 --recode --recode-INFO-all \
 --hwe 0.001 \
---out all.filter_vcftools_gatk_missing0.5_maf0.05
+--out all.filter_vcftools_outgroup3_gatk_missing0.5_maf0.05
 # 是针对群体遗传层面的控制，主要是对MAF、缺失率和HWE过滤
 # 可参考：https://pixy.readthedocs.io/en/latest/guide/pixy_guide.html#create-a-populations-file
 # https://www.programmersought.com/article/62766635261/
