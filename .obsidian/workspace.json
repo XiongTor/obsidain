@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CALL SNP流程记录"
+              "title": "同源序列比对到参考基因组"
             }
           }
         ]
@@ -79,8 +79,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -196,8 +195,9 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
+    "Home.md",
     "CS/Python/CS61A/Lecture 15.md",
     "CS/Python/CS61A/Lecture 14.md",
     "imag/Lecture 14/file-20260428211022833.png",
@@ -230,7 +230,6 @@
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/Phylogenomic and Macroevolutionary Evidence for an Explosive Radiation of a Plant Genus in the Miocene.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
-    "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/蟑螂，密码子模型建树.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录",
     "imag/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022/file-20260420163430965.png",
     "imag/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022/file-20260420152632416.png",
