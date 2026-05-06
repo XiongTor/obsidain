@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
+                "file": "Diary/week/2026年第19周-2026-05-04.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "渐渗基因文献"
+              "title": "2026年第19周-2026-05-04"
             }
           }
         ]
@@ -177,8 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5,
-    "collapsed": true
+    "width": 236.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,10 +194,10 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
-    "references/@Novel information theory-based measures for quantifying incongruence among phylogenetic trees_2014.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
+    "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
+    "references/@Novel information theory-based measures for quantifying incongruence among phylogenetic trees_2014.md",
     "Diary/week/2026年第19周-2026-05-04.md",
     "Home.md",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
