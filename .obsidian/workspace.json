@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diary/week/2026年第19周-2026-05-04.md",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026年第19周-2026-05-04"
+              "title": "CALL SNP流程记录"
             }
           }
         ]
@@ -79,7 +79,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -177,7 +178,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 236.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -194,8 +196,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "Diary/week/2026年第19周-2026-05-04.md",
+    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "Home.md",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
     "CS/Python/CS61A/Lecture 15.md",
