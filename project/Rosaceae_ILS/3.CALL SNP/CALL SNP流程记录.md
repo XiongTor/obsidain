@@ -14,6 +14,7 @@ tags:
 - 在科水平的snp calling中，为了确保参考序列物种的公正性，尽量不要选取需要call snp的物种的全基因组为参考
 - 科水平跨度较大，对于亲缘关系过远的物种，可以考虑选取多个参考，然后分不同的组别进行snp calling（单次call snp只能有一个参考基因组，所以说分为不同的组，每组选取一个亲缘关系最近的物种为参考）。同时需要注意，这样会导致后续的SNP难以直接合并汇总，可能需要其它方法？所以如果后续需求计算$F_{ST}$,$D_{XY}$等需要慎重考虑
 - 需要考虑染色体基数，如果物种彼此间的基数不同，可能在bwa阶段就难以进行
+- 选择参考基因组的时候，注意检查是否存在未能挂载到染色体体上的片段，如果存在，可以考虑事先剔除后再进行SNP Calling
 
 # 参考流程
 [菱角](https://app.yinxiang.com/fx/54e06bd9-9ff1-4eab-b4f9-c914923c2e1c)
@@ -350,7 +351,6 @@ gatk --java-options "-Xmx20g -Djava.io.tmpdir=./tmp" VariantFiltration \
 # ReadPosRankSum  支持ref与alt等位基因reads在read中位置的秩和检验z-score。负值表示支持alt基因的reads更倾向在read的两端，可能是片段化等造成的假阳性
 
 
-
 # 计算仅包含通过缺失率过滤的位点的深度并输出：
 vcftools \
 --gzvcf all.raw.outgroup3.snp.vcf \
@@ -401,7 +401,30 @@ plink --vcf all.filter_vcftools_gatk_missing0.5_maf0.05.recode.vcf \
 
 # --extract .prune.in 只保留第一步生成的保留列表中的SNP
 # --recode vcf-iid 输出VCF格式，样本名用Individual ID（避免出现`FID_IID`格式）
+
+
+# 其它情况---参考基因组中存在部分未能挂载到染色体上的片段，在SNP calling过程中也被CAll出来了，此时需要从VCF文件中去除
+regions=$(paste -sd',' chr_list.txt)
+# chr_list.txt
+# B_Chr01
+# B_Chr02
+# B_Chr03
+# B_Chr04
+# B_Chr05
+
+for name in *.vcf; do
+    tt=$(basename $name .vcf)
+    echo "Processing: $tt"
+    # 1. bgzip 压缩
+    bgzip -c $name > ${tt}.vcf.gz
+    # 2. tabix 建索引
+    tabix -p vcf ${tt}.vcf.gz
+    # 3. 过滤染色体
+    bcftools view -r "$regions" ${tt}.vcf.gz -o ${tt}_filtered.vcf
+    echo "Done: $tt"
+done
 ```
+
 
 
 
