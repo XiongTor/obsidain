@@ -37,8 +37,7 @@
               "title": "计划"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -208,10 +207,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "7ddac588768c3ed9",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Diary/week/2026年第19周-2026-05-04.md",
     "vibe code/计划.md",
+    "Diary/week/2026年第19周-2026-05-04.md",
     "vibe code",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
