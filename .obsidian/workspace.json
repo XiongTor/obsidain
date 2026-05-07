@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+                "file": "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CALL SNP流程记录"
+              "title": "D-statistic"
             }
           },
           {
@@ -94,8 +94,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -211,8 +210,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "vibe code/计划.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "vibe code/计划.md",
     "Diary/week/2026年第19周-2026-05-04.md",
     "vibe code",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
