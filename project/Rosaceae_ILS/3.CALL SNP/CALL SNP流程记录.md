@@ -379,18 +379,28 @@ vcftools \
 # 去除连锁不平衡位点
 # 参考：https://www.cog-genomics.org/plink/1.9/data
 
+# LD剪枝分析（生成保留/剔除列表）
 plink --vcf all.filter_vcftools_gatk_missing0.5_maf0.05.recode.vcf \
       --indep-pairwise 50 10 0.2 \
       --out all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.vcf \
       --allow-extra-chr \
       --double-id
-      
+
+# --indep-pairwise 50 10 0.2 分别为滑动窗口大小，步长，r²阈值，窗口内任意两个SNP若 r² > 0.2，则剔除其中一个
+# --out 输出前缀
+# --allow-extra-chr 允许非标准染色体编号（如scaffold、contig等，非人类基因组常用)
+# --double-id 将VCF样本ID同时作为Family ID和Individual ID，避免解析错误
+
+# 提取保留的SNP，输出新VCF
 plink --vcf all.filter_vcftools_gatk_missing0.5_maf0.05.recode.vcf \
       --extract all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.vcf.prune.in \
       --recode vcf-iid \
       --out all.filter_vcftools_gatk_missing0.5_maf0.05.recode.LD.pruned \
       --allow-extra-chr \
       --double-id
+
+# --extract .prune.in 只保留第一步生成的保留列表中的SNP
+# --recode vcf-iid 输出VCF格式，样本名用Individual ID（避免出现`FID_IID`格式）
 ```
 
 
