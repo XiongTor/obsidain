@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "CALL SNP流程记录"
+              "title": "同源序列比对到参考基因组"
             }
           },
           {
@@ -210,13 +210,13 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "references/@_2022.md",
     "vibe code/计划.md",
     "error/QT_X11自动化配置.md",
     "README.md",
     "_hermes_wikilink_report_20260507.md",
     "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
-    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "Diary/week/2026年第19周-2026-05-04.md",
     "vibe code",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
