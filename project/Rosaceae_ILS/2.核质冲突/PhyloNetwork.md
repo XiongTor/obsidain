@@ -12,6 +12,15 @@ tags:
 [教程一](https://wu-tz.github.io/2023/10/07/phylonetwork/) 2024
 [SnaQ](https://www.ivistang.com/old/bioinfo/SNaQ%E8%BF%9B%E8%A1%8C%E7%B3%BB%E7%BB%9F%E5%8F%91%E8%82%B2%E7%BD%91%E6%9E%84%E5%BB%BA.html#%E8%BF%90%E8%A1%8C-ticr-%E6%B5%81%E7%A8%8B)  2025
 
+
+# 备注--2026.05.09
+当julia 包PhyloNetworks更新后导致版本过高时，以下流程中的部分命令有修改
+可能需要加增安装SNAQ包
+本人使用的版本为`PhyloNetworks v1.3.0`
+```julia
+using Pkg 
+Pkg.add("SNaQ")
+```
 # 1. 安装
 具体安装流程可以直接参考教程
 ```
@@ -103,18 +112,18 @@ seed = 1234 + h # change as desired! Best to have it different for different h
 using Distributed  
 addprocs(nruns)  
 @everywhere using PhyloNetworks  
-net0_h1 = readTopology("astral.tre");  #读取起始树，为了避免并行时linux系统环境变量得区分，在h为1时设置为net0_h1  
+net0_h6 = readTopology("astral.tre");  #读取起始树，为了避免并行时linux系统环境变量得区分，在h为1时设置为net0_h1  
 using DataFrames, CSV  
 df_sp = DataFrame(CSV.File("tableCF.csv", pool=false); copycols=false); #读取CF表  
 d_sp = readTableCF!(df_sp);  
-net_h1 = snaq!(net0_h1, d_sp, hmax=h, filename=outputfile, seed=seed, runs=nruns)
+net_h6 = snaq!(net0_h6, d_sp, hmax=h, filename=outputfile, seed=seed, runs=nruns)
 ```
 
 依次生成.jl文件后，直接运行下列bash文件，run_julia.sh
 ```
 for h in $(seq 1 6); do 
   # 从h6模板复制并替换所有h6相关内容为当前h值 
-  sed 's/h6/h'"${h}"'/g' runSNaQ_h6.jl > runSNaQ_h${h}.jl echo "Generated runSNaQ_h${h}.jl" 
+  sed 's/h6/h'"${h}"'/g' runSNaQ_hn.jl > runSNaQ_h${h}.jl echo "Generated runSNaQ_h${h}.jl" 
 done
 
 for h in $(seq 1 6); do 
