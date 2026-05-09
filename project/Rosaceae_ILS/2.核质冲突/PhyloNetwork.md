@@ -112,12 +112,16 @@ net_h1 = snaq!(net0_h1, d_sp, hmax=h, filename=outputfile, seed=seed, runs=nruns
 
 依次生成.jl文件后，直接运行下列bash文件，run_julia.sh
 ```
-julia runSNaQ_h1.jl 1 #数字为设置得h值
-julia runSNaQ_h2.jl 2
-julia runSNaQ_h3.jl 3
-julia runSNaQ_h4.jl 4
-julia runSNaQ_h5.jl 5
-julia runSNaQ_h6.jl 6
+for h in $(seq 1 6); do 
+  # 从h6模板复制并替换所有h6相关内容为当前h值 
+  sed 's/h6/h'"${h}"'/g' runSNaQ_h6.jl > runSNaQ_h${h}.jl echo "Generated runSNaQ_h${h}.jl" 
+done
+
+for h in $(seq 1 6); do 
+  nohup julia runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
+done
+
+
 ```
 
 批量运行
