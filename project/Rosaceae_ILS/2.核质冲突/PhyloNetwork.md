@@ -38,7 +38,32 @@ make #编译
 ```
 
 # 2. 准备基因树
-一般来讲，由于phylonet运算时间较长，所以选取的物种数量一般较少，个人感觉控制在20往下较为合适。
+一般来讲，由于phylonet运算时间较长，所以选取的物种数量一般较少，个人感觉控制在20往下较为合适
+所以，如果事先系统发育分析建立的基因树中存在过多的物种，可以尝试提取部分物种来进行分析，即剪取子树
+```bash
+for tree in ../05-final_genetrees_1outg/*.tre;do
+    name=$(basename $tree .tre)
+    gotree prune \
+    -i $tree \
+    -f name_sort.txt \
+    --revert \
+    -o gene_tree/${name}_pruned_trees.tre
+    echo $name
+done
+
+# 去除没有外类群或者物种数量太少的基因树
+for tree in ./gene_tree/*.tre;do
+    name=$(basename $tree .tre)
+    nn=$(grep -c Outgroup $tree)
+    mm=$(nw_labels -I $tree | wc -l)
+    if [ $nn -eq 0 ] || [ $mm -le 10 ]; then
+        rm $tree
+        echo -e "$name $nn $mm" >> rm_gene.txt
+    fi
+done
+
+cat ./gene_tree/*.tre > alltree.rooted.txt
+```
 
 # 3. 准备CF表tableCF.csv
 通过多基因树文件制备CF表tableCF.csv
