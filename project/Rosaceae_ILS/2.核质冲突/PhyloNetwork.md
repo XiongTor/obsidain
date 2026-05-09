@@ -37,7 +37,10 @@ make #编译
 ./julia -h #查看帮助文档
 ```
 
-# 2. 准备CF表tableCF.csv
+# 2. 准备基因树
+一般来讲，由于phylonet运算时间较长，所以选取的物种数量一般较少，个人感觉控制在20往下较为合适。
+
+# 3. 准备CF表tableCF.csv
 通过多基因树文件制备CF表tableCF.csv
 ```
 using PhyloNetworks  
@@ -49,7 +52,7 @@ df = writeTableCF(q,t) #读取计算得到的CF值到df：基因频率
 CSV.write("tableCF.csv", df) #保存df内容为tableCF.csv文件
 ```
 
-# 3. 批量运行不同的h值
+# 4. 批量运行不同的h值
 将下列代码储存为runSNaQ_h1.jl
 ```
 #!/usr/bin/env julia  
