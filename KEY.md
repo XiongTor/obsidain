@@ -5,3 +5,5 @@ sk-iDQh479Qxm85LS5el2PbdjbIIRJZa5BskN63AS66MWWPmssN
 QQ机器人密钥
 yGYrAUo9UqCZwKi7WwMnEg8b5Z4Z5b8f
 
+deepseek:
+酒馆：sk-61071b76ea4f49a4a237162ac1162b1f
