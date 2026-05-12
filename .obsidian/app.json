@@ -4,5 +4,6 @@
   "useMarkdownLinks": true,
   "attachmentFolderPath": "/",
   "promptDelete": false,
-  "smartIndentList": true
+  "smartIndentList": true,
+  "useTab": false
 }
