@@ -23,7 +23,7 @@ Pkg.add("SNaQ")
 ```
 # 1. 安装
 具体安装流程可以直接参考教程
-```
+```bash
 # 1.use linux pkg
 
 wget https://julialang-s3.julialang.org/bin/linux/x64/1.7/julia-1.7.2-linux-x86_64.tar.gz #下载linux的64位预编译的julia
@@ -76,7 +76,7 @@ cat ./gene_tree/*.tre > alltree.rooted.txt
 
 # 3. 准备CF表tableCF.csv
 通过多基因树文件制备CF表tableCF.csv
-```
+```julia
 using PhyloNetworks  
 using CSV  
 iqtrees=joinpath("alltree.rooted.txt") #读取多基因树文件  
@@ -88,7 +88,7 @@ CSV.write("tableCF.csv", df) #保存df内容为tableCF.csv文件
 
 # 4. 批量运行不同的h值
 将下列代码储存为runSNaQ_h1.jl
-```
+```julia
 #!/usr/bin/env julia  
   
 # file "runSNaQ.jl". run in the shell like this in general:  
@@ -120,7 +120,7 @@ net_h6 = snaq!(net0_h6, d_sp, hmax=h, filename=outputfile, seed=seed, runs=nruns
 ```
 
 依次生成.jl文件后，直接运行下列bash文件，run_julia.sh
-```
+```bash
 for h in $(seq 1 6); do 
   # 从h6模板复制并替换所有h6相关内容为当前h值 
   sed 's/h6/h'"${h}"'/g' runSNaQ_hn.jl > runSNaQ_h${h}.jl echo "Generated runSNaQ_h${h}.jl" 
@@ -134,7 +134,7 @@ done
 ```
 
 批量运行
-```
+```bash 
 screen -S julia  
 ParaFly -c run_julia.sh -CPU 3
 ```
