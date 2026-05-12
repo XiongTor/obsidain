@@ -37,8 +37,7 @@
               "title": "PhyloNetwork"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -208,13 +207,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "905bc5da287b71fd",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
     "Diary/week/2026年第20周-2026-05-11.md",
     "Diary/week/2026年第19周-2026-05-04.md",
     "KEY.md",
-    "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "未命名 2.base",
     "未命名 1.base",
     "未命名.base",

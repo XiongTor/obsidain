@@ -82,12 +82,12 @@ using CSV
 iqtrees=joinpath("alltree.rooted.txt") #读取多基因树文件  
 genetrees = readMultiTopology(iqtrees) #解析基因树  
 q,t = countquartetsintrees(genetrees) #读取基因树，计算四分类群的CFs  
-df = writeTableCF(q,t) #读取计算得到的CF值到df：基因频率  
+df = tablequartetCF(q,t) #读取计算得到的CF值到df：基因频率  
 CSV.write("tableCF.csv", df) #保存df内容为tableCF.csv文件
 ```
 
 # 4. 批量运行不同的h值
-将下列代码储存为runSNaQ_h1.jl
+将下列代码储存为runSNaQ_hn.jl
 ```julia
 #!/usr/bin/env julia  
   
@@ -123,11 +123,12 @@ net_h6 = snaq!(net0_h6, d_sp, hmax=h, filename=outputfile, seed=seed, runs=nruns
 ```bash
 for h in $(seq 1 6); do 
   # 从h6模板复制并替换所有h6相关内容为当前h值 
-  sed 's/h6/h'"${h}"'/g' runSNaQ_hn.jl > runSNaQ_h${h}.jl echo "Generated runSNaQ_h${h}.jl" 
+  sed 's/h6/h'"${h}"'/g' runSNaQ_hn.jl > runSNaQ_h${h}.jl 
+  echo "Generated runSNaQ_h${h}.jl" 
 done
 
-for h in $(seq 1 6); do 
-  nohup julia runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
+for h in $(seq 1 6);do 
+    nohup julia runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
 done
 
 
