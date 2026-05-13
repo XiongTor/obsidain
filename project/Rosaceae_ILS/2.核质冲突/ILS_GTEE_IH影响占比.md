@@ -43,6 +43,7 @@ GitHub教程
 
 # 2. 方法
 检测的主要目的是探究基因树的不一致或者说**基因树的变异程度**主要是由于哪种生物因素导致的。会测试**ILS**，**GTEE**，**IH**各自对基因树变异的相对贡献度是多少。
+代码流程参考本人的GitHub仓库：[ILS_GTEE_IH.SH](https://github.com/XiongTor/Rosa_family/blob/main/Analysis/ILS/ILS_GTEE_IH/ILS_GTEE_IH.SH)
 
 ### 输入文件要求：
 - 置根的来源于溯祖法的最佳物种树
