@@ -1,5 +1,6 @@
 ---
 banner: "![[homepage_banner.jpeg]]"
+banner_y: 0.136
 ---
 ---
 
@@ -144,5 +145,25 @@ widgets:
     fontColor: "#f0eaeaff"
     title: ""
 layoutType: column
+
+```
+```contributionGraph
+title: Contributions
+graphType: default
+dateRangeValue: 180
+dateRangeType: LATEST_MONTH
+startOfWeek: 1
+showCellRuleIndicators: true
+titleStyle:
+  textAlign: left
+  fontSize: 15px
+  fontWeight: normal
+dataSource:
+  type: ALL_TASK
+  value: ""
+  dateField: {}
+fillTheScreen: false
+enableMainContainerShadow: false
+cellStyleRules: []
 
 ```
