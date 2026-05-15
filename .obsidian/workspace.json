@@ -37,7 +37,8 @@
               "title": "@The meaning and measure of concordance factors in phylogenomics_"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -208,8 +209,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "142f5163032aa3e4",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
     "references/@The meaning and measure of concordance factors in phylogenomics_.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
@@ -221,7 +223,6 @@
     "imag/@The meaning and measure of concordance factors in phylogenomics_",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "Home.md",
-    "project/Rosaceae_ILS/流程记录/AGS353.md",
     "Diary/week/2026年第20周-2026-05-11.md",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
     "Diary/week/2026年第19周-2026-05-04.md",
