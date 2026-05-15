@@ -53,8 +53,9 @@ tags: [paper, literature]
 # 3. 文献主要内容与理论
 
 #### 3.1 概念澄清与重新定位
-- **支持度（如bootstrap）**：随数据量增加趋向最大值，度量我们对分支存在的统计置信度
+- **支持度（如bootstrap）**：随数据量增加趋向最大值，度量我们对分支存在的统计置信度，
 - **CFs**：随数据量增加趋于稳定（真实生物学参数的估计趋于精确），度量实际生物学变异的程度
+![](../imag/@The%20meaning%20and%20measure%20of%20concordance%20factors%20in%20phylogenomics_/file-20260515164725009.png)
 #### 3.2 提出"一致性向量"（Concordance Vector）框架
 正式提出并定义了"一致性向量"（concordance vector，用符号ψ表示），将每个内部分支的拓扑变异信息压缩为四个分量：
 - **ψ₁**：与物种树一致的基因树比例（即经典的CF/一致性因子）
