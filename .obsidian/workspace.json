@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "CALL SNP流程记录"
             }
           }
         ]
@@ -195,6 +195,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "references/@The meaning and measure of concordance factors in phylogenomics_.md",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517140602324.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517133239791.png",
@@ -203,7 +204,6 @@
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_ILS/流程记录/chloroplast.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
-    "Home.md",
     "promt/文献阅读.md",
     "zotero_note/注释 (2026-1-21 21-40-33).md",
     "vibe code/计划.md",

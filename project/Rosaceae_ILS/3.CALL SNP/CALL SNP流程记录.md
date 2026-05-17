@@ -88,7 +88,7 @@ done
 
 ## 3. Samtools统计mapping率
 ```bash
-tt=$(cat wgs_srr_outgroup3.txt)
+tt=$(cat wgs_final_all_sp.txt)
 
 for i in $tt; do 
   name=$(basename $i) 
@@ -99,12 +99,12 @@ for i in $tt; do
   # 接着查看mapping率 
   samtools flagstat ${name}.srt.bam > mapping/${name}_flagstat
   # 汇总
-  mapping=$(cat mapping/${name}_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
-  prop_mapping=$(cat mapping/${name}_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
-  echo -e "$name $prop_mapping/$mapping" >> mapping/total_outgroup3_result.txt
+  # mapping=$(cat mapping/${name}_flagstat | sed -n "5,1p" | cut -d"(" -f 2 | awk '{print $1}')
+  # prop_mapping=$(cat mapping/${name}_flagstat | sed -n "9,1p" | awk -F '[(]' '{print $2}' |awk '{print $1}')
+  # echo -e "$name $prop_mapping/$mapping" >> mapping/total_final_outgroup3_result.txt
 done
 
-sed -i '1i species properly_paired/mapped' mapping/total_outgroup3_result.txt
+sed -i '1i species properly_paired/mapped' mapping/total_final_outgroup3_result.txt
 
 # mappint结果解读：
 #注释：  
