@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "references/@The meaning and measure of concordance factors in phylogenomics_.md",
+                "file": "Diary/diary/2026-05-19 星期二.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "@The meaning and measure of concordance factors in phylogenomics_"
+              "title": "2026-05-19 星期二"
             }
           }
         ]
@@ -173,11 +173,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 4
       }
     ],
     "direction": "horizontal",
-    "width": 236.5
+    "width": 240.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -192,12 +192,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e02553b73f798db4",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "references/@The meaning and measure of concordance factors in phylogenomics_.md",
+    "Diary/diary/2026-05-19 星期二.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "Home.md",
-    "references/@The meaning and measure of concordance factors in phylogenomics_.md",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517140602324.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517133239791.png",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
