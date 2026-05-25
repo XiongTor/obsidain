@@ -177,8 +177,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 240.5,
-    "collapsed": true
+    "width": 240.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,10 +194,11 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Diary/week/2026年第22周-2026-05-25.md",
+    "Home.md",
     "未命名.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
-    "Home.md",
     "Diary/week/2026年第21周-2026-05-18.md",
     "references/@The meaning and measure of concordance factors in phylogenomics_.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
@@ -226,7 +226,6 @@
     "imag/@The meaning and measure of concordance factors in phylogenomics_/ChatGPT Image 2026年5月14日 15_45_22.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_",
     "Diary/week/2026年第19周-2026-05-04.md",
-    "KEY.md",
     "未命名 2.base",
     "未命名 1.base",
     "未命名.base",
