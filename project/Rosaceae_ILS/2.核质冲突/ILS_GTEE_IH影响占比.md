@@ -55,24 +55,52 @@ GitHub教程
 表示的是基因树的拓扑结构在物种树上的变异程度，也就是不同基因树在每个节点上支持的拓扑是否一致。
 一般是使用**gCF**(gene Concordance Factor)值来衡量，我们可以直接在IQTREE中找到该方法来进行运算，一般需要一棵物种树和一个基因树的集合。一般来讲，在时间充足的情况下，选择bootstrap tree的集合来作为输入，这样能够提高样本量，减小误差。
 ![](../../../imag/ILS_GTEE_IH影响占比/file-20250704214240696.png)
+```bash
+iqtree -t rosa_orthofinder_MO_treeshrink_sp_rt_oneoutg_nonodelabel_nozero_final.tre --gcf BSgenetree.trees --prefix concord
 
+#BSgenetree.trees is the bootstrap gene trees.exampled, if you have 20 genes, you will have 20 x 100 bootstrap gene trees assuming you conducted 100 replicates.
+
+#Final result:
+
+concord.cf.stat
+```
 #### 基因树评估错误---GTEE
 我们评估GTEE的主要思路是比较模拟数据建立的基因树与物种树之间的差异。使用模拟数据主要是出于GTEE本身的属性考量的。GTEE本身是一种系统误差，它与生物学因素，例如ILS和IH不同，它主要是**由于模型/方法本身的误差导致的**。所以当我们用原本经验数据集得到的基因树去与物种树比较的话，我们就无法得知这到底是模型的原因还是一些生物学因素的原因。
 换言之，用模拟数据评估GTEE就是看在理想条件下用当前方法建树有多准确的指标，它揭示的是方法自身的限制，而不是你真实数据中的偏差。
 
 具体方法上，本人主要采用[seq-gen](https://github.com/rambaut/Seq-Gen)程序进行序列的模拟，在运行的过程中需要注意以下几点：
-- 输入的物种树需要有枝长且不为0，可以没有支持率
+- 输入的物种树需要有枝长且不为0，可以没有支持率，根据目前测试的结果，直接使用ASTRAL的物种树来模拟的话，可能会导致最后生成的模拟序列变异度不够，导致最后建树失败。因此可以考虑使用序列重新估算枝长后再输入
 - 类群较少，枝长短，序列短的类群，在模拟上可能会出现，不同物种之间序列一模一样的情况，这时候建议阅读seq-gen的参数信息，增加序列的变异程度，可能会有部分改善
 - seq-gen的模拟序列是可以重复的，所以注意保留日志文件或记录好随机种子
+- 模拟不同的基因需要提供不同的替换速率，这部分信息可以在使用分区文件进行串联法估算枝长的时候得到。或者直接在串联法建树中得到，是一样的
+```bash
+# 运行已经写好的脚本辅助
+# generate_pipeline.sh 读取分区文件抓取出每个基因分区的替换速率，然后自动生成需要运行的seq-gen命令，当然模拟序列的长度可以通过分区文件调整成与实际基因相同的长度，也可以直接指定一个固定的长度(大多数文献的做法)
+# clip_missing_taxa.sh 如果需要调整对应的模拟基因的物种数量也与实际的一致，可以尝试使用这个脚本。要求提供对应的基因树文件，可以阅读该脚本，在开头写有备注
 
-在模拟完序列并采用与之间建立基因树相同的方法建立完基因树后，需要与物种树进行比较，看物种树的各个节点有多少被准确恢复了，具体代码如下：
+bash generate_pipeline.sh
+bash run_seq_gen.sh
 ```
+在模拟完序列并采用与之间建立基因树相同的方法建立完基因树后，需要与物种树进行比较，看物种树的各个节点有多少被准确恢复了，具体代码如下：
+```bash
 raxmlHPC -f b -t species.tre -z sim_gene.trees -m GTRGAMMA -n ERR
+
+# 如果你的每个基因并不包含有全部的物种，可以使用下列脚本
+astral4 -C -c rosa_orthofinder_sptree_rebranch_rt_oneoutgroup.tre \
+  -u 2 \
+  -o GTEE_scored.tre \
+  sim_genetrees.tre
+ 
+python transform_astral_q1_result.py
+
 ```
 
 >理论上来讲，应该也可以用IQTREE的gcf的方法来计算这个节点的恢复率，但是此处并没有做这种尝试，姑且保留这个问题在这里。
 
 **同样的，当溯祖法和串联法存在冲突的时候，我们是否可以考虑使用模拟数据计算GTEE来评估到底那种方法导致的GTEE更低，从而认为此种方法最终获得的拓扑更加的可靠**
+
+
+
 #### 不完全谱系分选---ILS
 ILS的评估标准主要是计算theta值
 
@@ -87,7 +115,99 @@ ASTRAL的溯祖枝长，反映的是谱系间的分化距离，枝长越短表�
 
 采用的方法与QuIBL和MSCquartet很相似，都是比较三联体出现的频率，及在不同的基因树种，由三个物种组成的三种不同的拓扑结构的出现频率是多少。
 但是不一样的是，在此方法中使用了模拟数据，通过计算基因树中三联体的频率和模拟树中三联体的频率，只有当次要拓扑和第三拓扑出现评论的差值超过了模拟数据中的这种差值的最大值才会被认为是发生了IH。因此可能会更加严谨一点，建议与**MSCquartet和QuIBL**进行一下比较
+```bash
+mkdir geneTr_sim
 
+Rscript --vanilla ../script/MSC_geneTr_simulator.R $speciesTr $speciesTr_BP $geneTr
+
+rm geneTr_sim/*.tem.genetrees
+
+  
+
+# reroot
+
+for n in $(seq 1 100);do
+
+  echo "======== BP${n}.sim.genetrees ========"
+
+  for i in $(seq 1 2063); do
+
+    sed -n "${i}p" BP${n}.sim.genetrees>test.tre
+
+    pxrr -t test.tre -g Outgroup > test_rt.tre
+
+    cat test_rt.tre>>BP${n}.sim_rt.genetrees
+
+  done
+
+done  
+
+#excepted result: sets of simulated gene trees in the folder geneTr_sim
+
+  
+  
+
+# Count triplet frequency in empirical gene trees and simulated gene trees
+
+# This can take hours if there are >30 species, so it is strongly advised to distribute the work to the cluster. For example, submit a job to count triplet frequency for one set of gene trees.
+
+  
+
+# For empirical gene trees
+
+python ./script/triple_frequency_counter.py $geneTr $speciesTr
+
+#excepted result: *.trp.tsv
+
+#format: column1--species names of the triplet, sorted alphabetically; column2--triplet frequencies of (sp1,sp2);column3--triplet frequencies of (sp1,sp3);column4--triplet frequencies of (sp2,sp3).
+
+  
+
+# For simulated gene trees
+
+# If the server hace enough cpu source, you can use parallel to speed up the process.
+
+# !!!! Note, do not use the "./BP.sim.genetrees" as the input, remove the "./", just use "BP.sim.genetrees" is ok. !!!!
+
+ls ./*_rt.genetrees | xargs -I{} echo "../geneTr_sim/{}" > BP_sim.rt.genetrees.txt
+
+cat BP_sim.rt.genetrees.txt |parallel -j 30 'python ../script/triple_frequency_counter.py {} ../rosa_orthofinder_MO_treeshrink_sp_rt_oneoutg_final.tre'
+
+  
+
+# Find significantly unbalanced triplets and map to species tree
+
+# !!! The GitHub orgin script is wrong, the input file should be the genetrees,not the species tree. You can check the `find_unbalanced_triplets.py`
+
+python /data/xiongtao/tree/ILS/gene_flow/gene_flow_analy/script/find_unbalanced_triplets.py $geneTr
+
+  
+
+mv unbalanced.trp.tsv
+
+#result in unbalanced.trp.tsv
+
+python /data/xiongtao/tree/ILS/gene_flow/gene_flow_analy/script/triplet_mapper.py $speciesTr unbalanced.trp.tsv
+
+#result in unbalanced_triples_raw_count.tre and unbalanced_triples_perc_reticulation_index.tre
+
+### IH/Gene flow
+
+Rscript ~/data/scripts/ILS_GTEE_IH/get_node_inf.R unbalanced_triples_perc_reticulation_index.tre
+
+```
+
+### 汇总全部结果并绘图
+可以收集所有的得到的树文件，然后通过下面的脚本进行汇总并绘图
+```bash
+# 需要更改python脚本中的文件路径，记得替换后再运行
+# 标注的use_theta 和without_theta意思是ILS水平评估的时候，是否计算theta值，可以看
+python extract_node_values_theta.py use_theta
+python extract_node_values_without_theta.py without_theta
+
+Rscript relaimpo.R relative_contribution_ILS_Err_Intro_count_use_theta.csv use_theta
+Rscript relaimpo.R relative_contribution_ILS_Err_Intro_count_without_theta.csv without_theta
+```
 ### 3. 其它
 主要是想要讨论一下方法本身存在的一定的局限性，主要涉及以下几点，纯个人看法：
 1）部分方法的可靠性，例如ILS的评估方法是否可靠
