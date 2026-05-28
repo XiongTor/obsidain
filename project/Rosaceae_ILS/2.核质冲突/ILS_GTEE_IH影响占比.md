@@ -122,35 +122,23 @@ Rscript --vanilla ../script/MSC_geneTr_simulator.R $speciesTr $speciesTr_BP $gen
 
 rm geneTr_sim/*.tem.genetrees
 
-  
 
 # reroot
-
 for n in $(seq 1 100);do
-
   echo "======== BP${n}.sim.genetrees ========"
-
   for i in $(seq 1 2063); do
-
     sed -n "${i}p" BP${n}.sim.genetrees>test.tre
-
     pxrr -t test.tre -g Outgroup > test_rt.tre
-
     cat test_rt.tre>>BP${n}.sim_rt.genetrees
-
   done
-
 done  
 
 #excepted result: sets of simulated gene trees in the folder geneTr_sim
 
-  
-  
 
 # Count triplet frequency in empirical gene trees and simulated gene trees
 
 # This can take hours if there are >30 species, so it is strongly advised to distribute the work to the cluster. For example, submit a job to count triplet frequency for one set of gene trees.
-
   
 
 # For empirical gene trees
@@ -162,7 +150,6 @@ python ./script/triple_frequency_counter.py $geneTr $speciesTr
 #format: column1--species names of the triplet, sorted alphabetically; column2--triplet frequencies of (sp1,sp2);column3--triplet frequencies of (sp1,sp3);column4--triplet frequencies of (sp2,sp3).
 
   
-
 # For simulated gene trees
 
 # If the server hace enough cpu source, you can use parallel to speed up the process.
@@ -173,7 +160,6 @@ ls ./*_rt.genetrees | xargs -I{} echo "../geneTr_sim/{}" > BP_sim.rt.genetrees.t
 
 cat BP_sim.rt.genetrees.txt |parallel -j 30 'python ../script/triple_frequency_counter.py {} ../rosa_orthofinder_MO_treeshrink_sp_rt_oneoutg_final.tre'
 
-  
 
 # Find significantly unbalanced triplets and map to species tree
 
@@ -181,7 +167,6 @@ cat BP_sim.rt.genetrees.txt |parallel -j 30 'python ../script/triple_frequency_c
 
 python /data/xiongtao/tree/ILS/gene_flow/gene_flow_analy/script/find_unbalanced_triplets.py $geneTr
 
-  
 
 mv unbalanced.trp.tsv
 
@@ -201,10 +186,11 @@ Rscript ~/data/scripts/ILS_GTEE_IH/get_node_inf.R unbalanced_triples_perc_reticu
 可以收集所有的得到的树文件，然后通过下面的脚本进行汇总并绘图
 ```bash
 # 需要更改python脚本中的文件路径，记得替换后再运行
-# 标注的use_theta 和without_theta意思是ILS水平评估的时候，是否计算theta值，可以看
+# 标注的use_theta 和without_theta意思是ILS水平评估的时候，是否计算theta值，可以看脚本了解详情
 python extract_node_values_theta.py use_theta
 python extract_node_values_without_theta.py without_theta
 
+# 开始绘图
 Rscript relaimpo.R relative_contribution_ILS_Err_Intro_count_use_theta.csv use_theta
 Rscript relaimpo.R relative_contribution_ILS_Err_Intro_count_without_theta.csv without_theta
 ```
