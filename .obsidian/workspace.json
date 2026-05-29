@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_ILS/流程记录/orthofinder.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "orthofinder"
             }
           }
         ]
@@ -194,13 +194,13 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "references/@Phylogenetic resolution and conflict in the species-rich flowering plant family leguminosae_2025.md",
     "imag/@Phylogenetic resolution and conflict in the species-rich flowering plant family leguminosae_2025/file-20260529171637913.png",
     "imag/@Phylogenetic resolution and conflict in the species-rich flowering plant family leguminosae_2025",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
-    "Home.md",
     "README.md",
     "KEY.md",
     "新建 文本文档.txt",
