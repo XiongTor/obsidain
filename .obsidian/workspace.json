@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
+                "file": "project/Rosaceae_ILS/流程记录/orthofinder.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "paragone"
+              "title": "orthofinder"
             }
           }
         ]
@@ -194,8 +194,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
+    "Home.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "README.md",
     "KEY.md",
