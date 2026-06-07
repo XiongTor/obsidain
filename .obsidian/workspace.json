@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "paragone"
             }
           }
         ]
@@ -194,13 +194,19 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/2.核质冲突/QulBL.md",
+    "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
+    "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
+    "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
+    "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
+    "project/Rosaceae_ILS/2.核质冲突/节点信息整理.md",
+    "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
+    "Home.md",
     "references/@The meaning and measure of concordance factors in phylogenomics_.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@Demographic history and natural selection shape patterns of deleterious mutation load and barriers to introgression across _i_Populus__i_ genome_2022.md",
-    "Home.md",
     "Diary/week/2026年第23周-2026-06-01.md",
     "Diary/diary/2026-06-02 星期二.md",
-    "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "references/@GetOrganelle_ a fast and versatile toolkit for accurate de novo assembly of organelle genomes.md",
     "Diary/diary/2026-05-27 星期三.md",
     "Diary/diary/2026-06-01 星期一.md",
@@ -214,17 +220,11 @@
     "README.md",
     "KEY.md",
     "新建 文本文档.txt",
-    "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
     "Diary/week/2026年第22周-2026-05-25.md",
     "Diary/diary/2026-05-26 星期二.md",
     "未命名.md",
-    "Diary/week/2026年第21周-2026-05-18.md",
-    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
-    "Diary/diary/2026-05-19 星期二.md",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517140602324.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260517133239791.png",
-    "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
-    "project/Rosaceae_ILS/流程记录/AGS353.md",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260515164725009.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/file-20260514162735207.png",
     "imag/@The meaning and measure of concordance factors in phylogenomics_/ChatGPT Image 2026年5月14日 15_45_22.png",
