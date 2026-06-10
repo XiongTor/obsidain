@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
+                "file": "project/Rosaceae_ILS/流程记录/orthofinder.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "MSCquartets"
+              "title": "orthofinder"
             }
           }
         ]
@@ -194,11 +194,11 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "project/Rosaceae_ILS/3.CALL SNP/同源序列比对到参考基因组.md",
     "project/Rosaceae_ILS/2.核质冲突/QulBL.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
-    "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
     "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
     "project/Rosaceae_ILS/2.核质冲突/总结.md",
