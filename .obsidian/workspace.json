@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Diary/week/2026年第26周-2026-06-22.md",
+                "file": "project/Rosaceae_ILS/2.核质冲突/QulBL.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "2026年第26周-2026-06-22"
+              "title": "QulBL"
             }
           }
         ],
@@ -210,8 +210,8 @@
   },
   "active": "9b51fb83d7f65e06",
   "lastOpenFiles": [
-    "梦记/2026.06.25.md",
     "Diary/week/2026年第26周-2026-06-22.md",
+    "梦记/2026.06.25.md",
     "梦记/2026.01.02.md",
     "Home.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
