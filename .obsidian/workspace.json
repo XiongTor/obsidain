@@ -37,7 +37,8 @@
               "title": "2026年第26周-2026-06-22"
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -207,10 +208,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "9b51fb83d7f65e06",
   "lastOpenFiles": [
-    "Diary/week/2026年第26周-2026-06-22.md",
     "梦记/2026.06.25.md",
+    "Diary/week/2026年第26周-2026-06-22.md",
     "梦记/2026.01.02.md",
     "Home.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
