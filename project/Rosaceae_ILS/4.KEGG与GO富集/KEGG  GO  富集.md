@@ -20,10 +20,10 @@ mamba install -c bioconda -c conda-forge eggnog-mapper
 # 下载数据库
 # 可以从https://link.zhihu.com/?target=http%3A//eggnog5.embl.de/download/emapperdb-5.0.2/
 # 下载后的数据解压后放在同一文件夹中，例如放在eggnog-mapper-database
-# 开始注释
+# 开始注释,可以将所有基因合并到一个文件中一起跑，注意序列的标题行的基因名称需要有辨识性
 emapper.py \
-  -i OG0014469.FNA \
-  -o IH \
+  -i all_rename_FNA_seq.fasta \
+  -o all_rename_FNA_seq \
   --output_dir ./ \
   --data_dir ../../eggnog-mapper-database \
   --cpu 0 \
@@ -31,4 +31,20 @@ emapper.py \
   -m diamond \
   -d euk \
   --itype CDS
+
+
+
+# -d euk 指定使用真核生物数据库
+
+#生成的结果解释：
+`.emapper.annotations`：主要的注释结果文件
+`.emapper.seed_orthologs`：最佳匹配正交基因信息
+`.emapper.hits`：详细比对结果
+```
+
+# 2. orgDb 数据库构建
+由于大多数时候我们研究的物种并不是模式物种，无法使用现存的数据库进行后续分析
+因此我们可以根据注释信息，自己构建orgDb 数据库
+```
+
 ```
