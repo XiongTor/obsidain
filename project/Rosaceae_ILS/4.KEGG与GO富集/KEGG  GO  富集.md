@@ -13,6 +13,8 @@ KEGG与GO本质上都是数据库
 # 正式分析
 ## 1. 基因功能注释
 基于EggNOG-mapper 进行蛋白功能注释，如果已有注释信息可以跳过
+注意，如果后续要做GO富集等分析，这里应该注释所有的基因。例如，总计有1000个直系同源基因，其中50个为鉴定出来的渐渗基因，那么这里应该直接注释所有的1000个直系同源基因，方便后续建立自定义的orgDb 数据库。
+如果只是想要知道基因功能而不做富集分析，可以不用全部的基因
 ``` bash
 # 安装相关软件包
 mamba install -c bioconda -c conda-forge eggnog-mapper
@@ -22,11 +24,11 @@ mamba install -c bioconda -c conda-forge eggnog-mapper
 # 下载后的数据解压后放在同一文件夹中，例如放在eggnog-mapper-database
 # 开始注释,可以将所有基因合并到一个文件中一起跑，注意序列的标题行的基因名称需要有辨识性
 emapper.py \
-  -i all_rename_FNA_seq.fasta \
-  -o all_rename_FNA_seq \
+  -i all_OGsgenes.fasta \
+  -o all_OGsgenes \
   --output_dir ./ \
   --data_dir ../../eggnog-mapper-database \
-  --cpu 0 \
+  --cpu 50 \
   --override \
   -m diamond \
   -d euk \
