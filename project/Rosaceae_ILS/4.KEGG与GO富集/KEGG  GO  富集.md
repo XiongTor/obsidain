@@ -14,5 +14,21 @@ KEGG与GO本质上都是数据库
 ## 1. 基因功能注释
 基于EggNOG-mapper 进行蛋白功能注释，如果已有注释信息可以跳过
 ``` bash
+# 安装相关软件包
 mamba install -c bioconda -c conda-forge eggnog-mapper
+
+# 下载数据库
+# 可以从https://link.zhihu.com/?target=http%3A//eggnog5.embl.de/download/emapperdb-5.0.2/
+# 下载后的数据解压后放在同一文件夹中，例如放在eggnog-mapper-database
+# 开始注释
+emapper.py \
+  -i OG0014469.FNA \
+  -o IH \
+  --output_dir ./ \
+  --data_dir ../../eggnog-mapper-database \
+  --cpu 0 \
+  --override \
+  -m diamond \
+  -d euk \
+  --itype CDS
 ```
