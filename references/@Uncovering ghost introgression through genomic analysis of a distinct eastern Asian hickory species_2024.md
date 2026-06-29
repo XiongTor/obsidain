@@ -35,32 +35,36 @@ tags: [paper, literature]
 
 ## 1. 文献研究类群与使用的数据集
 
-**研究类群：**
-胡桃科（Juglandaceae）山核桃属 *Carya*（17–19 种，东亚—北美间断分布），核心聚焦**喙核桃 *Carya sinensis***（beaked hickory，又名 *Annamocarya sinensis*，一种具"鸟喙状"果尖的残遗种，分布于中国西南与越南北部的低山热带林下）。外群为 *Pterocarya stenoptera*（枫杨）。
+#### **研究类群：**
+胡桃科（Juglandaceae）山核桃属(*Carya*)
+外群为 枫杨(*Pterocarya stenoptera*）
 
-**数据组成：**
+#### **数据组成：**
+**全基因组数据：**
+新组装2个：喙核桃(*C. sinensis*)及其同属物种山核桃(*C. cathayensis*)
+公共数据库1个：美国山核桃(*C. illinoinensis*)
 
-| 数据类型 | 内容 | 规模 |
-|---|---|---|
-| 新组装染色体水平参考基因组 | *C. sinensis*（623.16 Mb，contig N50 3.15 Mb，scaffold N50 38.85 Mb，16 条假染色体，QV 34.32，BUSCO 96.9%，LAI 19.1） | Illumina + PacBio + Hi-C，235.51 Gb 原始数据（≈3719） |
-| 新组装染色体水平参考基因组 | *C. cathayensis*（山核桃，698.09 Mb，contig N50 2.59 Mb，scaffold N50 43.59 Mb，16 条假染色体，QV 38.16，BUSCO 97.1%，LAI 16.26） | 207.53 Gb 原始数据（≈2809） |
-| 已发表参考基因组 | *C. illinoinensis*（薄壳山核桃，代表北美 NA 支系） | Lovell et al., 2021 |
-| 全基因组重测序 | 43 个 *C. sinensis* 个体（覆盖其已知大部分分布区） | 309 期望深度，150 bp PE，得 24,751,236 双等位 SNP |
-| 全基因组重测序 | 11 个个体代表 11 个二倍体 *Carya* 物种（6 EA + 5 NA） | 用于物种树与渐渗分析 |
-| 物种树 SNP 数据集 | 13 个个体比对到 *P. stenoptera* 参考，去单例 + LD 过滤（>20 kb） | 19,556 个全基因组 SNP |
-| 共识基因组序列 | 6 EA 物种比对到 *C. cathayensis*，5 NA 物种比对到 *C. illinoinensis* | 用于构建物种树与渐渗分析的基因序列 |
+**重测序数据：**
+43 个 *C. sinensis* 个体
+11种二倍体山核桃属物种各1个个体,涵盖了全部6种东亚山核桃属物种以及5种北美山核桃属物种
 
-> 注：共覆盖 12 个二倍体 *Carya* 物种 + 外群 *P. stenoptera*，EA 支系包括 *C. sinensis, C. cathayensis, C. dabieshanensis, C. hunanensis, C. kweichowensis, C. poilanei, C. tonkinensis*；NA 支系包括 *C. aquatica, C. cordiformis, C. illinoinensis, C. laciniosa, C. ovata*。
+**SNP数据集:**
+12 个二倍体 *Carya* 物种 + 外群 *P. stenoptera*
+
+东亚(EA) 支系包括 *C. sinensis, C. cathayensis, C. dabieshanensis, C. hunanensis, C. kweichowensis, C. poilanei, C. tonkinensis*
+北美(NA) 支系包括 *C. aquatica, C. cordiformis, C. illinoinensis, C. laciniosa, C. ovata*。
 
 ## 2. 文献使用的主要方法
 
-**基因组组装与注释：**
-- 组装：Falcon v3.1（PacBio 预组装）→ Pilon v1.22（Illumina 抛光两轮）→ HiC-Pro v2.11.1 + LACHESIS（Hi-C 挂载到假染色体）；k-mer 法估 genome size
-- 注释：PASA v2.1.0 + AUGUSTUS v3.2.3 + GeneWise v2.4.1，EVM v1.1.1 整合；Blast2GO / KAAS 注释 GO、KEGG；BUSCO embryophyta_odb10、LAI、QV 评估质量
-- 共线性与 WGD：BLASTP + MCScanX 识别共线性基因对；KaKs_Calculator 2.0（Gamma-MYN）估 Ks，揭示胡桃科两次多倍化事件
+**基因组组装与注释**
 
-**物种树重建（关键前提，须对基因流稳健）：**
-- 4 物种（*C. sinensis, C. cathayensis, C. illinoinensis* + 外群）：ASTRAL-Pro（DNA 序列）、whole-genome microsynteny（Zhao et al., 2021）、local gene content（Pett et al., 2019）三法一致
+**物种树重建**
+分不同的数据集进行
+4 物种（*C. sinensis, C. cathayensis, C. illinoinensis* + 外群）：
+- ASTRAL-Pro（DNA 序列）
+- whole-genome microsynteny（Zhao et al., 2021）
+- local gene content（Pett et al., 2019）
+以上三种方法均得到了完全一致的系统发育树结果
 - 12 物种扩展集：CVTree v4.0（全蛋白）、ASTRAL v5.7.4（7398 单拷贝基因）、SVDquartets（19,556 SNP）、PhyloNet（网络）
 - **亮点**：选用 microsynteny / gene content 这类**基于基因组结构**的方法构建物种树，因其对基因流稳健，避免序列法在广泛渐渗下返回"网状史"而非"二歧史"
 
