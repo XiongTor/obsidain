@@ -32,7 +32,7 @@ tags: [paper, literature]
 </div>
 
 ---
-
+# 主要科学问题：喙核桃 *C. sinensis* 的系统发育位置仍不确定，山核桃属内存在杂交渐渗以及幽灵渐渗现象
 ## 1. 文献研究类群与使用的数据集
 
 #### **研究类群：**
@@ -56,40 +56,58 @@ tags: [paper, literature]
 
 ## 2. 文献使用的主要方法
 
-**基因组组装与注释**
-
-**物种树重建**
-分不同的数据集进行
-4 物种（*C. sinensis, C. cathayensis, C. illinoinensis* + 外群）：
+### 2.1**基因组组装与注释**
+通过三套全基因组数据，鉴定了山核桃属中的两次多倍化事件
+![](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629110122553.png)
+### 2.2 **物种树重建**
+**分不同的数据集进行**
+####  4 物种（*C. sinensis, C. cathayensis, C. illinoinensis* + 外群）：
 - ASTRAL-Pro（DNA 序列）
 - whole-genome microsynteny（Zhao et al., 2021）
 - local gene content（Pett et al., 2019）
-以上三种方法均得到了完全一致的系统发育树结果
-- 12 物种扩展集：CVTree v4.0（全蛋白）、ASTRAL v5.7.4（7398 单拷贝基因）、SVDquartets（19,556 SNP）、PhyloNet（网络）
-- **亮点**：选用 microsynteny / gene content 这类**基于基因组结构**的方法构建物种树，因其对基因流稳健，避免序列法在广泛渐渗下返回"网状史"而非"二歧史"
+以上三种方法均得到了完全一致的系统发育树结果，喙核桃与东亚支系聚为姐妹
+![|500](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629110015466.png)
+####  12 物种扩展集：
+CVTree v4.0（全蛋白）
+ASTRAL v5.7.4（7398 单拷贝基因）
+SVDquartets（19,556 SNP）
+PhyloNet（网状树）
+同样的，得到了一致的系统发育树，喙核桃与东亚支系聚为姐妹
+PhyloNet结果鉴定到两次杂交事件,其中喙核桃被鉴定为一个网状节点
+![](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629110433026.png)
+![|400](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629110621235.png)
+### 2.3 **渐渗检测：**
 
-**渐渗检测（核心方法学创新）：**
-- **D-statistic（ABBA–BABA，Patterson et al., 2012）**：对 30 个有根四分体 [((P1: *C. sinensis*, P2: 5 EA), P3: 6 NA), O: *P. stenoptera*] 检验；只能判断"有无渐渗"，**无法区分**非姐妹种间渐渗 vs 幽灵支系渐渗
-- **BPP v4.6.2（MSci 模型，Flouri et al., 2020）**：全似然法，直接分析多位点序列（利用基因树拓扑+分支长度），比较 **6 种渐渗情景**（非姐妹渐渗、外群幽灵渐渗、内群幽灵渐渗等）；选 3 个代表性三元组用 log marginal likelihood 选最优模型；并估继承概率、渐渗时间与分化时间
-- **PhyloNet**：12 物种全数据集推断系统发育网络，识别 *C. sinensis* 为网状节点，估继承概率 c
-- **VolcanoFinder v1.0（Setter et al., 2020）**：仅用受体物种群体多态性数据（24,751,236 SNP / 43 个体），基于复合似然比（CLR）扫描**适应性渐渗**信号（可覆盖幽灵供体）；阈值 CLR > 100，20-kb 区块
-- **Est-SFS（Keightley & Jackson, 2018）**：以 *C. tonkinensis*、*C. illinoinensis* 为外群极化祖先/衍生等位基因，验证候选基因的古老来源
-- **分化时间**：BPP MSci / MSC 模型（考虑/不考虑渐渗）、BEAST2（基因串联树，作对比，会高估）
+**D-statistic：对 30 个有根四分体 
+- P1: *C. sinensis*
+- P2: 5 EA
+- P3: 6 NA
+- O: *P. stenoptera* 
+只能判断有无渐渗，**无法区分**非姐妹种间渐渗 vs 幽灵支系渐渗
 
-**变异检测：** BWA-MEM 比对 → SAMtools 过滤 → SENTIEON DNAseq（去重、indel 重比对、call SNP）/ BCFtools（共识基因组）
+ **BPP v4.6.2（MSci 模型）**：
+ 全似然法，直接分析多位点序列（利用基因树拓扑+分支长度），考虑到其计算量，只选取了三个具有代表性的物种三联体进行后续分析
+ ((C. sinensis, C. cathayensis), C. illinoinensis)
+ ((C. sinensis, C. tonkinensis), C. illinoinensis)
+ ((C. sinensis, C. kweichowensis), C. cordiformis)
+ model6的对数边际似然值最高，即支持存在祖先的幽灵渐渗事件
+ ![](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629111840745.png)
 
+### 2.4 **分化时间估算：**
+采用MSci 模型的 BPP 实现分化时间估计,优势是可以考虑到渐渗的影响
+幽灵谱系从山核桃属的共同祖先中分化出来,估计分化时间约在 5.42 Ma。这表明该已灭绝祖先在那一时期存在于东亚,为遗传物质在 2.72 Ma 时渗入 C. sinensis 提供了机会
+![](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629112217306.png)
+
+### 2.5 **可能的幽灵渐渗基因**
+VolcanoFinder利用SNP数据集检测渐渗基因，经过全基因组扫描后，通过复合似然比(CLR) 方法识别出44个不同的20 kb区块,涵盖36个候选基因
+对这36个基因的基因本体(GO) 富集分析表明,它们参与了多种生物学过程,如昼夜节律 的正向调控、红光和远红光的光转导、远红光信号通路以 及防御反应(图4b)
+![|650](../imag/@Uncovering%20ghost%20introgression%20through%20genomic%20analysis%20of%20a%20distinct%20eastern%20Asian%20hickory%20species_2024/file-20260629112750317.png)
 ## 3. 文献的主要内容与理论
 
-### 1）核心问题
-- **幽灵渐渗（ghost introgression）**——来自已灭绝/未采样支系的遗传物质渗入现存物种——在植物中确凿证据稀缺，可能并非真罕见，而是**检测方法的局限/误读**所致（Tricou et al., 2022a 模拟显示多数显著 D 值其实源自幽灵支系）
-- **D-statistic 的解释困境**：ABBA/BABA 过量既可由非姐妹种间渐渗引起，也可由幽灵支系渗入 P1/P2 引起；位点模式本身**无法区分**两种情景，需额外分析
-- **物种树前提**：D-statistic 与 MSci 模型都要求有准确的**有根物种树**，但广泛渐渗会使基于序列的系统发育反映"网状史"而非"二歧史"——须用对基因流稳健的基因组结构信号
-- **聚焦 *C. sinensis***：其分类地位长期争议（单型属 *Annamocarya* vs 归入 *Carya*），形态"原始/祖征"，疑有古老渐渗自未知近缘支系
-
-### 2）主要结论
+### 主要结论
 
 **（a）系统发育位置澄清：**
-- 多方法（microsynteny、gene content、ASTRAL-Pro；扩展集 CVTree/ASTRAL/SVDquartets/PhyloNet）一致支持 **\*C. sinensis* 是东亚 EA 山核桃支系的姐妹种**，EA 与 NA 两支系互为姐妹
+- 多方法一致支持 **\*C. sinensis* 是东亚 EA 山核桃支系的姐妹种**，EA 与 NA 两支系互为姐妹
 - 据此主张将喙核桃**归入 *Carya***（置于 Rhamphocarya 组），而非保留为单型属 *Annamocarya*
 
 **（b）幽灵渐渗的三重证据链：**
