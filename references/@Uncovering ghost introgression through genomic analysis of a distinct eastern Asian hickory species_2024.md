@@ -35,7 +35,8 @@ tags: [paper, literature]
 
 ## 1. 文献研究类群与使用的数据集
 
-**研究类群：** 胡桃科（Juglandaceae）山核桃属 *Carya*（17–19 种，东亚—北美间断分布），核心聚焦**喙核桃 *Carya sinensis***（beaked hickory，又名 *Annamocarya sinensis*，一种具"鸟喙状"果尖的残遗种，分布于中国西南与越南北部的低山热带林下）。外群为 *Pterocarya stenoptera*（枫杨）。
+**研究类群：**
+胡桃科（Juglandaceae）山核桃属 *Carya*（17–19 种，东亚—北美间断分布），核心聚焦**喙核桃 *Carya sinensis***（beaked hickory，又名 *Annamocarya sinensis*，一种具"鸟喙状"果尖的残遗种，分布于中国西南与越南北部的低山热带林下）。外群为 *Pterocarya stenoptera*（枫杨）。
 
 **数据组成：**
 
