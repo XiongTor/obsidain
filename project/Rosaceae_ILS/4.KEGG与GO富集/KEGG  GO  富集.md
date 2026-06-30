@@ -13,7 +13,10 @@ KEGG与GO本质上都是数据库
 # 相关参考教程
 [知乎-基因功能注释](https://zhuanlan.zhihu.com/p/1960020487737439105)
 [B站-GO富集分析](https://www.bilibili.com/video/BV1fM411v7y3/?spm_id_from=333.788.recommend_more_video.0&trackid=web_related_0.router-related-2589621-zbgqr.1782474842257.823&vd_source=0014b90d2571a54cece0ba578547267d)
+[简书-自定义构建orgDb数据库](https://www.jianshu.com/p/45f1e8c9b79c)
 
+其中记载的主要R包在相关文献中也有使用，具体可以参考
+[@Phylogenomic discordance is driven mainly by pervasive ancient hybridization and incomplete lineage sorting during the early divergence of major angiosperm lineages_2025](references/@Phylogenomic%20discordance%20is%20driven%20mainly%20by%20pervasive%20ancient%20hybridization%20and%20incomplete%20lineage%20sorting%20during%20the%20early%20divergence%20of%20major%20angiosperm%20lineages_2025.md)
 # 正式分析
 ## 1. 基因功能注释
 基于EggNOG-mapper 进行蛋白功能注释，如果已有注释信息可以跳过
@@ -247,54 +250,35 @@ IH_gene <- unique(IH_gene)
 # IH_gene <- read.csv("SRR10377315_SRR15691171_SRR24154117/IH_genelist.csv",header = F)
 # IH_gene <- IH_gene$V1
 # 确认这些基因在 OrgDb 里存在
-
 all_gids <- keys(org.DR.eg.db, keytype = "GID")
-
 gene_diff <- IH_gene[IH_gene %in% all_gids]
-
 # 看看有多少基因匹配上了
 
 cat("输入基因数：", length(IH_gene), "\n")
-
 cat("匹配到OrgDb的基因数：", length(gene_diff), "\n")
 
 # GO 富集分析
 
 ego <- enrichGO(
-
   gene         = gene_diff,
-
   universe     = all_gids,          # 背景基因 = OrgDb 里所有基因
-
   OrgDb        = org.DR.eg.db,
-
   keyType      = "GID",
-
   qvalueCutoff = 0.2,
-
   pvalueCutoff = 0.2,
-
   ont          = "ALL",
-
   minGSSize    = 1         # 加上这行，避免基因数少的 term 被过滤
-
 )
 
 head(as.data.frame(ego))
 
 # 分面的点图
 p <- dotplot(ego, split = "ONTOLOGY",showCategory=20) +  
-
   facet_grid(ONTOLOGY~., scale="free")+    ##### 分面展示
-
   # scale_y_discrete(labels=function(x) str_wrap(x, width = 100))+
-
   theme(
-
     axis.text = element_text(size = 1, angle = 0, hjust = 1, vjust = 0.5),
-
   )
-
 p
 
 ggsave("gomf_0.05.pdf", p, width = 10, height = 12)
