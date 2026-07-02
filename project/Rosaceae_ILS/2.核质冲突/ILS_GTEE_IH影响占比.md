@@ -81,7 +81,7 @@ concord.cf.stat
 bash generate_pipeline.sh
 bash run_seq_gen.sh
 ```
-在模拟完序列并采用与之间建立基因树相同的方法建立完基因树后，需要与物种树进行比较，看物种树的各个节点有多少被准确恢复了，具体代码如下：
+在模拟完序列并采用与之前建立基因树相同的方法建立完基因树后，需要与物种树进行比较，看物种树的各个节点有多少被准确恢复了，具体代码如下：
 ```bash
 raxmlHPC -f b -t species.tre -z sim_gene.trees -m GTRGAMMA -n ERR
 
