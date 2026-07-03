@@ -13,7 +13,7 @@ GitHub教程
 
 本人GitHub主页，记录了相关代码：
 [XiongTor](https://github.com/XiongTor/Rosa_family)
-
+同时在 VS code对应的code仓库中也存有相关代码，与简要的readme说明，后续阅读请结合使用
 # 1. 简要介绍
 随着基因组规模的不断增大，构建的系统发育树会具有更加强力的支持，与此同时也会造成强烈的冲突。因此我们需要判断造成这个冲突的来源是什么，以及如何消弭这种冲突的来源。
 一般来讲这种冲突主要来源于以下几个方面：
@@ -74,12 +74,29 @@ concord.cf.stat
 - seq-gen的模拟序列是可以重复的，所以注意保留日志文件或记录好随机种子
 - 模拟不同的基因需要提供不同的替换速率，这部分信息可以在使用分区文件进行串联法估算枝长的时候得到。或者直接在串联法建树中得到，是一样的
 ```bash
+=============================  使用超矩阵中的碱基替换速率作为seq-gen的参数输入  ===========================
 # 运行已经写好的脚本辅助
 # generate_pipeline.sh 读取分区文件抓取出每个基因分区的替换速率，然后自动生成需要运行的seq-gen命令，当然模拟序列的长度可以通过分区文件调整成与实际基因相同的长度，也可以直接指定一个固定的长度(大多数文献的做法)
-# clip_missing_taxa.sh 如果需要调整对应的模拟基因的物种数量也与实际的一致，可以尝试使用这个脚本。要求提供对应的基因树文件，可以阅读该脚本，在开头写有备注
+# clip_missing_taxa.sh 如果需要调整对应的模拟基因的物种数量也与实际的一致，可以尝试使用这个脚本。要求提供对应的基因树文件，可以阅读该脚本，在开头写有备注，此脚本存在服务器和VS CODE对应的库中
 
 bash generate_pipeline.sh
 bash run_seq_gen.sh
+
+=============================  使用每个单基因的碱基替换速率作为seq-gen的参数输入(最终使用) ===========================
+# 从 IQ-TREE 的 .iqtree 文件中提取替代模型参数，生成 Seq-Gen 模拟命令,注意替换路径
+python generate_seqgen_commands.py
+# 生成文件 seqgen_commands.sh，后续可以直接运行，同时如果想要替换不同的物种树，可以直接替换
+bash seqgen_commands.sh
+
+# 同时注意，生成的模拟序列中的物种为全部物种，但是实际情况中，不同基因的物种数量不一，所以需要提取部分序列
+bash clip_missing_taxa.sh
+
+# 并行跑iqtree
+ls ./*.fasta | parallel -j 3 --bar \
+    'iqtree -s {} \
+            -m MFP \
+            -B 1000 --bnni \
+            -T 10'
 ```
 在模拟完序列并采用与之前建立基因树相同的方法建立完基因树后，需要与物种树进行比较，看物种树的各个节点有多少被准确恢复了，具体代码如下：
 ```bash
@@ -92,6 +109,7 @@ astral4 -C -c rosa_orthofinder_sptree_rebranch_rt_oneoutgroup.tre \
   sim_genetrees.tre
  
 python transform_astral_q1_result.py
+
 
 ```
 
