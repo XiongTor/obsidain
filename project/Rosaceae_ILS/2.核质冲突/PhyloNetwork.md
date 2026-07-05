@@ -112,7 +112,7 @@ seed = 1234 + h # change as desired! Best to have it different for different h
 using Distributed  
 addprocs(nruns)  
 @everywhere using PhyloNetworks  
-net0_h6 = readTopology("astral.tre");  #读取起始树，为了避免并行时linux系统环境变量得区分，在h为1时设置为net0_h1  
+net0_h6 = readTopology("rosa_orthofinder_MO_treeshrink_sp_rt_oneoutg_final.tre");  #读取起始树，为了避免并行时linux系统环境变量得区分，在h为1时设置为net0_h1  
 using DataFrames, CSV  
 df_sp = DataFrame(CSV.File("tableCF.csv", pool=false); copycols=false); #读取CF表  
 d_sp = readTableCF!(df_sp);  
