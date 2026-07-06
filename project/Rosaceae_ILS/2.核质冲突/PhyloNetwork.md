@@ -128,7 +128,7 @@ for h in $(seq 1 6); do
 done
 
 for h in $(seq 1 6);do 
-    nohup julia runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
+    nohup julia script/runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
 done
 
 
