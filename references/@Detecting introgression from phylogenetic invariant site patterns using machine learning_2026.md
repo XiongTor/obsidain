@@ -64,7 +64,8 @@ simcat 是一个基于机器学习的渐渗检测工具，其工作流程如下�
  ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112749789.png)
 ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112546006.png)
 
-**传统方法可能导致的偏差**
+**传统方法可能导致的偏差**  
+
 (1)  **单个 ABBA-BABA 检验极易产生假阳性**
   渐渗参与方不在 quartet 中时仍能检出显著信号，或信号偏移到渐渗参与方的姐妹群上
   
