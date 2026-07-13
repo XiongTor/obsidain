@@ -63,9 +63,16 @@ simcat 是一个基于机器学习的渐渗检测工具，其工作流程如下�
 2. **特征提取：** 从模拟的 SNP 矩阵中提取 **系统发育不变量（phylogenetic invariants）**——即各位点模式（site pattern）的频率。对于四分类群，共有 $4^4 = 256$ 种可能的位点模式，对称性约简后得到多个独立频率。
  ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112749789.png)
 ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112546006.png)
+
+**传统方法可能导致的偏差**
+
 ![](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713120909784.png)
  
- 3. **神经网络分类器：** 训练一个全连接神经网络，以位点模式频率为输入特征，输出为渐渗/非渐渗的二分类（或多分类）结果。
+3. **神经网络分类器：** 训练一个全连接神经网络，以位点模式频率为输入特征，输出为渐渗/非渐渗的二分类（或多分类）结果
+ 
+**监督学习方面**，以 >99.8% 的准确率分类种渐渗情景，且自动识别出的最具判别力特征恰好对应 ABBA 和 BABA 型位点模式，说明其能识别出关键信息
+
+**无监督学习方面**，t-SNE 在完全不知晓渐渗标签的情况下，将四尖端树（12 种情景）和五尖端树（24 种情景）的模拟数据分别嵌入二维空间后，同一种渐渗情景的样本自然聚集成紧密的簇，不同情景的簇彼此清晰分离。
 ![](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713115209115.png)
 
 
@@ -98,8 +105,3 @@ simcat 是一个基于机器学习的渐渗检测工具，其工作流程如下�
 1. **当前仅限四分类群：** 扩展到 5 个或更多分类群时，位点模式数呈指数增长（$4^N$），可能面临维度灾难。需要探索降维策略或更高效的网络架构。
 2. **模拟-现实的差距：** 训练数据完全基于 coalescent 模拟，模型在真实数据上的泛化能力取决于模拟对真实进化过程的逼近程度。若真实数据存在模拟未涵盖的复杂因素（如选择、群体结构变化、重组率变异等），分类性能可能下降。
 3. **缺乏不确定性量化：** 当前方法仅给出分类结果，未提供完整的后验概率分布或置信区间，这在实证研究中可能限制其解释力。
-4. **与 QuIBL 的比较：** 考虑到本项目（Rosaceae cytonuclear）当前使用 QuIBL 进行渐渗/ILS 判别，simcat 提供了一个有趣的替代方案——QuIBL 基于期望树形分布，而 simcat 基于位点模式频率，两者在理论上可以互补验证。
-
-**对本项目的启示：**
-- simcat 的思路可以启发我们对 Rosaceae 数据的分析方法改进：是否可以通过模拟训练一个适用于蔷薇科特定进化场景的分类器？
-- simcat 与 QuIBL 的结果可以进行交叉验证，增强渐渗推断的可信度。
