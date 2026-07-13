@@ -60,11 +60,12 @@ simcat 是一个基于机器学习的渐渗检测工具，其工作流程如下�
    - 纯 ILS 场景（无渐渗）
    - 渐渗场景（不同方向、不同比例、不同时间的渐渗事件）
    
-2. **特征提取：** 从模拟的 SNP 矩阵中提取 **系统发育不变量（phylogenetic invariants）**——即各位点模式（site pattern）的频率。对于四分类群，共有 $4^4 = 256$ 种可能的位点模式，对称性约简后得到多个独立频率。
+1. **特征提取：** 从模拟的 SNP 矩阵中提取 **系统发育不变量（phylogenetic invariants）**——即各位点模式（site pattern）的频率。对于四分类群，共有 $16 × 16 = 256$ 种可能的位点模式，对称性约简后得到多个独立频率。
+ ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112749789.png)
+![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112546006.png)
+1. **神经网络分类器：** 训练一个全连接神经网络，以位点模式频率为输入特征，输出为渐渗/非渐渗的二分类（或多分类）结果。
 
-3. **神经网络分类器：** 训练一个全连接神经网络，以位点模式频率为输入特征，输出为渐渗/非渐渗的二分类（或多分类）结果。
-
-4. **显著性检验：** 通过模拟零分布（null distribution），对分类结果进行显著性评估。
+2. **显著性检验：** 通过模拟零分布（null distribution），对分类结果进行显著性评估。
 
 #### **对比方法：**
 - **ABBA-BABA (D-statistic)：** 经典的渐渗检测方法，基于四分类群 SNP 频率差异
