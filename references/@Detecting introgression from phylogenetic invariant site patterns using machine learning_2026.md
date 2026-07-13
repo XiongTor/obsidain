@@ -65,12 +65,19 @@ simcat 是一个基于机器学习的渐渗检测工具，其工作流程如下�
 ![|700](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713112546006.png)
 
 **传统方法可能导致的偏差**
-
-![](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713120909784.png)
+(1)  **单个 ABBA-BABA 检验极易产生假阳性**
+  渐渗参与方不在 quartet 中时仍能检出显著信号，或信号偏移到渐渗参与方的姐妹群上
+  
+(2) **方向性无法从单个检验判断**
+  D 值的正负符号不能可靠地指示渐渗的实际方向
+  
+(3) **两种渐渗方向（3→1 与 1→3）的snp矩阵分布模式截然不同**
+   simcat 用神经网络同时分析所有层
+   ![](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713120909784.png)
  
 3. **神经网络分类器：** 训练一个全连接神经网络，以位点模式频率为输入特征，输出为渐渗/非渐渗的二分类（或多分类）结果
  
-**监督学习方面**，以 >99.8% 的准确率分类种渐渗情景，且自动识别出的最具判别力特征恰好对应 ABBA 和 BABA 型位点模式，说明其能识别出关键信息
+**监督学习方面**，以 >99.8% 的准确率分类渐渗情景，且自动识别出的最具判别力特征恰好对应 ABBA 和 BABA 型位点模式，说明其能识别出关键信息
 
 **无监督学习方面**，t-SNE 在完全不知晓渐渗标签的情况下，将四尖端树（12 种情景）和五尖端树（24 种情景）的模拟数据分别嵌入二维空间后，同一种渐渗情景的样本自然聚集成紧密的簇，不同情景的簇彼此清晰分离。
 ![](../imag/@Detecting%20introgression%20from%20phylogenetic%20invariant%20site%20patterns%20using%20machine%20learning_2026/file-20260713115209115.png)
