@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "Diary/diary/2026-07-12 星期日.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "2026-07-12 星期日"
             }
           }
         ]
@@ -194,6 +194,7 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "Diary/diary/2026-07-12 星期日.md",
     "references/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026.md",
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026/file-20260713120909784.png",
@@ -209,7 +210,6 @@
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "project/Rosaceae_ILS/2.核质冲突/节点信息整理.md",
-    "Home.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "references/@Phylogenetic resolution and conflict in the species-rich flowering plant family leguminosae_2025.md",
     "references/@The meaning and measure of concordance factors in phylogenomics_.md",
