@@ -50,7 +50,7 @@ make #编译
 一般来讲，由于phylonet运算时间较长，所以选取的物种数量一般较少，个人感觉控制在20往下较为合适
 所以，如果事先系统发育分析建立的基因树中存在过多的物种，可以尝试提取部分物种来进行分析，即剪取子树
 ```bash
-for tree in ../../05-final_genetrees_1outg/*.tre;do
+for tree in 03-treefile_rt/*.tre;do
     name=$(basename $tree .tre)
     echo $name
     gotree prune \
