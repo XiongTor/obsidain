@@ -48,6 +48,11 @@ widgets:
           ```col-md
           flexGrow=1
           ===
+           🗃[[test|Test]]
+          ```
+          ```col-md
+          flexGrow=1
+          ===
 
           ```
           ````
