@@ -1,6 +1,6 @@
 ---
 banner: "![[homepage_banner.jpeg]]"
-banner_y: 0.136
+banner_y: 0.14
 ---
 ---
 

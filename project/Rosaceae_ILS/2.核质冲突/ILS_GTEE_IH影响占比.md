@@ -54,7 +54,7 @@ GitHub教程
 #### 1）基因树变异程度
 表示的是基因树的拓扑结构在物种树上的变异程度，也就是不同基因树在每个节点上支持的拓扑是否一致。
 一般是使用**gCF**(gene Concordance Factor)值来衡量，我们可以直接在IQTREE中找到该方法来进行运算，一般需要一棵物种树和一个基因树的集合。一般来讲，在时间充足的情况下，选择bootstrap tree的集合来作为输入，这样能够提高样本量，减小误差。
-![](../../../imag/ILS_GTEE_IH影响占比/file-20250704214240696.png)
+![图片](../../../imag/ILS_GTEE_IH影响占比/file-20250704214240696.png)
 ```bash
 iqtree -t rosa_orthofinder_MO_treeshrink_sp_rt_oneoutg_nonodelabel_nozero_final.tre --gcf BSgenetree.trees --prefix concord
 

@@ -6,5 +6,8 @@
   ],
   "nativeMenus": false,
   "interfaceFontFamily": "",
-  "textFontFamily": ""
+  "textFontFamily": "",
+  "showViewHeader": true,
+  "showRibbon": true,
+  "baseFontSize": 17
 }
