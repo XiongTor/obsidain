@@ -29,7 +29,7 @@
               "type": "markdown",
               "state": {
                 "file": "Home.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true,
                 "backlinks": false
               },
@@ -212,7 +212,9 @@
   },
   "active": "2bafb2d2c442b6b8",
   "lastOpenFiles": [
+    "README.md",
     "灵光一闪/AI及编程相关.md",
+    "Home.md",
     "Diary/week/2026年第36周-2026-08-31.md",
     "未命名",
     "灵光一闪/AI及编程",
@@ -221,7 +223,6 @@
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/蟑螂，密码子模型建树.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "references/@Phylogenomic discordance is driven mainly by pervasive ancient hybridization and incomplete lineage sorting during the early divergence of major angiosperm lineages_2025.md",
-    "Home.md",
     "MOC/Project.md",
     "MOC/Reference_list.md",
     "Diary/diary/2026-06-01 星期一.md",
@@ -249,7 +250,6 @@
     "references/@Whole-genome sequences of Malawi cichlids reveal multiple radiations interconnected by gene flow_2018.md",
     "references/@Dsuite - Fast D-statistics and related admixture evidence from VCF files_2021.md",
     "references/@An integrative phylogenomic framework quantifies the dominant role of introgression in phylogenetic discordance among diploid oryza species_.md",
-    "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
     "imag/2026年第27周-2026-06-29/file-20260703214718537.png",
     "imag/2026年第27周-2026-06-29",
     "imag/@Uncovering ghost introgression through genomic analysis of a distinct eastern Asian hickory species_2024/file-20260629112750317.png",
