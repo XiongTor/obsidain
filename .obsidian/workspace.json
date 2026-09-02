@@ -11,15 +11,10 @@
             "id": "e7a7b303c61786dc",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Home.md",
-                "mode": "preview",
-                "source": false,
-                "backlinks": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "新标签页"
             }
           }
         ]
@@ -42,7 +37,9 @@
               "type": "file-explorer",
               "state": {
                 "sortOrder": "alphabetical",
-                "autoReveal": false
+                "autoReveal": false,
+                "showSearch": false,
+                "searchQuery": ""
               },
               "icon": "lucide-folder-closed",
               "title": "文件列表"
@@ -194,9 +191,9 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
     "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
-    "Home.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
     "project/Rosaceae_ILS/流程记录/AGS353.md",
     "Diary/diary/2026-07-17 星期五.md",
