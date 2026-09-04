@@ -48,7 +48,7 @@ widgets:
           ```col-md
           flexGrow=1
           ===
-           🗃[[test|Test]]
+           🗃[灵光一闪](灵光一闪/导航页.md)
           ```
           ```col-md
           flexGrow=1
@@ -164,7 +164,7 @@ titleStyle:
   fontSize: 15px
   fontWeight: normal
 dataSource:
-  type: ALL_TASK
+  type: PAGE
   value: ""
   dateField: {}
 fillTheScreen: false
@@ -172,3 +172,4 @@ enableMainContainerShadow: false
 cellStyleRules: []
 
 ```
+

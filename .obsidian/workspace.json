@@ -21,21 +21,8 @@
               "icon": "lucide-file",
               "title": "Home"
             }
-          },
-          {
-            "id": "f3472a0484b931ce",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.13.7"
-              },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.13.7"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,12 +194,21 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f3472a0484b931ce",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.md",
-    "MOC/文献详细页/导览页-1.md",
     "MOC/Reference_list.md",
+    "MOC/文献详细页/导览页-1.md",
+    "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
+    "Home.md",
+    "Diary/week/2026年第36周-2026-08-31.md",
     "未命名.md",
+    "Diary/diary/2026-09-04 星期五.md",
+    "Diary/diary/2026-09-03 星期四.md",
+    "灵光一闪/导航页.md",
+    "灵光一闪/AI及编程相关.md",
+    "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
+    "project/Rosaceae_ILS/2.核质冲突/总结.md",
+    "project/Rosaceae_ILS/2.核质冲突/节点信息整理.md",
     "KEY.md",
     "README.md",
     "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
@@ -226,20 +222,11 @@
     "MOC/文献详细页",
     "MOC/test.md",
     "references/@2017.md",
-    "灵光一闪/AI及编程相关.md",
-    "Diary/week/2026年第36周-2026-08-31.md",
     "未命名",
     "灵光一闪/AI及编程",
     "灵光一闪",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/山茶属文章.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/蟑螂，密码子模型建树.md",
-    "references/@Phylogenomic discordance is driven mainly by pervasive ancient hybridization and incomplete lineage sorting during the early divergence of major angiosperm lineages_2025.md",
-    "Diary/diary/2026-06-01 星期一.md",
-    "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
-    "project/Rosaceae_ILS/2.核质冲突/PhyloNetwork.md",
-    "project/Rosaceae_ILS/流程记录/orthofinder.md",
-    "project/Rosaceae_ILS/流程记录/AGS353.md",
-    "Diary/diary/2026-07-17 星期五.md",
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026/file-20260713120909784.png",
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026/file-20260713120413158.png",
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026/file-20260713115733133.png",
