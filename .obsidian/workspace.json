@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Home.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
@@ -179,8 +179,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5,
-    "collapsed": true
+    "width": 234.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,14 +196,16 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Diary/diary/2026-09-05 星期六.md",
+    "Diary/diary/2026-09-06 星期日.md",
+    "Diary/diary/2026-09-04 星期五.md",
+    "Home.md",
+    "Diary/week/2026年第36周-2026-08-31.md",
     "vibe code/计划.md",
     "zotero_note/注释 (2026-1-21 21-40-33).md",
     "homebackground/homepage_banner.jpeg",
     "error/QT_X11自动化配置.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
-    "Diary/week/2026年第36周-2026-08-31.md",
-    "Diary/diary/2026-09-04 星期五.md",
-    "Home.md",
     "MOC/Reference_list.md",
     "MOC/文献详细页/导览页-1.md",
     "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
@@ -223,8 +224,6 @@
     "MOC/文献详细页/文献导览页-2.md",
     "文献详细页/文献导览页-2.md",
     "MOC/Project.md",
-    "MOC/未命名.md",
-    "MOC/未命名 1.md",
     "MOC/文献详细页",
     "未命名",
     "灵光一闪/AI及编程",
