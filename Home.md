@@ -154,25 +154,50 @@ layoutType: column
 ```
 ```contributionGraph
 title: Contributions
-graphType: default
+graphType: calendar
 dateRangeValue: 180
 dateRangeType: FIXED_DATE_RANGE
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
-  textAlign: left
+  textAlign: center
   fontSize: 15px
   fontWeight: normal
 dataSource:
   type: ALL_TASK
   value: ""
-  dateField: {}
+  dateField:
+    type: FILE_CTIME
+  countField:
+    type: DEFAULT
   filters: []
-fillTheScreen: false
+fillTheScreen: true
 enableMainContainerShadow: false
 fromDate: 2026-01-01
 toDate: 2026-12-31
-cellStyleRules: []
+mainContainerStyle:
+  boxShadow: rgba(0, 0, 0, 0.16) 0px 1px 4px
+cellStyleRules:
+  - id: default_b
+    color: "#9be9a8"
+    min: 1
+    max: 2
+  - id: default_c
+    color: "#40c463"
+    min: 2
+    max: 5
+  - id: default_d
+    color: "#30a14e"
+    min: 5
+    max: 10
+  - id: default_e
+    color: "#216e39"
+    min: 10
+    max: 999
+cellStyle:
+  minHeight: 8px
+  minWidth: 8px
 
 ```
+
 

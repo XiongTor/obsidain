@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "Home.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": false,
                 "backlinks": false
               },
@@ -196,20 +196,20 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "Home.md",
     "未命名.base",
+    "vibe code/计划.md",
+    "MOC/Reference_list.md",
     "Diary/diary/2026-09-08 星期二.md",
     "Diary/diary/2026-09-06 星期日.md",
     "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
-    "Home.md",
     "Diary/diary/2026-09-05 星期六.md",
     "Diary/diary/2026-09-04 星期五.md",
     "Diary/week/2026年第36周-2026-08-31.md",
-    "vibe code/计划.md",
     "zotero_note/注释 (2026-1-21 21-40-33).md",
     "homebackground/homepage_banner.jpeg",
     "error/QT_X11自动化配置.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
-    "MOC/Reference_list.md",
     "MOC/文献详细页/导览页-1.md",
     "references/@Quartet sampling distinguishes lack of support from conflicting support in the green plant tree of life_2018.md",
     "未命名.md",
@@ -241,7 +241,6 @@
     "imag/2026年第27周-2026-06-29",
     "imag/@Uncovering ghost introgression through genomic analysis of a distinct eastern Asian hickory species_2024",
     "project/Rosaceae_ILS/4.KEGG与GO富集",
-    "imag/@Phylogenetic resolution and conflict in the species-rich flowering plant family leguminosae_2025",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
