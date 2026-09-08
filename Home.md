@@ -156,7 +156,7 @@ layoutType: column
 title: Contributions
 graphType: default
 dateRangeValue: 180
-dateRangeType: LATEST_MONTH
+dateRangeType: FIXED_DATE_RANGE
 startOfWeek: 1
 showCellRuleIndicators: true
 titleStyle:
@@ -164,11 +164,14 @@ titleStyle:
   fontSize: 15px
   fontWeight: normal
 dataSource:
-  type: PAGE
+  type: ALL_TASK
   value: ""
   dateField: {}
+  filters: []
 fillTheScreen: false
 enableMainContainerShadow: false
+fromDate: 2026-01-01
+toDate: 2026-12-31
 cellStyleRules: []
 
 ```
