@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
+                "file": "Diary/diary/2026-09-08 星期二.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "paragone"
+              "title": "2026-09-08 星期二"
             }
           }
         ]
@@ -196,8 +196,10 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.md",
     "Diary/diary/2026-09-06 星期日.md",
+    "Diary/diary/2026-09-08 星期二.md",
+    "project/Rosaceae_ILS/文献阅读/早期文献阅读记录/paragone.md",
+    "Home.md",
     "Diary/diary/2026-09-05 星期六.md",
     "Diary/diary/2026-09-04 星期五.md",
     "Diary/week/2026年第36周-2026-08-31.md",
@@ -222,8 +224,6 @@
     "MOC/文献详细页/文献导览页-3.md",
     "文献详细页",
     "MOC/文献详细页/文献导览页-2.md",
-    "文献详细页/文献导览页-2.md",
-    "MOC/Project.md",
     "MOC/文献详细页",
     "未命名",
     "灵光一闪/AI及编程",
