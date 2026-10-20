@@ -2,7 +2,8 @@
   "theme": "obsidian",
   "accentColor": "#1972e6",
   "enabledCssSnippets": [
-    "custom-links"
+    "custom-links",
+    "dashboard-aesthetic"
   ],
   "nativeMenus": false,
   "interfaceFontFamily": "",
