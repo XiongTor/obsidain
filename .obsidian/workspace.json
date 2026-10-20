@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "灵光一闪/导航页.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "导航页"
             }
           }
         ]
@@ -175,7 +175,7 @@
             }
           }
         ],
-        "currentTab": 4
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -194,9 +194,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "e02553b73f798db4",
   "lastOpenFiles": [
+    "灵光一闪/AI及编程相关.md",
+    "vibe code/计划.md",
     "Home.md",
+    "Diary/diary/2026-10-19 星期一.md",
+    "Diary/week/2026年第43周-2026-10-19.md",
+    "Diary/week/2026年第41周-2026-10-05.md",
     "crisp_banner.png",
     "Home 1.backup.md",
     "Home 1.md",
@@ -218,11 +223,7 @@
     "project/Rosaceae_ILS/2.核质冲突/ILS_GTEE_IH影响占比.md",
     "小工具记录/VS code同时上传到github与本地服务器.md",
     "references/@Gene tree discord, simplex plots, and statistical tests under the coalescent.md",
-    "Diary/week/2026年第41周-2026-10-05.md",
     "project/Rosaceae_ILS/4.KEGG与GO富集/KEGG  GO  富集.md",
-    "Diary/week/2026年第40周-2026-09-28.md",
-    "project/Rosaceae_ILS/2.核质冲突/节点信息整理.md",
-    "project/Rosaceae_ILS/文献阅读/渐渗基因文献.md",
     "未命名.base",
     "未命名 1.base",
     "homebackground/homepage_banner.jpeg",
