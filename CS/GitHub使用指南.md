@@ -24,4 +24,36 @@ tags:
 如何链接上GitHub，这里推荐两种方法：
 - 科学上网，会导致IP变动
 - Watt Toolkit，本地加速器，IP基本不会变动
+### GitHub云端创建仓库，根据指引在本地初始化仓库
+![|725](../imag/GitHub使用指南/file-20261025191522142.png)
+解释：
+```
+git init  # 本地初始化Git仓库
+git add README.md  # 将文件放入暂存区，理论上初次配置后，后续推送前直接git commit就行，不需要再次git add，当然执行一次也没事
+git commit -m "first commit"  # 将暂存区提交到本地仓库，这里可以认为记做了一次新的版本
+git branch -M main  # 将当前分支强制重命名为 `main`；`-M` 表示即使目标分支名已存在，也允许强制重命名
+git remote add origin https://github.com/XiongTor/test.git  # 添加一个名为 `origin` 的远程仓库，地址指向 GitHub 上的 `test` 仓库
+git push -u origin main  # 将本地 `main` 分支推送到远程 `origin`
+```
 
+或者，使用AI agent执行，直接提供仓库地址，AI会完成全部步骤
+
+本地仓库初始化并上传GitHub云端后，使用VS code打开本地对应的仓库地址（文件夹），之后可直接在VS code中打开并修改上传。
+![|675](../imag/GitHub使用指南/file-20261025192424310.png)
+![|675](../imag/GitHub使用指南/file-20261025192712903.png)
+
+
+
+# 2. 基于VS code的本地代码维护，日常使用
+
+### (1) VS code 如何链接服务器
+按照如下操作，连接后输入IP ，账户，密码即可正常连接登录
+![](../imag/GitHub使用指南/file-20261025193116883.png)
+
+### （2）版本控制，本地库，云端库，版本号查看
+在VS code如下位置可以查看，目前要上传的本地库到底是哪个库的分支（main），连接的云端库是哪个分支（origin/main），不同版本的版本号是多少（886a71d）
+![](../imag/GitHub使用指南/file-20261025193558587.png)
+一般来讲，VS code会自动检测当前工作区对应的本地仓库和云端仓库，在不额外操作的情况下，会按照历史操作来进行推送
+所以，如果工作区中放了多个库，就需要注意在推送的时候到底推送的是哪个库，防止推送错误
+当工作区中只有一个库时，一般不用担心这个问题
+![](../imag/GitHub使用指南/file-20261025194238479.png)
