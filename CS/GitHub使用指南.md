@@ -22,11 +22,14 @@ tags:
 解释：
 ```
 git init  # 本地初始化Git仓库
-git add README.md  # 将文件放入暂存区，理论上初次配置后，后续推送前直接git commit就行，不需要再次git add，当然执行一次也没事
-git commit -m "first commit"  # 将暂存区提交到本地仓库，这里可以认为记做了一次新的版本
+git add README.md  # 将文件放入暂存区
+git commit -m "first commit"  # 将暂存区提交到本地仓库，这里可以认为本地已经产生了一个新的版本，类似保存
 git branch -M main  # 将当前分支强制重命名为 `main`；`-M` 表示即使目标分支名已存在，也允许强制重命名
 git remote add origin https://github.com/XiongTor/test.git  # 添加一个名为 `origin` 的远程仓库，地址指向 GitHub 上的 `test` 仓库
 git push -u origin main  # 将本地 `main` 分支推送到远程 `origin`
+
+
+# 第一次初始化执行后，后续推送只需要执行`git add`和`git commit -m xxx`和`git push`
 ```
 
 或者，使用AI agent执行，直接提供仓库地址，AI会完成全部步骤
@@ -36,8 +39,8 @@ git push -u origin main  # 将本地 `main` 分支推送到远程 `origin`
 ![|675](../imag/GitHub使用指南/file-20261025192712903.png)
 
 
-### （2）READMD.md文件与.gitignore文件
-- READMD.md文件是最终显示在GitHub主页的文件，
+### （2）README.md文件与.gitignore文件
+- README.md文件是最终显示在GitHub主页的文件，
 ![|500](../imag/GitHub使用指南/file-20261025194708814.png)
 
 - .gitignore 某些本地仓库中的敏感信息不想要推送到云端的时候，将对应文件的名称放置到`.gitignore`中就不会被推送到GitHub云端。最好在首次初始化仓库提交仓库的时候就写好，尤其是针对本地已有的代码库进行初始化的时候
