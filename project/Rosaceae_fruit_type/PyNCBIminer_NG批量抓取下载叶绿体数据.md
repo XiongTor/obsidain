@@ -61,3 +61,5 @@ python PyNCBIminer_NG/src/Chloroplast/download_gb_file.py \
     -e 1760755795@qq.com \
     -t 15
 ```
+
+## 4. yuguo
