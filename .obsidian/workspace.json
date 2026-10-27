@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "PyNCBIminer_NG批量抓取下载叶绿体数据"
             }
           }
         ]
@@ -197,8 +197,12 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png",
+    "imag/PyNCBIminer_NG批量抓取下载叶绿体数据",
+    "project/Rosaceae_fruit_type/ags353流程记录.md",
+    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
     "Home.md",
+    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "CS/GitHub使用指南.md",
     "imag/GitHub使用指南/file-20261025195108040.png",
     "imag/GitHub使用指南/file-20261025194708814.png",
@@ -231,9 +235,6 @@
     "CS/Python/CS61A/Lecture 2 names.md",
     "CS/Python/CS61A/Lecture 1 Welcome.md",
     "homebackground/crisp_banner.png",
-    "project/Rosaceae_ILS/2.核质冲突/QulBL.md",
-    "project/Rosaceae_ILS/2.核质冲突/D-statistic.md",
-    "project/Rosaceae_ILS/2.核质冲突/总结.md",
     "未命名.base",
     "未命名 1.base",
     "文献详细页",
@@ -242,7 +243,6 @@
     "灵光一闪/AI及编程",
     "灵光一闪",
     "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026",
-    "imag/2026年第27周-2026-06-29",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
