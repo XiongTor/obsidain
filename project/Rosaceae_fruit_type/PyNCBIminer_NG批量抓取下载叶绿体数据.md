@@ -22,6 +22,42 @@ tags:
 ## github仓库克隆
 git clone https://github.com/wyx619/PyNCBIminer_NG.git /data/PyNCBIminer_NG
 
-## Linux 环境配置，基于conda进行
+# 针对以下代码进行了重构，使得可以使用python直接调用，更新后的代码在服务器1的：/data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/00-seqdata/04-chloroplast_pyNCBIminer/PyNCBIminer_NG/
 
+  #  M src/Chloroplast/call_pga.py           +21 行（新增 __main__：-i/-g/-c/-r）
+  #  M src/Chloroplast/download_gb_file.py   +18 行（新增 __main__：-i/-o/-e/-k/-t）
+  #  M src/Chloroplast/pre_filter_gb_file.py +27 行（替换写死测试路径的 __main__：-i/-o/-n/--species_level）
+  # ?? src/Chloroplast/search_accessions.py  新增（步骤 0 入口，内部调用 main_utils 的检索函数）
+  
+## Linux 环境配置，基于conda进行
+conda create -n pyncbi python=3.12 -y
+conda activate pyncbi
+
+pip install -U pip
+pip install "biopython>=1.78" "pandas>=2.0"
+pip install "PySide6>=6.0" "PySide6-Fluent-Widgets"
+
+```
+
+## 2. 下载NCBI登录号
+```bash
+# 需要自己准备一个只包含物种名称的列表，参考格式：Prunus accumulans
+python PyNCBIminer_NG/src/Chloroplast/search_accessions.py \
+  -i ./Rosaceae_namelist.txt \
+  -o ./ \
+  -e 1760755795@qq.com \
+  --chunk-size 200
+    
+# chunk-size，每一批次下载多少个，这里每一批次只下载200个，分多个批次进行，目的是防止NCBI崩坏导致全部的数据都无法拿到
+```
+
+## 3. 下载 GenBank
+```bash
+mkdir -p ./download
+
+python PyNCBIminer_NG/src/Chloroplast/download_gb_file.py \
+    -i ./accession_index.txt \
+    -o ./download \
+    -e 1760755795@qq.com \
+    -t 15
 ```
