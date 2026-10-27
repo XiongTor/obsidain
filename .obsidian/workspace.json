@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d55ffe5fddc1bba1",
@@ -198,6 +197,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
+    "Home.md",
     "CS/GitHub使用指南.md",
     "imag/GitHub使用指南/file-20261025195108040.png",
     "imag/GitHub使用指南/file-20261025194708814.png",
@@ -209,7 +210,6 @@
     "imag/GitHub使用指南/file-20261025191522142.png",
     "imag/GitHub使用指南",
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
-    "Home.md",
     "Diary/week/2026年第43周-2026-10-19.md",
     "Diary/diary/2026-10-25 星期日.md",
     "Diary/diary/2026-10-19 星期一.md",
