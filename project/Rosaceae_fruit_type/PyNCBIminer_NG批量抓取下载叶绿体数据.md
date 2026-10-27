@@ -62,4 +62,14 @@ python PyNCBIminer_NG/src/Chloroplast/download_gb_file.py \
     -t 15
 ```
 
-## 4. yuguo
+## 4. 预过滤
+```bash
+mkdir -p 。/prefiltered
+
+python src/Chloroplast/pre_filter_gb_file.py \
+    -i ./download \
+    -o ./prefiltered \
+    -n 3
+
+# -n 每个 taxon 最多保留几条，默认 3
+```
