@@ -73,5 +73,32 @@ python -m Chloroplast.pre_filter_gb_file \
       -i ../download -o ../prefiltered -n 3
 
 # -n 每个 taxon 最多保留几条，默认 3
+# prefiltered/pre_filter.csv文件中记录了详细情况
 ```
 
+## 5. 质检
+只用来标记注释不合格的序列，用于下一步重注释
+```bash
+mkdir -p ./qc
+
+python PyNCBIminer_NG/src/Chloroplast/quality_ctrl.py \
+    -i ./prefiltered \
+    -o ./qc \
+    -c 75 \
+    -a 0.2 \
+    -t 8
+
+# -c 75 少于75条CDS区域的基因组会被标记为不合格
+# -a 0.2 基因组中 N 的占比高于0.2的会被标记为不合格
+# 最终统计每个基因组的长度、CDS/tRNA/rRNA 数、N 碱基比例，写入`gb_info.csv`
+```
+
+## 6. 重注释
+```bash
+python PyNCBIminer_NG/src/Chloroplast/call_pga.py \
+    -i ./qc \
+    -g ./prefiltered \
+    -c Angiosperms
+    
+# -c 有三个可选的参考，分别为Angiosperms(被子植物)，Gymnosperms(裸子植物)，User defined(自定义)
+```
