@@ -64,9 +64,9 @@ python PyNCBIminer_NG/src/Chloroplast/download_gb_file.py \
 
 ## 4. 预过滤
 ```bash
-mkdir -p 。/prefiltered
+mkdir -p ./prefiltered
 
-python src/Chloroplast/pre_filter_gb_file.py \
+python PyNCBIminer_NG/src/Chloroplast/pre_filter_gb_file.py \
     -i ./download \
     -o ./prefiltered \
     -n 3
