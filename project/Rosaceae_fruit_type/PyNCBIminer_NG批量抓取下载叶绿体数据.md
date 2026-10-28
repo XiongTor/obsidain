@@ -104,4 +104,11 @@ python PyNCBIminer_NG/src/Chloroplast/call_pga.py \
 # -c 有三个可选的参考，分别为Angiosperms(被子植物)，Gymnosperms(裸子植物)，User defined(自定义)
 ```
 
-# 7. 
+# 7. 提取 80 个叶绿体 CDS
+
+```bash
+python PyNCBIminer_NG/src/Chloroplast/get_cds.py \
+    -i $WORK/prefiltered \
+    -o $WORK/cds_all \
+    -t 8
+```
