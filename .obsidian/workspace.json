@@ -4,22 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "4509724f8bf84da7",
+        "id": "de3a7da0bc2e9237",
         "type": "tabs",
         "children": [
           {
-            "id": "e7a7b303c61786dc",
+            "id": "3ec54902ad4d42cf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
+                "file": "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "PyNCBIminer_NG批量抓取下载叶绿体数据"
+              "title": "PyNCBIminer_NG批量下载其它片段"
             }
           }
         ]
@@ -179,8 +179,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5,
-    "collapsed": true
+    "width": 234.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,12 +194,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "3ec54902ad4d42cf",
   "lastOpenFiles": [
+    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
+    "Diary/diary/2026-10-29 星期四.md",
+    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据",
     "project/Rosaceae_fruit_type/ags353流程记录.md",
-    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
     "Home.md",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
     "CS/GitHub使用指南.md",
@@ -233,8 +234,6 @@
     "Home 1.backup.md",
     "Home 1.md",
     "CS/Python/CS61A/Lecture 2 names.md",
-    "CS/Python/CS61A/Lecture 1 Welcome.md",
-    "homebackground/crisp_banner.png",
     "未命名.base",
     "未命名 1.base",
     "文献详细页",
