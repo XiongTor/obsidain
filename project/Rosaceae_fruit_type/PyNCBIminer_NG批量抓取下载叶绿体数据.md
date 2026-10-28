@@ -118,6 +118,27 @@ python PyNCBIminer_NG/src/Chloroplast/get_cds.py \
 # 8. 按参考长度过滤
 ```bash
 # 注意这里的参考序列的长度是脚本自带的标准长度字典，不需要认为再指定，当然，有需要的话你也可以尝试人为指定
+mkdir -p cds_filtered
 
+python PyNCBIminer_NG/src/Chloroplast/filter_seq.py \
+    -i ./cds_all \
+    -o ./cds_filtered \
+    -r Ang \
+    -lb 0.5 \
+    -ub 2.0 \
+    -t 8
 
+# -lb 0.5,允许的最小长度为参考的0.5
+# -ub 2.0，允许的最大长度为参考的2.0
+# -r Ang  指定被子植物的参考序列
+```
+
+## 9. 物种级代表序列筛选
+```bash
+mkdir -p species
+
+python PyNCBIminer_NG/src/Chloroplast/select_seq_by_acc.py \
+    -i ./cds_filtered \
+    -o ./species \
+    -t 8
 ```
