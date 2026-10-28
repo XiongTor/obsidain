@@ -99,6 +99,9 @@ python PyNCBIminer_NG/src/Chloroplast/call_pga.py \
     -i ./qc \
     -g ./prefiltered \
     -c Angiosperms
-    
+
+# 这一步建议在客户端执行，配置的为exe执行文件，Linux中无法打开，或者也可以不执行，直接执行下一步
 # -c 有三个可选的参考，分别为Angiosperms(被子植物)，Gymnosperms(裸子植物)，User defined(自定义)
 ```
+
+# 7. 
