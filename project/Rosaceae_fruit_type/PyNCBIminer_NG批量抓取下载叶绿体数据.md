@@ -66,10 +66,12 @@ python PyNCBIminer_NG/src/Chloroplast/download_gb_file.py \
 ```bash
 mkdir -p ./prefiltered
 
-python PyNCBIminer_NG/src/Chloroplast/pre_filter_gb_file.py \
-    -i ./download \
-    -o ./prefiltered \
-    -n 3
+cd PyNCBIminer_NG
+  export PYTHONPATH=$PWD/src
+  
+python -m Chloroplast.pre_filter_gb_file \
+      -i ../download -o ../prefiltered -n 3
 
 # -n 每个 taxon 最多保留几条，默认 3
 ```
+
