@@ -107,8 +107,17 @@ python PyNCBIminer_NG/src/Chloroplast/call_pga.py \
 # 7. 提取 80 个叶绿体 CDS
 
 ```bash
+mkdir -p ./cds_all
+
 python PyNCBIminer_NG/src/Chloroplast/get_cds.py \
-    -i $WORK/prefiltered \
-    -o $WORK/cds_all \
+    -i ./prefiltered \
+    -o ./cds_all \
     -t 8
+```
+
+# 8. 按参考长度过滤
+```bash
+# 注意这里的参考序列的长度是脚本自带的标准长度字典，不需要认为再指定，当然，有需要的话你也可以尝试人为指定
+
+
 ```
