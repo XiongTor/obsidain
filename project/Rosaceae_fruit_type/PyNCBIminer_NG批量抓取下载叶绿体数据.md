@@ -13,6 +13,9 @@ tags:
 ![|325](../../imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png)
 
 # 一 . 直接使用图形化界面操作
+```bash
+uv run --frozen pythonw src\Main_Fluent.py
+```
 
 # 二. 使用源码操作
 本流程主要使用源码，主要是下载的数据量可能较大，不在windows的本地电脑上运行了
