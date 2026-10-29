@@ -35,14 +35,13 @@ python -u ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py init \
     -m  $M \
     -s ./test.txt \
     -r $R -e 1760755795@qq.com \
-    --batch-size 200 \
-    --date-from 1990/01/01 --date-to 2026/12/31
+    --batch-size 200
 # -m marker的名字
 # -r 输出目录
 # --batch-size 每批物种数
 
 # (2) 跑 BLAST 迭代(可并行)
-python ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py mine -m $M -r $R --batches all --jobs 3
+python -u ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py mine -m $M -r $R --batches all --jobs 1
 
 # (3) 合并各批次
 python ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py merge -m $M -r $R
