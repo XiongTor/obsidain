@@ -21,37 +21,11 @@ uv run --frozen pythonw src\Main_Fluent.py
 本流程主要使用源码，主要是下载的数据量可能较大，不在windows的本地电脑上运行了
 ```bash
 
-# | marker | 类型 | Rosales种子 | 蔷薇科记录数 | 是否与质体CDS重复 |
+# 可选的marker类型，来自于官方GitHub
 
-#  ITS — nrDNA — 有 — 17012 — 不重复（核）
+# Ribosomal: 18S, 28S, ITS
+# Chloroplast: rbcL, matK, ndhF, ndhD, ndhI, ndhJ-ndhK-ndhC, psbA-trnH, trnL-trnF, rpoB, rpoC1, atpB
 
-#  18S — nrDNA — 无 — 6804 — 不重复
-
-#  28S — nrDNA — 无 — 3861 — 不重复
-
-#  rbcL — cp CDS — 有 — 13571 — 重复
-
-#  matK — cp CDS — 有 — 12112 — 重复
-
-#  ndhF — cp CDS — 有 — 5751 — 重复
-
-#  atpB — cp CDS — 无 — 5531 — 重复
-
-#  ndhD — cp CDS — 无 — 4723 — 重复
-
-#  ndhI — cp CDS — 无 — 4721 — 重复
-
-#  ndhJ-ndhK-ndhC — cp CDS — 无 — 6135 — 重复
-
-#  rpoB — cp CDS — 有 — 5253 — 重复
-
-#  rpoC1exon1/2 — cp CDS — 无 — 5233/5104 — 重复（rpoC1）
-
-#  trnL-trnF — cp 非编码 — 有 — 10428 — 不重复（trnL intron+trnL-F IGS）
-
-#  trnLintron-trnF — cp 非编码 — 无(Actually trnLintron-trnF had no Rosales seed) — 12093 — 不重复
-
-#  psbA-trnH — cp 非编码 — 有(Potentilla chinensis!) — 9121 — 不重复
 
 M=ITS
 R=./
