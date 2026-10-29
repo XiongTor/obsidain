@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_fruit_type/化石记录文献核查.md",
+                "file": "Diary/diary/2026-10-30 星期五.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "化石记录文献核查"
+              "title": "2026-10-30 星期五"
             }
           }
         ]
@@ -196,12 +196,15 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Home.md",
+    "Diary/week/2026年第44周-2026-10-26.md",
+    "Diary/diary/2026-10-30 星期五.md",
+    "Diary/diary/2026-10-29 星期四.md",
+    "Diary/week/2026年第43周-2026-10-19.md",
     "project/Rosaceae_fruit_type/化石记录文献核查.md",
+    "Home.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
     "project/Rosaceae_fruit_type/ags353流程记录.md",
-    "Diary/diary/2026-10-29 星期四.md",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据",
     "project/Rosaceae_ILS/3.CALL SNP/CALL SNP流程记录.md",
@@ -216,7 +219,6 @@
     "imag/GitHub使用指南/file-20261025191522142.png",
     "imag/GitHub使用指南",
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
-    "Diary/week/2026年第43周-2026-10-19.md",
     "Diary/diary/2026-10-25 星期日.md",
     "Diary/diary/2026-10-19 星期一.md",
     "Diary/diary/2026-10-22 星期四.md",
@@ -232,8 +234,6 @@
     "vibe code/计划.md",
     "Diary/week/2026年第41周-2026-10-05.md",
     "crisp_banner.png",
-    "Home 1.backup.md",
-    "Home 1.md",
     "未命名.base",
     "未命名 1.base",
     "文献详细页",
