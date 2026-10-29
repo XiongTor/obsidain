@@ -31,7 +31,7 @@ M=ITS
 R=./
 
 # (1) 切批次 + 建目录 + 写参数(每批一次 Entrez count)
-python ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py init \
+python -u ../PyNCBIminer_NG/src/DNAseqs/run_fragments.py init \
     -m  $M \
     -s ./test.txt \
     -r $R -e 1760755795@qq.com \
