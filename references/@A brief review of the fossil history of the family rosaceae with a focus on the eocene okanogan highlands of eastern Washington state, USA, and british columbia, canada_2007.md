@@ -45,9 +45,9 @@ tags: [paper, literature]
 蔷薇科化石最显著的早期代表出现在**加拿大不列颠哥伦比亚省中南部**和**美国华盛顿州东北部**的始新世早期和中期植物区系中，该地区被称为Okanogan Highlands
 
 Okanogan Highlands植物区系的蔷薇科属可分为3大类：
-- ( 1 ) 现存的属在始新世时已经很好地建立起来；
-- ( 2 ) 始新世的形态接近于现生属，但可能不完全相同；
-- ( 3 )。在较高分类学水平上具有亲缘关系的灭绝属，如Paleorosa Basinger
+- 现存的属在始新世时已经很好地建立起来；
+- 始新世的形态接近于现生属，但可能不完全相同；
+- 在较高分类学水平上具有亲缘关系的灭绝属，如Paleorosa Basinger
 
 始新世（56Ma-34Ma）以来，蔷薇科植物的化石记录广泛存在于北美和欧洲。新近纪（23Ma-2.6Ma）分布更为广泛，在亚洲，特别是日本、北极、冈瓦纳数个地区和非洲北部均有报道
 
@@ -66,7 +66,7 @@ Okanogan Highlands植物区系的蔷薇科属可分为3大类：
 蕨叶梅属 _Lyonothamnus_ 是单型属，今天仅特有于美国加州海岸外的 **Channel Islands**，是典型的岛屿狭域特有植物。该属在新近纪曾从 **俄勒冈州** 延伸到**南加州**，并进入**内华达州中西部**，远比今天广泛。说明其可能发生了一定的**种群收缩**
 
 **欧洲新近纪的果实和种子化石记录非常丰富**，**显示该科在新近纪已高度多样化**，是蔷薇科的热点区域
-- **Rubus* 的辐射**：_Rubus* 早在始新世已有记录，此后在欧洲进一步辐射和扩散。
-- **其他属的广泛出现**：欧洲新近纪还记录有 栒子属_Cotoneaster_、梨属 _Pyrus_、欧楂属 _Mespilus_、火棘属 _Pyracantha_、野珠兰属 _Stephanandra_、风箱果属 _Physocarpus_、沼委陵菜属 _Comarum_、委陵菜属 _Potentilla_、龙牙草属 _Agrimonia_、蚊子草属 _Filipendula_ 等
+- *Rubus* 的辐射：*Rubus* 早在始新世已有记录，此后在欧洲进一步辐射和扩散。
+- **其他属的广泛出现**：欧洲新近纪还记录有 栒子属 _Cotoneaster_、梨属 _Pyrus_、欧楂属 _Mespilus_、火棘属 _Pyracantha_、野珠兰属 _Stephanandra_、风箱果属 _Physocarpus_、沼委陵菜属 _Comarum_、委陵菜属 _Potentilla_、龙牙草属 _Agrimonia_、蚊子草属 _Filipendula_ 等
 - 北美北极和亚北极晚第三纪及更年轻地层(早中新世至早第四纪)中发现的蔷薇科植物包括，仙女木属Dryas、山楂Crataegus、草莓Fragaria、风箱果Physocarpus、委陵菜Potentilla ( 4种)、李属Prunus ( 2种)、悬钩子属Rubus ( 2种)、蔷薇属Rosa、花楸属Sorbus和路边青Geum
 - 本文指出可以通过利用化石类群推断科内生物地理格局
