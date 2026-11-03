@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_ILS/流程记录/AGS353.md",
+                "file": "project/Rosaceae_ILS/流程记录/orthofinder.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "AGS353"
+              "title": "orthofinder"
             }
           }
         ]
@@ -196,6 +196,8 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "project/Rosaceae_ILS/流程记录/chloroplast.md",
+    "project/Rosaceae_ILS/流程记录/AGS353.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "Home.md",
     "references/@A brief review of the fossil history of the family rosaceae with a focus on the eocene okanogan highlands of eastern Washington state, USA, and british columbia, canada_2007.md",
@@ -204,8 +206,6 @@
     "MOC/文献详细页/导览页-1.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
     "project/Rosaceae_ILS/流程记录/orthofinder.md",
-    "project/Rosaceae_ILS/流程记录/chloroplast.md",
-    "project/Rosaceae_ILS/流程记录/AGS353.md",
     "Diary/diary/2026-10-30 星期五.md",
     "Diary/week/2026年第44周-2026-10-26.md",
     "Diary/diary/2026-10-29 星期四.md",
