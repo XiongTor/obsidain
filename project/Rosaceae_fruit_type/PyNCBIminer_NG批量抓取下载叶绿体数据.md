@@ -84,9 +84,9 @@ python -m Chloroplast.pre_filter_gb_file \
 ```bash
 mkdir -p ./qc
 
-python ../PyNCBIminer_NG/src/Chloroplast/quality_ctrl.py \
-    -i ./prefiltered \
-    -o ./qc \
+python PyNCBIminer_NG/src/Chloroplast/quality_ctrl.py \
+    -i ./01-prefiltered \
+    -o ./02-qc \
     -c 75 \
     -a 0.2 \
     -t 8
@@ -112,9 +112,9 @@ python PyNCBIminer_NG/src/Chloroplast/call_pga.py \
 ```bash
 mkdir -p ./cds_all
 
-python ../PyNCBIminer_NG/src/Chloroplast/get_cds.py \
-    -i ./prefiltered \
-    -o ./cds_all \
+python PyNCBIminer_NG/src/Chloroplast/get_cds.py \
+    -i ./01-prefiltered \
+    -o ./03-cds_all \
     -t 8
 ```
 
@@ -123,9 +123,9 @@ python ../PyNCBIminer_NG/src/Chloroplast/get_cds.py \
 # 注意这里的参考序列的长度是脚本自带的标准长度字典，不需要认为再指定，当然，有需要的话你也可以尝试人为指定
 mkdir -p cds_filtered
 
-python ../PyNCBIminer_NG/src/Chloroplast/filter_seq.py \
-    -i ./cds_all \
-    -o ./cds_filtered \
+python PyNCBIminer_NG/src/Chloroplast/filter_seq.py \
+    -i ./03-cds_all \
+    -o ./04-cds_filtered \
     -r Ang \
     -lb 0.5 \
     -ub 2.0 \
@@ -141,7 +141,7 @@ python ../PyNCBIminer_NG/src/Chloroplast/filter_seq.py \
 mkdir -p species
 
 python PyNCBIminer_NG/src/Chloroplast/select_seq_by_acc.py \
-    -i ./cds_filtered \
+    -i ./04-cds_filtered \
     -o ./species \
     -t 8
 ```
