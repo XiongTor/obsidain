@@ -45,8 +45,8 @@ pip install "PySide6>=6.0" "PySide6-Fluent-Widgets"
 ## 2. 下载NCBI登录号
 ```bash
 # 需要自己准备一个只包含物种名称的列表，参考格式：Prunus accumulans
-python PyNCBIminer_NG/src/Chloroplast/search_accessions.py \
-  -i ./Rosaceae_namelist.txt \
+python ../PyNCBIminer_NG/src/Chloroplast/search_accessions.py \
+  -i ./outgroup_splist.txt \
   -o ./ \
   -e 1760755795@qq.com \
   --chunk-size 200
