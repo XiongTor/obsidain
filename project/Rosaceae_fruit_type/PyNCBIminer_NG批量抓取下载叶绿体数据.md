@@ -84,7 +84,12 @@ python -m Chloroplast.pre_filter_gb_file \
 ```bash
 mkdir -p ./qc
 
-            
+python PyNCBIminer_NG/src/Chloroplast/quality_ctrl.py     
+  -i ./01-prefiltered     
+  -o ./02-qc     
+  -c 75     
+  -a 0.2     
+  -t 8
 
 # -c 75 少于75条CDS区域的基因组会被标记为不合格
 # -a 0.2 基因组中 N 的占比高于0.2的会被标记为不合格
