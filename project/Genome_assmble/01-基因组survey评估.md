@@ -1,3 +1,5 @@
+![|150](https://cdn.nlark.com/yuque/0/2026/png/54922767/1785113175532-d23e71ec-260e-41b1-bcda-458393ef7fc1.png)
+
 ### 1. MP5检查数据完整性
 ```bash
 # 检查下载下来的数据是否是完好无损的
@@ -16,10 +18,10 @@ md5sum -c md5.txt
 
 ```bash
 # 从 fastq 中抽取 reads
-seqtk sample -s100 Prunus_zippeliana_1.fq.gz 100000 > reads_control_R1.fastq
-seqtk sample -s100 Prunus_zippeliana_2.fq.gz 100000 > reads_control_R2.fastq
+seqtk sample -s100 SYHQ_leaf1_L1_1.clean.rd.fq.gz 100000 > reads_control_R1.fastq
+seqtk sample -s100 SYHQ_leaf1_L1_2.clean.rd.fq.gz 100000 > reads_control_R2.fastq
 cat reads_control_R1.fastq reads_control_R2.fastq > 100000reads_control.fastq
-seqtk seq -a 100000reads_control.fastq > 100000reads_control.fasta
+
 #-s 100 是随机种子，保证可重复。
 #100000 是抽取的 reads 数量，可以根据你的需求调整。
 #注意：如果抽样数大于原始文件 reads 数量，会出错。
@@ -27,19 +29,8 @@ seqtk seq -a 100000reads_control.fastq > 100000reads_control.fasta
 
 #（2）转换 fastq → fasta
 seqtk seq -a 100000reads_control.fastq > 100000reads_control.fasta
-#（3）对 NCBI nt 库进行比对
 
-```
-
-**Your query(1,502,759 bases) is longer than the maximum allowed(1,000,000 bases). You may reduce your query length or use stand-alone [<font style="color:rgb(51, 102, 153);">BLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html)**, or **[<font style="color:rgb(51, 102, 153);">ElasticBLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/elastic-blast/)
-
-
-
-**只提取1000**
-
-![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763467719507-9af3229f-9c09-40c6-a79e-012555dab94d.png)
-
-```bash
+#（3）对 NCBI nt 库进行比对---也可以在NCBI上直接比对，见下文
 #服务器上运行
 下载NT库流程https://www.cnblogs.com/liujiaxin2018/p/17556496.html
 #a.下载NT库
@@ -59,18 +50,19 @@ blastn \
 -out reads.csv \
 -outfmt "10 evalue length qseqid qlen qstart qend sacc slen sstart send pident nident sstrand qcovs qseq sseq sgi stitle" \
 -num_threads 20 -evalue 1e-5 -max_target_seqs 1
-
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
+
+**只提取1000条reads在NCBI上直接比对现有数据库**
+
+![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763467719507-9af3229f-9c09-40c6-a79e-012555dab94d.png)
+
+
+
 ![](https://cdn.nlark.com/yuque/0/2026/png/54922767/1770212445336-cfa5023c-d0c8-4a60-8943-6cfb609dfd7c.png)
 
-##### survey分析具体流程
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2026/png/54922767/1785113175532-d23e71ec-260e-41b1-bcda-458393ef7fc1.png)
-
-#### （1）k-mer频数统计
-<font style="color:rgb(33, 37, 41);">jellyfish是Center for Bioinformatics and Computational Biology在2011年研发的一款对DNA的k-mers计数的软件，用Hash表储存数据，能多线程运行。</font>
+### 3. k-mer频数统计
+jellyfish是Center for Bioinformatics and Computational Biology在2011年研发的一款对DNA的k-mers计数的软件，用Hash表储存数据，能多线程运行。
 
 ```bash
 #k-mer频数统计，参考https://segmentfault.com/a/1190000041995240
