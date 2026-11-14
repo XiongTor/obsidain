@@ -21,21 +21,8 @@
               "icon": "lucide-file",
               "title": "Home"
             }
-          },
-          {
-            "id": "51a072f9dde8175b",
-            "type": "leaf",
-            "state": {
-              "type": "release-notes",
-              "state": {
-                "currentVersion": "1.15.1"
-              },
-              "icon": "lucide-book-up",
-              "title": "版本说明 1.15.1"
-            }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -207,9 +194,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "51a072f9dde8175b",
+  "active": "c1bc0e5462c3b33e",
   "lastOpenFiles": [
     "Home.md",
+    "project/Genome/未命名.md",
+    "project/Genome",
     "Diary/diary/2026-11-14 星期六.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
@@ -245,7 +234,6 @@
     "imag/GitHub使用指南/file-20261025191522142.png",
     "imag/GitHub使用指南",
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
-    "Diary/diary/2026-10-25 星期日.md",
     "crisp_banner.png",
     "未命名.base",
     "未命名 1.base",
@@ -254,7 +242,6 @@
     "未命名",
     "灵光一闪/AI及编程",
     "灵光一闪",
-    "imag/@Detecting introgression from phylogenetic invariant site patterns using machine learning_2026",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
