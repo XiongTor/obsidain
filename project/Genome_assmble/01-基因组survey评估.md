@@ -48,15 +48,22 @@ seqtk seq -a reads_control_10000.fastq > reads_control_10000.fasta
 #c、构建nr/nt数据库
 # makeblastdb -in nt -dbtype nucl -title my_nt -parse_seqids -out ./nt_db/nt -logfile make_nt.log
 #d.生成进行比对的测试的fasta格式数据
-#前10000条reads作为比对query，由于是压缩格式所以使用zcat,FASTQ 每条 read 占 4 行
-zcat ${name}_1.clean.fq.gz|head -40000 > reads.fa
-#下载好上面114G的nt库后开始比对
+
+#与nt库比对
+
 blastn \
--query reads.fa \
--db /data/xueqin/Prunus/genome_assembly/1Chromosome/06_polish/00_NT库/nt.gz \
--out reads.csv \
--outfmt "10 evalue length qseqid qlen qstart qend sacc slen sstart send pident nident sstrand qcovs qseq sseq sgi stitle" \
--num_threads 20 -evalue 1e-5 -max_target_seqs 1
+-task megablast \
+-query reads_control_10000.fasta \
+-db /data/genome/Elaeagnus/nt_db/nt \
+-out blast_nt.tsv \
+-outfmt "6 qseqid sacc pident length evalue staxids stitle" \
+-num_threads 20 \
+-evalue 1e-5 \
+-max_target_seqs 1
+# -task megablast 指定比对算法模式为 `megablast`
+# -outfmt "6 ..."`**：自定义结果输出格式表头
+# -db /你的路径/nt_db/nt：指定目标数据库（Database）的路径及索引前缀
+# -max_target_seqs 1 ：每条 read 最多只保留1条数据库匹配结果。在污染检测中必须加上此参数，否则一条高度保守的序列可能会比对上库里几百个近缘物种的记录
 ```
 
 
@@ -69,28 +76,33 @@ blastn \
 
 ### 3. k-mer频数统计
 jellyfish是Center for Bioinformatics and Computational Biology在2011年研发的一款对DNA的k-mers计数的软件，用Hash表储存数据，能多线程运行。
+[参考](https://segmentfault.com/a/1190000041995240)
 
 ```bash
-#k-mer频数统计，参考https://segmentfault.com/a/1190000041995240
-jellyfish（jellyfish是Center for Bioinformatics and Computational Biology在2011年研发的一款对DNA的k-mers计数的软件，用Hash表储存数据，能多线程运行）
-#a.安装
 #conda安装
 conda install -c bioconda jellyfish 
+
 #github安装
 github：jellyfish（https://github.com/gmarcais/Jellyfish）安装
- mkdir Jellyfish_21
+
+mkdir Jellyfish_21
+ 
 #运行：一般先用jellyfish count进行k-mer计数，然后用jellyfish histo对结果进行统计，获得k-mer的频数分布直方表sample.histo
+
 #计算k-mer频率（K-mer分别选择17 19 21）
-jellyfish count -m 21 -s 10G -t 15 -o Prunus_zippeliana_m21_10G_out  -C  <(zcat Prunus_zippeliana_1.fq.gz) <(zcat Prunus_zippeliana_2.fq.gz)
+
+jellyfish count -m 21 -s 10G -t 15 -o k-mer_m21_out  -C  <(zcat SYHQ_leaf1_L1_1.clean.rd.fq.gz) <(zcat SYHQ_leaf1_L1_2.clean.rd.fq.gz)
+
 #生成k-mer频数直方表sample.histo
 jellyfish histo -o Prunus_zippeliana_m21_10G_out.histo Prunus_zippeliana_m15_10G_out
-#
+
 jellyfish stats Prunus_zippeliana_m21_10G_out -o Prunus_zippeliana_m21_10G_out.stat #用于gce的-g参数
 
 ```
 
-#### （2）基因组特征评估
-<font style="color:rgb(51, 51, 51);">GCE(Genome Characteristics Estimation) 是华大基因用于基因组评估的软件，其参考文献为：</font>[<font style="color:rgb(77, 140, 184);">Estimation of genomic characteristics by analyzing k-mer frequency in de novo genome projects</font>](http://www.researchgate.net/publication/255722390_Estimation_of_genomic_characteristics_by_analyzing_k-mer_frequency_in_de_novo_genome_projects)<font style="color:rgb(77, 140, 184);">，</font><font style="color:rgb(51, 51, 51);">GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计，后者在前者的结果上进行基因组大小的准确估算。</font>
+### 4. 基因组特征评估
+GCE(Genome Characteristics Estimation) 是华大基因用于基因组评估的软件，其参考文献为：[<font style="color:rgb(77, 140, 184);">Estimation of genomic characteristics by analyzing k-mer frequency in de novo genome projects</font>](http://www.researchgate.net/publication/255722390_Estimation_of_genomic_characteristics_by_analyzing_k-mer_frequency_in_de_novo_genome_projects)
+GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计，后者在前者的结果上进行基因组大小的准确估算。
 
 ```bash
 #基因组特征评估，参考https://www.plob.org/article/9388.html
