@@ -64,6 +64,8 @@ blastn \
 # -outfmt "6 ..."`**：自定义结果输出格式表头
 # -db /你的路径/nt_db/nt：指定目标数据库（Database）的路径及索引前缀
 # -max_target_seqs 1 ：每条 read 最多只保留1条数据库匹配结果。在污染检测中必须加上此参数，否则一条高度保守的序列可能会比对上库里几百个近缘物种的记录
+
+
 ```
 
 
@@ -91,13 +93,56 @@ mkdir Jellyfish_21
 
 #计算k-mer频率（K-mer分别选择17 19 21）
 
+# k-mer 切割与计数
 jellyfish count -m 21 -s 10G -t 15 -o k-mer_m21_out  -C  <(zcat SYHQ_leaf1_L1_1.clean.rd.fq.gz) <(zcat SYHQ_leaf1_L1_2.clean.rd.fq.gz)
 
 #生成k-mer频数直方表sample.histo
-jellyfish histo -o Prunus_zippeliana_m21_10G_out.histo Prunus_zippeliana_m15_10G_out
+jellyfish histo -o k-mer_m21_out.histo k-mer_m21_10G_out
 
-jellyfish stats Prunus_zippeliana_m21_10G_out -o Prunus_zippeliana_m21_10G_out.stat #用于gce的-g参数
+# 汇总 k-mer 全局统计量,结果用于gce的-g参数
+jellyfish stats k-mer_m21_10G_out -o k-mer_m21_10G_out.stat 
 
+
+# 或则你也可以直接使用下列脚本，循环跑不同的k-mer值
+# ================= 1. 参数配置区 =================
+
+R1="SYHQ_leaf1_L1_1.clean.rd.fq.gz"
+R2="SYHQ_leaf1_L1_2.clean.rd.fq.gz"
+KMERS=(17 19 21)          # 需要测试的 k-mer 长度列表
+THREADS=16                # 每次分配的 CPU 线程数
+HASH_SIZE="2G"            # 哈希表初始槽位数（2G 约占 15-20 GB 内存；内存充足可改为 10G）
+OUT_DIR="jellyfish_out"   # 结果输出目录
+
+mkdir -p "${OUT_DIR}"
+
+# ================= 2. 循环计算不同 k-mer =================
+for k in "${KMERS[@]}"; do
+    echo "=========================================="
+    echo "[$(date '+%F %T')] 开始计算 k = ${k} ..."
+    PREFIX="${OUT_DIR}/k-mer_m${k}_out"
+    # 第一步：k-mer 计数（已内部多线程，顺序执行避免内存溢出）
+    jellyfish count \
+        -m "${k}" \
+        -s "${HASH_SIZE}" \
+        -t "${THREADS}" \
+        -C \
+        -o "${PREFIX}" \
+        <(zcat "${R1}") <(zcat "${R2}")
+    # 第二、三步：并行生成频数直方表(.histo) 和全局统计量(.stat)
+    jellyfish histo -h 1000000 -t "${THREADS}" -o "${PREFIX}.histo" "${PREFIX}" &
+    jellyfish stats -o "${PREFIX}.stat" "${PREFIX}" &
+    wait  # 等待当前 k 值的 histo 和 stats 全部完成后再进入下一轮
+    echo "[$(date '+%F %T')] k = ${k} 计算完成！"
+done
+
+# ================= 3. 汇总 GCE 所需的 -g 参数 =================
+echo "=========================================="
+echo "各 k-mer 统计汇总（GCE 的 -g 参数请填写 Total 对应的数值）："
+
+for k in "${KMERS[@]}"; do
+    echo "--- k = ${k} ---"
+    cat "${OUT_DIR}/k-mer_m${k}_out.stat"
+done
 ```
 
 ### 4. 基因组特征评估
@@ -186,4 +231,3 @@ smudgeplot.py plot kmcdb_L"$L"_U"$U"_coverages.tsv
 <!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1745200012970-d76c993e-a4a9-4700-bb12-81a76ef164f7.png)
 
-#### #k-mer和基因组的峰的值
