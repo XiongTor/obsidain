@@ -1,15 +1,18 @@
 ![|150](https://cdn.nlark.com/yuque/0/2026/png/54922767/1785113175532-d23e71ec-260e-41b1-bcda-458393ef7fc1.png)
 
-### 1. MP5检查数据完整性
+### 1. MP5检查数据完整性，qc进行质量检测
 ```bash
 # 检查下载下来的数据是否是完好无损的
 md5sum -c md5.txt
 
 # md5sum是Linux系统自带的，不需要安装
 # md5.txt一般测序公司会直接提供在测序文件中，直接运行
+
+# fastqc进行质量控制
+fastqc -t 8 -o qcReport/ SYHQ_leaf1_L1_1.clean.rd.fq.gz SYHQ_leaf1_L1_2.clean.rd.fq.gz
 ```
 
-### 2. NT库污染
+### 2. NT库污染检测
 在采样过程中，样品很可能混入人体或其它生物的DNA，这一步即检测这种外援污染的情况
 通过从测序数据中抽取10000个reads与NCBI公共库进行对比来判断
 
@@ -17,29 +20,33 @@ md5sum -c md5.txt
 
 
 ```bash
+# -------------------------  测试数据抽取与格式转换  ----------------------------
 # 从 fastq 中抽取 reads
-seqtk sample -s100 SYHQ_leaf1_L1_1.clean.rd.fq.gz 100000 > reads_control_R1.fastq
-seqtk sample -s100 SYHQ_leaf1_L1_2.clean.rd.fq.gz 100000 > reads_control_R2.fastq
-cat reads_control_R1.fastq reads_control_R2.fastq > 100000reads_control.fastq
+seqtk sample -s100 SYHQ_leaf1_L1_1.clean.rd.fq.gz 10000 > reads_control_R1.fastq
+seqtk sample -s100 SYHQ_leaf1_L1_2.clean.rd.fq.gz 10000 > reads_control_R2.fastq
+cat reads_control_R1.fastq reads_control_R2.fastq > reads_control_10000.fastq
 
-#-s 100 是随机种子，保证可重复。
-#100000 是抽取的 reads 数量，可以根据你的需求调整。
-#注意：如果抽样数大于原始文件 reads 数量，会出错。
-#提取的数量100000参考[1]杨跃仙,段利武,马山俊,等.短柄草基因组调查测序[J/OL].分子植物育种,1-11[2025-11-18].https://link.cnki.net/urlid/46.1068.S.20230506.1022.008.
+# -s 100 是随机种子，保证可重复
+# 10000 是抽取的 reads 数量，可以根据你的需求调整
+# 注意：如果抽样数大于原始文件 reads 数量，会出错
+# 提取的数量100000参考[1]杨跃仙,段利武,马山俊,等.短柄草基因组调查测序[J/OL].分子植物育种,1-11[2025-11-18].https://link.cnki.net/urlid/46.1068.S.20230506.1022.008.
 
-#（2）转换 fastq → fasta
-seqtk seq -a 100000reads_control.fastq > 100000reads_control.fasta
+# 转换 fastq → fasta
+seqtk seq -a reads_control_10000.fastq > reads_control_10000.fasta
 
-#（3）对 NCBI nt 库进行比对---也可以在NCBI上直接比对，见下文
+# -----------------------  与现有数据库比对，判断污染率  ------------------------
+# nt数据库已经下载并构建好了在`/data/genome/Elaeagnus/nt_db/`中,下载日期为2026.04.16
+
+# 对 NCBI nt 库进行比对---也可以在NCBI上直接比对，见下文
 #服务器上运行
-下载NT库流程https://www.cnblogs.com/liujiaxin2018/p/17556496.html
+# 下载NT库流程https://www.cnblogs.com/liujiaxin2018/p/17556496.html
 #a.下载NT库
-wget https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz
-gunzip nt.gz
+# wget https://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz
+# gunzip nt.gz
 #b、创建nr/nt数据库目录
-mkdir nt_db
+# mkdir nt_db
 #c、构建nr/nt数据库
-makeblastdb -in nt -dbtype nucl -title my_nt -parse_seqids -out ./nt_db/nt -logfile make_nt.log
+# makeblastdb -in nt -dbtype nucl -title my_nt -parse_seqids -out ./nt_db/nt -logfile make_nt.log
 #d.生成进行比对的测试的fasta格式数据
 #前10000条reads作为比对query，由于是压缩格式所以使用zcat,FASTQ 每条 read 占 4 行
 zcat ${name}_1.clean.fq.gz|head -40000 > reads.fa
@@ -56,7 +63,6 @@ blastn \
 **只提取1000条reads在NCBI上直接比对现有数据库**
 
 ![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763467719507-9af3229f-9c09-40c6-a79e-012555dab94d.png)
-
 
 
 ![](https://cdn.nlark.com/yuque/0/2026/png/54922767/1770212445336-cfa5023c-d0c8-4a60-8943-6cfb609dfd7c.png)
