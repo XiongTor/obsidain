@@ -21,8 +21,21 @@
               "icon": "lucide-file",
               "title": "Home"
             }
+          },
+          {
+            "id": "51a072f9dde8175b",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.15.1"
+              },
+              "icon": "lucide-book-up",
+              "title": "版本说明 1.15.1"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,10 +207,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "51a072f9dde8175b",
   "lastOpenFiles": [
-    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "Home.md",
+    "Diary/diary/2026-11-14 星期六.md",
+    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
     "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
     "project/Rosaceae_fruit_type/化石记录文献核查.md",
     "project/Rosaceae_fruit_type/ags353流程记录.md",
@@ -232,7 +246,6 @@
     "imag/GitHub使用指南",
     "project/Rosaceae_ILS/2.核质冲突/MSCquartets.md",
     "Diary/diary/2026-10-25 星期日.md",
-    "Diary/diary/2026-10-19 星期一.md",
     "crisp_banner.png",
     "未命名.base",
     "未命名 1.base",
