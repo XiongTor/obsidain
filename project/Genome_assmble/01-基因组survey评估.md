@@ -1,4 +1,4 @@
-### MP5检查数据完整性
+### 1. MP5检查数据完整性
 ```bash
 # 检查下载下来的数据是否是完好无损的
 md5sum -c md5.txt
@@ -7,12 +7,15 @@ md5sum -c md5.txt
 # md5.txt一般测序公司会直接提供在测序文件中，直接运行
 ```
 
-##### NT库污染
+### 2. NT库污染
+在采样过程中，样品很可能混入人体或其它生物的DNA，这一步即检测这种外援污染的情况
+通过从测序数据中抽取10000个reads与NCBI公共库进行对比来判断
+
 学习链接：[https://www.jianshu.com/p/ef02b83589c8](https://www.jianshu.com/p/ef02b83589c8)
 
+
 ```bash
-#路径/data/xueqin/Project/Prunus/Prunus_Geome_analyses/Prunus_zippeliana_genome/survey/3_clean_survey
-#（1）从 fastq 中抽取 reads
+# 从 fastq 中抽取 reads
 seqtk sample -s100 Prunus_zippeliana_1.fq.gz 100000 > reads_control_R1.fastq
 seqtk sample -s100 Prunus_zippeliana_2.fq.gz 100000 > reads_control_R2.fastq
 cat reads_control_R1.fastq reads_control_R2.fastq > 100000reads_control.fastq
@@ -28,13 +31,12 @@ seqtk seq -a 100000reads_control.fastq > 100000reads_control.fasta
 
 ```
 
-**<font style="color:rgb(204, 0, 0);background-color:rgb(255, 187, 187);">Your query(1,502,759 bases) is longer than the maximum allowed(1,000,000 bases). You may reduce your query length or use stand-alone </font>**[<font style="color:rgb(51, 102, 153);">BLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html)**<font style="color:rgb(204, 0, 0);background-color:rgb(255, 187, 187);">, or </font>**[<font style="color:rgb(51, 102, 153);">ElasticBLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/elastic-blast/)**<font style="color:rgb(204, 0, 0);background-color:rgb(255, 187, 187);">.</font>**
+**Your query(1,502,759 bases) is longer than the maximum allowed(1,000,000 bases). You may reduce your query length or use stand-alone [<font style="color:rgb(51, 102, 153);">BLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/blast-help/downloadblastdata.html)**, or **[<font style="color:rgb(51, 102, 153);">ElasticBLAST</font>](https://blast.ncbi.nlm.nih.gov/doc/elastic-blast/)
 
 
 
-**<font style="color:rgb(204, 0, 0);background-color:rgb(255, 187, 187);">只提取1000</font>**
+**只提取1000**
 
-<!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763467719507-9af3229f-9c09-40c6-a79e-012555dab94d.png)
 
 ```bash
