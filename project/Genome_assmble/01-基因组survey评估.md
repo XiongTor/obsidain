@@ -1,4 +1,12 @@
-### **1. 基因组survey评估**
+### MP5检查数据完整性
+```bash
+# 检查下载下来的数据是否是完好无损的
+md5sum -c md5.txt
+
+# md5sum是Linux系统自带的，不需要安装
+# md5.txt一般测序公司会直接提供在测序文件中，直接运行
+```
+
 ##### NT库污染
 学习链接：[https://www.jianshu.com/p/ef02b83589c8](https://www.jianshu.com/p/ef02b83589c8)
 
