@@ -175,7 +175,40 @@ GCE的**纯合模式**和**杂合模式**的假设不同：
 因此流程上，我们一般先运行纯合模式得到对应参数，然后运行杂合模式，并参照杂合模式的结果
 
 
->**纯合（Homozygous)** 与 **杂合(Heterozygous)**，指的是二倍体生物中**同源染色体同一位点上的 DNA 序列是否完全一致** 。这里的chun'he
+我们以最终杂合输出的结果为例：
+```
+(base) xiongtao(✿^‿^✿):~/data/project/Rosaceae_genome/01-survey/clean_data/gce_out$ tail gce_k19_het.log
+for hybrid: a[1/2]=0.356724 a1=0.48668
+kmer-species heterozygous ratio is about 0.217081
+for hybrid: b[1/2]=0.125336 b1=0.330489
+kmer-individual heterozygous ratio is about 0.0668581
+
+Final estimation table:
+raw_peak        effective_kmer_species  effective_kmer_individuals      coverage_depth  genome_size     a[1/2]  a[1]    b[1/2]  b[1]
+76      425547640       49914545487     76.4709 6.52726e+08     0.356724        0.48668 0.125336        0.330489
+
+continuous model estimation finished!
+```
+
+| **列名**                           | **结果值**                      | **含义与计算逻辑**                                                                                                                                                                          |
+| -------------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **`raw_peak`**                   | `76`                         | 原始 k-mer 频数直方图中检测到的纯合主峰整数位置（即在杂合分析命令行 `-c` 传入的初始峰坐标 `76`）。                                                                                                                           |
+| **`effective_kmer_species`**     | `425547640`（约 4.26 亿）        | 去除低频测序错误后，基因组中**非重复的独特 k-mer 种类数**。                                                                                                                                                  |
+| **`effective_kmer_individuals`** | `49914545487`（约 499.15 亿）    | 去除测序错误后，所有有效 k-mer 的**总出现次数（总碱基量估算分子）**。                                                                                                                                             |
+| **`coverage_depth`**             | `76.4709`                    | GCE 经连续分布模型精确拟合后得到的**纯合主峰期望测序深度**（非常接近初始输入的 `76`，说明模型收敛极佳）。                                                                                                                          |
+| **`genome_size`**                | `6.52726e+08`（**652.73 Mb**） | **修正杂合度后的单倍体基因组大小**。计算公式为：<br><br>$$\text{Genome Size} = \frac{\text{effective\_kmer\_individuals}}{\text{coverage\_depth}} = \frac{49914545487}{76.4709} \approx 652.73\text{ Mb}$$ |
+| **`a[1/2]`**                     | `0.356724`                   | 在所有独特的 k-mer 种类（species）中，处于杂合状态（深度为 $\frac{1}{2}$ 主峰，即 ~38×）的 k-mer 比例，占 **35.67%**。                                                                                                |
+| **`a[1]`**                       | `0.48668`                    | 在所有独特的 k-mer 种类（species）中，处于纯合单拷贝状态（深度为 $1\times$ 主峰，即 ~76.5×）的 k-mer 比例，占 **48.67%**。                                                                                               |
+| **`b[1/2]`**                     | `0.125336`                   | 在整个基因组总长度（individuals，包含重复序列）中，杂合单拷贝序列所占的比例，占 **12.53%**。                                                                                                                            |
+| **`b[1]`**                       | `0.330489`                   | 在整个基因组总长度（individuals）中，纯合单拷贝序列所占的比例，占 **33.05%**。                                                                                                                                   |
+在长度为 $k=19$ 的窗口内，只要有任意 1 个碱基杂合，整个 19-mer 就会变成杂合 k-mer。两者的经典换算公式为：
+
+$$H_{\text{nuc}} = \frac{H_{\text{k-mer}}}{k} \quad$$
+近似计算杂合率为：$0.217081 \div 19 \approx \mathbf{1.14\%}$
+
+
+>**纯合（Homozygous)** 与 **杂合(Heterozygous)**，指的是二倍体生物中**同源染色体同一位点上的 DNA 序列是否完全一致** 。这里的纯合与杂合主要影响后续基因组大小的计算，因为基因组大小的计算为$$\text{Genome Size} = \frac{\text{Total k-mer Number}}{\text{Homozygous Peak Depth } (2d)}$$
+>如果不考虑杂合（纯合模式）：当杂合度很高时，原本属于同一段基因组的父本和母本序列被拆成了两套不同的 k-mer 分别计数。GCE 如果误以为这些深度为 $d$ 的序列是两份独立的基因组拷贝，算出来的**单倍体基因组大小就会偏大（甚至虚高接近二倍体总大小）**
 ```bash
 
 # -------------------------------- GCE  ------------------------------------
@@ -243,9 +276,9 @@ for k in "${KMERS[@]}"; do
 done
 
 
-
-
 # -------------------------  genomescope2  -----------------------------------
+# genomescope2主要基于jellyfish或KMC等其他软件分析得到k-mer频数分布表(sample.histo文件)实现基因组特征评估。包括基因组大小(genome size)，杂合度(heterozygosity)，重复序列比例，GC含量，基因型比例，和基因组结构(同源/异源多倍体)等
+
 mkdir -p genomescope_out 
 # 循环评估 k=17, 19, 21（-p 2 表示按二倍体拟合，多倍体可改为 3 或 4） 
 for k in 19 21; do
@@ -257,20 +290,10 @@ for k in 19 21; do
 done
 ```
 
-![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1745198810737-e9ae592f-decf-487d-b2ad-29a4d2e2591f.png)
-
-**repeat ≈ 100% − uniq = 100 − 35.6 = 64.4%**
-
-GenomeScope Profile
-
-len:314,608,544bp uniq:35.6%
-
-aa:91.5% ab:8.53%
-
-kcov:49.5 err:0.435% dup:2.23 k:17 p:2
+![](../../imag/01-基因组survey评估(1)/survey_result.png)
 
 
-![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763814598502-cf62e6b6-1644-49bd-9a59-1f1846a9de33.png)
+![|475](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763814598502-cf62e6b6-1644-49bd-9a59-1f1846a9de33.png)
 
 
 

@@ -56,7 +56,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "tag:#参考https",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -180,7 +180,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5
+    "width": 234.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -195,8 +196,10 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "a232109a4337fd69",
+  "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
+    "imag/01-基因组survey评估(1)/survey_result.png",
+    "imag/01-基因组survey评估(1)",
     "project/Genome_assmble/00_前言_封面与总览.md",
     "project/Genome_assmble/01-基因组survey评估(1).md",
     "project/Genome_assmble/01-基因组survey评估.md",
@@ -222,7 +225,6 @@
     "project/Genome_assmble/07_重复序列占比.md",
     "project/Genome_assmble/06_Cicros图绘制.md",
     "project/Genome_assmble/05_亚基因组分型.md",
-    "project/Genome_assmble/03_基因组校正及质量评估.md",
     "project/Genome_assmble",
     "project/Genome",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png",
@@ -242,7 +244,6 @@
     "文献详细页",
     "MOC/文献详细页",
     "未命名",
-    "灵光一闪/AI及编程",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
