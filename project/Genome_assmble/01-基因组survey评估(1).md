@@ -1,4 +1,3 @@
-![|150](https://cdn.nlark.com/yuque/0/2026/png/54922767/1785113175532-d23e71ec-260e-41b1-bcda-458393ef7fc1.png)
 
 ### 1. MP5检查数据完整性，qc进行质量检测
 ```bash
@@ -344,15 +343,23 @@ for k in "${KMERS[@]}"; do
     PREFIX="${WORK_DIR}/k${k}"
     
     FastK -v -t5 -k"${k}" -M"${MEM_GB}" -T"${THREADS}" -P"${WORK_DIR}/tmp" -N"${PREFIX}" "${UNZIP_FQ}"
+    # 这一步主要是从reads中按照设定长度切出k-mer
     # -v: 打印详细进度 | -t5: 丢弃频次 <5 的低频噪声以压缩体积 | -k: k-mer 长度 
     # -M: 外排序内存上限(GB) | -T: 线程数 | -P: 临时溢写目录 | -N: 输出前缀
     
     Histex -G "${PREFIX}" > "${PREFIX}.histo"
+    # 将上一步的结果，储存为表格
     # -G: 输出文本格式 (第1列: 覆盖度深度, 第2列: 唯一 k-mer 数量)
     
     L=$(smudgeplot cutoff "${PREFIX}.histo" L)
+    # 确立一条安全阈值线。凡是出现次数低于 `L` 的k-mer，一律当成测序噪音，一般即测序错误峰和真实杂合峰之间的最低谷底数值
+    
     smudgeplot hetmers -L "${L}" -t "${THREADS}" -o "${PREFIX}_pairs" "${PREFIX}"
+    # 在排好序的k-mer字典里逐行扫描（忽略低于 `L` 的噪音），专门寻找长度相同、且仅有一个碱基（SNP）不同的k-mer配对，记录下它们各自的出现次数
+    # -L: 覆盖度过滤下限 | -t: 线程数 | -o: 输出前缀 (生成 ${PREFIX}_pairs.smu)
+    
     smudgeplot all -o "${WORK_DIR}/smudge_k${k}" "${PREFIX}_pairs.smu"
+    # 根据上一步结果最终画污点图
 done
 
 ```
@@ -378,5 +385,15 @@ smudgeplot.py plot kmcdb_L"$L"_U"$U"_coverages.tsv
 ```
 
 
-![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1745200012970-d76c993e-a4a9-4700-bb12-81a76ef164f7.png)
+![](../../imag/01-基因组survey评估(1)/smudge_k17_smudgeplot_merged.png)
+
+虽然不一定是准确的，但是这里的AB可以简单的理解为父母本
+
+横坐标：`Normalized minor kmer coverage: B / (A + B)`（次要 $k$-mer 的归一化覆盖比例），计算的是较少的那个变体 `B` 占总覆盖度 `A + B` 的比例，取值范围为0-0.5，0.5表示它们是对称分布的，即AB,AABB
+
+纵坐标：`Total coverage of the kmer pair: A + B`（该 $k$-mer 对的总测序覆盖度），计算的是 `A` 的覆盖度加上 `B` 的覆盖度（`A + B`），也就是**这个基因座在体细胞中所有拷贝加起来的总测序深度**。
+类似genomescope2的结果图，但是genomescope2中如果父本变体 `A` 出现 38 次，母本变体 `B` 出现 38 次。GenomeScope 把它俩当成两条独立的序列，所以它们都落在横坐标 `38×`。而Smudgeplot 只挑出那些杂合位点（彻底忽略纯合位点），并把同一位点上的父本变体 `A`（38×）和母本变体 `B`（38×）的深度加起来（`A + B`）作为纵坐标，即76×。但是值得注意的是：**它们在76×的位置上反应的是不同的k-mer，一个是纯合的，即AB完全一致的，一个是杂合的，只是加起来了，但是刚好都是76而已，所以分布趋势相似，但是反应的东西并不一致，而且k-mer总量上，genomescope2要更多，Smudgeplot这里相当于只展示杂合位点**
+
+
+
 
