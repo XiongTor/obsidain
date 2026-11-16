@@ -164,16 +164,25 @@ done
 
 ### 4. 基因组特征评估
 GCE(Genome Characteristics Estimation) 是华大基因用于基因组评估的软件，其参考文献为：[<font style="color:rgb(77, 140, 184);">Estimation of genomic characteristics by analyzing k-mer frequency in de novo genome projects</font>](http://www.researchgate.net/publication/255722390_Estimation_of_genomic_characteristics_by_analyzing_k-mer_frequency_in_de_novo_genome_projects)
-GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计，后者在前者的结果上进行基因组大小的准确估算
+GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计(同上述的 jellyfish )，后者在前者的结果上进行基因组大小的准确估算（也可直接用jellyfish的结果）
 [参考](https://www.plob.org/article/9388.html)
 
+GCE的**纯合模式**和**杂合模式**的假设不同：
+纯合模式：假设基因组完全纯合，k-mer 频数仅服从单一主峰（纯合峰，深度约为 $2d$）加上重复序列峰。
+杂合模式：引入双峰混合分布模型：同时拟合**杂合峰（深度 $d$）**和**纯合峰（深度 $2d$）**。
+
+一般来讲，大多数野生植株都是杂合二倍体。
+因此流程上，我们一般先运行纯合模式得到对应参数，然后运行杂合模式，并参照杂合模式的结果
+
+
+>**纯合（Homozygous)** 与 **杂合(Heterozygous)**，指的是二倍体生物中**同源染色体同一位点上的 DNA 序列是否完全一致** 。这里的chun'he
 ```bash
 
 # -------------------------------- GCE  ------------------------------------
 #纯合
 /home/xueqin/data/software/GCE-master/gce-1.0.2/gce -f Prunus_zippeliana_m21_10G_out.histo -g 48891608582 > gce.table 2> gce.log
 
-#杂合
+#杂合，注意，-c 49是上一步纯合模式跑出来的结果，不能直接使用49，要根据实际情况来
 /home/xueqin/data/software/GCE-master/gce-1.0.2/gce -f Prunus_zippeliana_m21_10G_out.histo -g 48891608582 -H 1 -c 49 > gce2.table 2> gce2.log
 
 # 杂合率 = kmer-species heterozygous ratio / kmer_size 。 若计算出的杂合率低于 0.2%，个人认为测序数据应该是纯合的。这时候，应该不使用 -H 1 参数。使用 -H 1 参数会对基因组的大小和重复序列含量估算造成影响
@@ -195,6 +204,44 @@ GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于�
 #-b int
 #    数据是（1）否（0）有 bias。当 K > 19时，需要设置 -b 1 。
 #如果使用 -H 1 参数，则会得额外得到如下信息：
+
+
+# 同样的，也可以使用下述的循环脚本直接跑所有kmer值
+
+# ================= 1. 参数配置区 =================
+GCE_BIN="/home/xueqin/data/software/GCE-master/gce-1.0.2/gce"
+IN_DIR="jellyfish_out"    # 上一步 jellyfish 输出目录
+OUT_DIR="gce_out"         # GCE 结果输出目录
+KMERS=(17 19 21)          # 与上一步保持一致的 k-mer 列表
+
+mkdir -p "${OUT_DIR}"
+  
+# ================= 2. 循环运行纯合与杂合模式 =================
+
+for k in "${KMERS[@]}"; do
+    HISTO="${IN_DIR}/k-mer_m${k}_out.histo"
+    STAT="${IN_DIR}/k-mer_m${k}_out.stat"
+    # 自动从 .stat 文件提取 Total 作为 -g 参数
+    TOTAL_KMER=$(awk '/^Total:/ {print $2}' "${STAT}")
+    
+    # K > 19 时开启 -b 1 校正测序偏好性（参照原教程参数说明）
+    if [ "${k}" -gt 19 ]; then BIAS=1; else BIAS=0; fi
+    echo "=========================================="
+    echo "[$(date '+%F %T')] 正在评估 k = ${k} (Total k-mer: ${TOTAL_KMER}, -b ${BIAS}) ..."
+    # 第一步：运行纯合模式，获取初始主峰深度 raw_peak
+    HOMO_TBL="${OUT_DIR}/gce_k${k}_homo.table"
+    HOMO_LOG="${OUT_DIR}/gce_k${k}_homo.log"
+    "${GCE_BIN}" -f "${HISTO}" -g "${TOTAL_KMER}" -m 1 -D 8 -b "${BIAS}" > "${HOMO_TBL}" 2> "${HOMO_LOG}"
+    
+    # 自动从纯合日志中读取 raw_peak 数值，填入杂合模式的 -c 参数
+    PEAK=$(awk '/^raw_peak/{getline; print $1}' "${HOMO_LOG}")
+    echo "  -> 纯合模式识别初始主峰 raw_peak = ${PEAK}"
+    # 第二步：运行杂合模式 (-H 1)
+    HET_TBL="${OUT_DIR}/gce_k${k}_het.table"
+    HET_LOG="${OUT_DIR}/gce_k${k}_het.log"
+    "${GCE_BIN}" -f "${HISTO}" -g "${TOTAL_KMER}" -H 1 -c "${PEAK}" -m 1 -D 8 -b "${BIAS}" > "${HET_TBL}" 2> "${HET_LOG}"
+done
+
 
 
 
