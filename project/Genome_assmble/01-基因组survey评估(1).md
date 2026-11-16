@@ -164,20 +164,24 @@ done
 
 ### 4. 基因组特征评估
 GCE(Genome Characteristics Estimation) 是华大基因用于基因组评估的软件，其参考文献为：[<font style="color:rgb(77, 140, 184);">Estimation of genomic characteristics by analyzing k-mer frequency in de novo genome projects</font>](http://www.researchgate.net/publication/255722390_Estimation_of_genomic_characteristics_by_analyzing_k-mer_frequency_in_de_novo_genome_projects)
-GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计，后者在前者的结果上进行基因组大小的准确估算。
+GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于进行 kmer 的频数统计，后者在前者的结果上进行基因组大小的准确估算
+[参考](https://www.plob.org/article/9388.html)
 
 ```bash
-#基因组特征评估，参考https://www.plob.org/article/9388.html
+
+# -------------------------------- GCE  ------------------------------------
 #纯合
 /home/xueqin/data/software/GCE-master/gce-1.0.2/gce -f Prunus_zippeliana_m21_10G_out.histo -g 48891608582 > gce.table 2> gce.log
 
 #杂合
 /home/xueqin/data/software/GCE-master/gce-1.0.2/gce -f Prunus_zippeliana_m21_10G_out.histo -g 48891608582 -H 1 -c 49 > gce2.table 2> gce2.log
-#则杂合率 = kmer-species heterozygous ratio / kmer_size 。 若计算出的杂合率低于 0.2%，个人认为测序数据应该是纯合的。这时候，应该不使用 -H 1 参数。使用 -H 1 参数会对基因组的大小和重复序列含量估算造成影响
+
+# 杂合率 = kmer-species heterozygous ratio / kmer_size 。 若计算出的杂合率低于 0.2%，个人认为测序数据应该是纯合的。这时候，应该不使用 -H 1 参数。使用 -H 1 参数会对基因组的大小和重复序列含量估算造成影响
 #对于不能判断纯合还是杂合的数据，可以先运行纯合模式，获得初始峰值(raw_peak)，即k-mer的期望深度，用作-c参数。
-#然后再用-c参数和-H 1参数运行杂合模式。最后比较两种模式的结果，从而判断哪种更适用当前数据。
+#然后再用-c参数和-H 1参数运行杂合模式。最后比较两种模式的结果，从而判断哪种更适用当前数据
+
 #-c int
-#    kmer depth frequency 的主峰对应的 depth。gce 会在该值附近找主峰。
+# kmer depth frequency 的主峰对应的 depth。gce 会在该值附近找主峰。
 #-g int
 #    总共的 kmer 数。一定要设定该值，否则 gce 会直接使用 -f 指定的文件计算 kmer 的总数。由于默认下该文件中最大的 depth 为 255，因此，软件自己计算的值比真实的值偏小。同时注意该值包含低覆盖度的 kmer。
 #-M int
@@ -192,16 +196,20 @@ GCE 软件包中主要包含 kmer_freq_hash 和 gce 两支程序。前者用于�
 #    数据是（1）否（0）有 bias。当 K > 19时，需要设置 -b 1 。
 #如果使用 -H 1 参数，则会得额外得到如下信息：
 
-for hybrid: a[1/2]=0.223671 a1=0.49108
-kmer-species heterozygous ratio is about 0.125918
- 
-上面结果中，0.125918 是由 a[1/2] 计算出来的。 0.125918 = a[1/2] / （ 2- a[1/2] ) 。
-a[1/2]=0.223671 表示在所有的 uniqe kmer 中，有 0.223671 比例的 kmer 属于杂合 kmer 。
- 
-此外，有 a[1/2] 和 b[1/2] 的值在最后的统计结果中。重复序列的含量 = 1 - b[1/2] - b[1] 。
+
+
+# -------------------------  genomescope2  -----------------------------------
+mkdir -p genomescope_out 
+# 循环评估 k=17, 19, 21（-p 2 表示按二倍体拟合，多倍体可改为 3 或 4） 
+for k in 19 21; do
+ genomescope2 \
+  -i jellyfish_out/k-mer_m${k}_out.histo \
+  -o genomescope_out/k${k} \
+  -k ${k} \
+  -p 2
+done
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
 ![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1745198810737-e9ae592f-decf-487d-b2ad-29a4d2e2591f.png)
 
 **repeat ≈ 100% − uniq = 100 − 35.6 = 64.4%**
@@ -214,8 +222,8 @@ aa:91.5% ab:8.53%
 
 kcov:49.5 err:0.435% dup:2.23 k:17 p:2
 
-<!-- 这是一张图片，ocr 内容为： -->
-![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763814598502-cf62e6b6-1644-49bd-9a59-1f1846a9de33.png)**#增加正确的图**
+
+![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763814598502-cf62e6b6-1644-49bd-9a59-1f1846a9de33.png)
 
 
 
@@ -226,11 +234,13 @@ Smudgeplot从k-mer数据库中提取杂合k-mer对，然后训练杂合k-mer对�
 
 通过比较k-mer对覆盖度的总数(CovA + CovB)和相对覆盖度(CovB / (CovA + CovB))，统计杂合k-mers对的数量，Smudgeplot可以解析基因组结构。
 
+[参考](https://zhuanlan.zhihu.com/p/529851006)
+
 ```bash
 #参考https://zhuanlan.zhihu.com/p/529851006
 conda activate smudgeplot(老服务器)
-mkdir tmp
-ls *.fastq.gz > FILES
+mkdir smudgeplot
+ls *.fq.gz > FILES
 ## 第一步：使用KMC计算k-mer频率，生成k-mer频率表
 kmc -k21 -t16 -m64 -ci1 -cs10000 @FILES kmcdb tmp #计算k-mer频率
 kmc_tools transform kmcdb histogram kmcdb_k21.hist -cx10000 #生成k-mer频数直方表sample.histo和k-mer直方图
@@ -245,6 +255,6 @@ smudge_pairs kmcdb_L"$L"_U"$U" kmcdb_L"$L"_U"$U"_coverages.tsv kmcdb_L"$L"_U"$U"
 smudgeplot.py plot kmcdb_L"$L"_U"$U"_coverages.tsv
 ```
 
-<!-- 这是一张图片，ocr 内容为： -->
+
 ![](https://cdn.nlark.com/yuque/0/2025/png/54922767/1745200012970-d76c993e-a4a9-4700-bb12-81a76ef164f7.png)
 
