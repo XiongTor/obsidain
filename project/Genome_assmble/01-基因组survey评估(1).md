@@ -293,7 +293,20 @@ done
 ![](../../imag/01-基因组survey评估(1)/survey_result.png)
 
 
-![|475](https://cdn.nlark.com/yuque/0/2025/png/54922767/1763814598502-cf62e6b6-1644-49bd-9a59-1f1846a9de33.png)
+
+![](../../imag/01-基因组survey评估(1)/linear_plot_17_merged.png)
+Genomescope结果解释：  
+横坐标 Coverage表示k-mer的出现次数，即测序的深度
+纵坐标Frequency表示这种测序深度的k-mer有多少种
+
+蓝色线表示实际测序情况
+黑色线表示模型评估的，考虑所有情况下，k-mer应该是怎么样的分布
+黄色线表示单拷贝的k-mer的分布频率，黑色线与黄色线差值，即重复序列占比，在上述k=17时，单拷贝占比为35.1%
+红色线表示测序错误的k-mer的分布频率，一般来讲，测序错误的k-mer不会重复出现太多次，所以集中在左侧，也不会成峰
+黑色虚线表示预测的倍性位置，从左到右依次为： 1×，2×，3×，4×
+
+开头的小字中，len即单倍体基因组大小，ab即杂合率，kcov即平均测序深度，err表示测序错误占比，即红色线，p代表模型按几倍体拟合
+
 
 
 
@@ -304,8 +317,47 @@ Smudgeplot从k-mer数据库中提取杂合k-mer对，然后训练杂合k-mer对�
 
 通过比较k-mer对覆盖度的总数(CovA + CovB)和相对覆盖度(CovB / (CovA + CovB))，统计杂合k-mers对的数量，Smudgeplot可以解析基因组结构。
 
-[参考](https://zhuanlan.zhihu.com/p/529851006)
+==🔴注意读一下代码开头的注释==
 
+[参考](https://zhuanlan.zhihu.com/p/529851006)
+```bash
+# 注意这里使用的是Smudgeplot新版本，0.5.6版本的流程
+
+# ================= 1. 参数配置区 =================
+R1_GZ="clean_data_R1.fq.gz"
+R2_GZ="clean_data_R2.fq.gz"
+WORK_DIR="smudgeplot_out"
+UNZIP_FQ="${WORK_DIR}/merged_clean.fq"
+THREADS=16
+MEM_GB=64
+KMERS=(21)   # 若需多 k 评估可改回 (17 19 21)
+
+mkdir -p "${WORK_DIR}/tmp"
+
+# 2. 一次性解压并合并双端数据到固定位置
+if [ ! -f "${UNZIP_FQ}" ]; then
+    pigz -dc -p "${THREADS}" "${R1_GZ}" "${R2_GZ}" > "${UNZIP_FQ}"
+fi
+
+# 3. 运行 FastK 与 Smudgeplot v0.5.6
+for k in "${KMERS[@]}"; do
+    PREFIX="${WORK_DIR}/k${k}"
+    
+    FastK -v -t5 -k"${k}" -M"${MEM_GB}" -T"${THREADS}" -P"${WORK_DIR}/tmp" -N"${PREFIX}" "${UNZIP_FQ}"
+    # -v: 打印详细进度 | -t5: 丢弃频次 <5 的低频噪声以压缩体积 | -k: k-mer 长度 
+    # -M: 外排序内存上限(GB) | -T: 线程数 | -P: 临时溢写目录 | -N: 输出前缀
+    
+    Histex -G "${PREFIX}" > "${PREFIX}.histo"
+    # -G: 输出文本格式 (第1列: 覆盖度深度, 第2列: 唯一 k-mer 数量)
+    
+    L=$(smudgeplot cutoff "${PREFIX}.histo" L)
+    smudgeplot hetmers -L "${L}" -t "${THREADS}" -o "${PREFIX}_pairs" "${PREFIX}"
+    smudgeplot all -o "${WORK_DIR}/smudge_k${k}" "${PREFIX}_pairs.smu"
+done
+
+```
+
+老版本---参考雪琴师姐教程
 ```bash
 #参考https://zhuanlan.zhihu.com/p/529851006
 conda activate smudgeplot(老服务器)
