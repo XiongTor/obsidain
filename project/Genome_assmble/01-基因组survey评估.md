@@ -65,6 +65,23 @@ blastn \
 # -db /你的路径/nt_db/nt：指定目标数据库（Database）的路径及索引前缀
 # -max_target_seqs 1 ：每条 read 最多只保留1条数据库匹配结果。在污染检测中必须加上此参数，否则一条高度保守的序列可能会比对上库里几百个近缘物种的记录
 
+# 得到结果blast_nt.tsv后可以简单看一下：
+# 例如
+ML150032157L1C022R02406463964/1 OY757070.1      92.105  152     1.23e-49        N/A     OY757070.1 Pyrus communis genome assembly, chromosome: 3
+# 依次表示：
+# qseqid ：Query 序列名，测序 read 编号
+# sacc：Subject 登录号，比对上的 NCBI 参考序列唯一编号
+# pident： 碱基一致率，在比对上的区域内，双方碱基完全相同的比例为92.105%
+# length：比对长度，152bp
+# evalue: 期望值,表示在当前数据库大小下随机碰巧产生这么高得分的概率
+# staxids：分类编号,NCBI 物种分类数字 ID。显示 `N/A` 是因为服务器本地建库时直接用了原始 FASTA 文件，未额外挂载 NCBI 的 `taxdb` 分类映射文件
+# stitle：参考序列描述，匹配目标的完整名称：西洋梨（_Pyrus communis_）基因组组装的 3 号染色体
+
+# 统计匹配到的物种分布 Top 15
+awk -F'\t' '!a[$1]++{s=$7; sub(/^[A-Za-z0-9_]+\.[0-9]+ /,"",s); sub(/^PREDICTED: /,"",s); split(s,b," "); sp[b[1]" "b[2]]++; t++} END{for(i in sp) printf "%d\t%.2f%%\t%s\n", sp[i], sp[i]/t*100, i}' blast_nt.tsv | sort -nr | head -n 15
+
+# 检索该物种的叶绿体/rDNA 命中记录，有时候由于目标物种在NT库中没有收录，所以无法看到污染情况，这时候直接通过搜索物种名，看是否匹配到了叶绿体或DNA片段的数据
+grep -i "alnifolia" blast_nt.tsv | awk -F'\t' '{print $3"%\t"$4"bp\t"$7}' | head -n 20
 
 ```
 
