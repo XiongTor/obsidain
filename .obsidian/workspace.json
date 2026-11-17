@@ -77,8 +77,7 @@
               "title": "书签"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -199,13 +198,14 @@
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
     "project/Genome_assmble/01-基因组survey评估(1).md",
+    "未命名.base",
+    "Home.md",
     "imag/01-基因组survey评估(1)/smudge_k17_smudgeplot_merged.png",
     "imag/01-基因组survey评估(1)/linear_plot_17_merged.png",
     "imag/01-基因组survey评估(1)/survey_result.png",
     "imag/01-基因组survey评估(1)",
     "project/Genome_assmble/00_前言_封面与总览.md",
     "project/Genome_assmble/01-基因组survey评估.md",
-    "Home.md",
     "project/Genome_assmble/04_基因组注释.md",
     "生物信息学课程/基因组组装.md",
     "project/Rosaceae_fruit_type/化石记录文献核查.md",
@@ -238,7 +238,6 @@
     "imag/GitHub使用指南/file-20261025193116883.png",
     "imag/GitHub使用指南/file-20261025192712903.png",
     "imag/GitHub使用指南",
-    "未命名.base",
     "未命名 1.base",
     "文献详细页",
     "MOC/文献详细页",
