@@ -21,8 +21,24 @@
               "icon": "lucide-file",
               "title": "Home"
             }
+          },
+          {
+            "id": "90e56c2a72528503",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pyphlawd assigned the same marker to different clusters.md",
+                "mode": "source",
+                "source": false,
+                "backlinks": false
+              },
+              "icon": "lucide-file",
+              "title": "Pyphlawd assigned the same marker to different clusters"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -195,14 +211,28 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c1bc0e5462c3b33e",
   "lastOpenFiles": [
-    "project/Genome_assmble/01-基因组survey评估(1).md",
+    "Pyphlawd assigned the same marker to different clusters.pdf",
+    "Pyphlawd assigned the same marker to different clusters.html",
+    "imag/Pyphlawd assigned the same marker to different clusters",
+    "imag/__temp__Pyphlawd assigned the same marker to different clusters",
+    "PYphlawd assigned the same marker to different clusters - 副本.md",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117150956874.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117150909470.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117150828944.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117150301100.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117145900773.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117145459475.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117145433360.png",
+    "imag/Pyphlawd assigned the same marker to different clusters/file-20261117145349892.png",
+    "imag/PYphlawd assigned the same marker to different clusters",
     "未命名.base",
+    "Pyphlawd assigned the same marker to different clusters.md",
     "Home.md",
+    "project/Genome_assmble/01-基因组survey评估(1).md",
     "imag/01-基因组survey评估(1)/smudge_k17_smudgeplot_merged.png",
     "imag/01-基因组survey评估(1)/linear_plot_17_merged.png",
-    "imag/01-基因组survey评估(1)/survey_result.png",
     "imag/01-基因组survey评估(1)",
     "project/Genome_assmble/00_前言_封面与总览.md",
     "project/Genome_assmble/01-基因组survey评估.md",
@@ -225,23 +255,10 @@
     "project/Genome_assmble/09_非编码RNA注释.md",
     "project/Genome_assmble/08_基因组功能注释分析.md",
     "project/Genome_assmble/07_重复序列占比.md",
-    "project/Genome_assmble/06_Cicros图绘制.md",
-    "project/Genome_assmble/05_亚基因组分型.md",
     "project/Genome_assmble",
     "project/Genome",
-    "imag/PyNCBIminer_NG批量抓取下载叶绿体数据/ref.png",
     "imag/PyNCBIminer_NG批量抓取下载叶绿体数据",
-    "imag/GitHub使用指南/file-20261025195108040.png",
-    "imag/GitHub使用指南/file-20261025194708814.png",
-    "imag/GitHub使用指南/file-20261025194238479.png",
-    "imag/GitHub使用指南/file-20261025193558587.png",
-    "imag/GitHub使用指南/file-20261025193116883.png",
-    "imag/GitHub使用指南/file-20261025192712903.png",
     "imag/GitHub使用指南",
-    "未命名 1.base",
-    "文献详细页",
-    "MOC/文献详细页",
-    "未命名",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
