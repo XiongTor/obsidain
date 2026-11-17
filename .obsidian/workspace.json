@@ -179,8 +179,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 234.5,
-    "collapsed": true
+    "width": 234.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -197,8 +196,15 @@
   },
   "active": "e7a7b303c61786dc",
   "lastOpenFiles": [
-    "Pyphlawd assigned the same marker to different clusters.md",
+    "Diary/diary/2026-11-17 星期二.md",
+    "Diary/week/2026年第47周-2026-11-16.md",
+    "Diary/week/2026年第46周-2026-11-09.md",
+    "Diary/diary/2026-11-14 星期六.md",
+    "Home.md",
     "Pyphlawd assigned the same marker to different clusters.pdf",
+    "project/nzp581C.tmp",
+    "project/Genome_assmble.zip",
+    "Pyphlawd assigned the same marker to different clusters.md",
     "Pyphlawd assigned the same marker to different clusters.html",
     "imag/Pyphlawd assigned the same marker to different clusters",
     "imag/__temp__Pyphlawd assigned the same marker to different clusters",
@@ -213,7 +219,6 @@
     "imag/Pyphlawd assigned the same marker to different clusters/file-20261117145349892.png",
     "imag/PYphlawd assigned the same marker to different clusters",
     "未命名.base",
-    "Home.md",
     "project/Genome_assmble/01-基因组survey评估(1).md",
     "imag/01-基因组survey评估(1)/smudge_k17_smudgeplot_merged.png",
     "imag/01-基因组survey评估(1)/linear_plot_17_merged.png",
@@ -236,12 +241,7 @@
     "project/Genome_assmble/12_学习内容.md",
     "project/Genome_assmble/11_转座子和内含子.md",
     "project/Genome_assmble/10_比较基因组学分析.md",
-    "project/Genome_assmble/09_非编码RNA注释.md",
-    "project/Genome_assmble/08_基因组功能注释分析.md",
-    "project/Genome_assmble/07_重复序列占比.md",
     "project/Genome_assmble",
-    "project/Genome",
-    "imag/PyNCBIminer_NG批量抓取下载叶绿体数据",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
 }
