@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Home.md",
-                "mode": "preview",
+                "file": "project/Rosaceae_fruit_type/PyNCBIminer_NG批量抓取下载叶绿体数据.md",
+                "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "Home"
+              "title": "PyNCBIminer_NG批量抓取下载叶绿体数据"
             }
           }
         ]
@@ -194,13 +194,16 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "e7a7b303c61786dc",
+  "active": "c1bc0e5462c3b33e",
   "lastOpenFiles": [
+    "project/Rosaceae_fruit_type/PyNCBIminer_NG批量下载其它片段.md",
+    "project/Rosaceae_fruit_type/化石记录文献核查.md",
+    "project/Rosaceae_fruit_type/ags353流程记录.md",
+    "Home.md",
     "Diary/diary/2026-11-17 星期二.md",
     "Diary/week/2026年第47周-2026-11-16.md",
     "Diary/week/2026年第46周-2026-11-09.md",
     "Diary/diary/2026-11-14 星期六.md",
-    "Home.md",
     "Pyphlawd assigned the same marker to different clusters.pdf",
     "project/nzp581C.tmp",
     "project/Genome_assmble.zip",
@@ -227,7 +230,6 @@
     "project/Genome_assmble/01-基因组survey评估.md",
     "project/Genome_assmble/04_基因组注释.md",
     "生物信息学课程/基因组组装.md",
-    "project/Rosaceae_fruit_type/化石记录文献核查.md",
     "project/Genome_assmble/15_TEtrimmer 一个自动化转座元件手动校正的工具.md",
     "project/Genome_assmble/02_基因组组装.md",
     "project/Genome/未命名.md",
@@ -239,8 +241,6 @@
     "project/Genome_assmble/14_基因组分析 _ Inpactor2：基于深度学习进行 LTR 转座子的鉴定与分类.md",
     "project/Genome_assmble/13_结合深度学习和隐马尔可夫模型的真核生物基因组基因注释工具Helixer.md",
     "project/Genome_assmble/12_学习内容.md",
-    "project/Genome_assmble/11_转座子和内含子.md",
-    "project/Genome_assmble/10_比较基因组学分析.md",
     "project/Genome_assmble",
     "project/Rosaceae_ILS/Rosaceae_cytonuclear_大纲导图.canvas"
   ]
