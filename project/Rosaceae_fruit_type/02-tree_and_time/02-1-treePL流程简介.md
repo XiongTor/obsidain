@@ -26,8 +26,11 @@ $$\Psi = \ln L(t, r \mid b, N) - \lambda \cdot \Phi(r)$$
 - $\lambda$ 为平滑参数（`smooth`），决定模型在“允许各枝自由变速”与“约束全树接近严格分子钟”之间的权衡。
 
 ## 2. 平滑参数选择与硬边界标定
-- **交叉验证（Cross-Validation, CV）**：由于 $\lambda$ 无法直接通过最大似然估计，treePL 采用留一法（`cv`）或随机子采样（`randomcv`）逐次移除末端分支，用其余分支预测该分支长度并计算预测误差（`chisq`）。误差最低处对应的 $\lambda^*$ 即为最优平滑参数。
+- **交叉验证（Cross-Validation, CV）**：由于 $\lambda$ 无法直接通过最大似然估计，treePL 采用留一法（`cv`）或随机子采样（`randomcv`）逐次移除末端分支，用其余分支预测该分支长度并计算预测误差（`chisq`）。误差最低处对应的 $\lambda^*$ 即为最优平滑参数。==🔴即用来寻找最佳平滑参数smooth值==
+- **Prime-basic analysis（优化器探测）** 解决计算效率与收敛问题 ——==🔴为树挑选最合适的数值优化算法==
 - **硬边界约束（Hard bounds）**：与 MCMCTree 的软边界不同，treePL 的化石标定（`min` / `max`）为严格硬边界，优化后的节点年龄绝不会越出设定区间。
+> 理论上来讲，cv和prime应该是不分先后的，但是现在默认先进行prime，将prime探寻出的最佳参数直接喂给cv然后让cv去寻找最佳smooth值。
+![](../../../imag/02-1-treePL流程简介/file-20261127202951444.png)
 
 ![|720](../../../imag/02-1-treePL流程简介/treepl_principle.png)
 
@@ -72,7 +75,8 @@ flowchart LR
 ```
 treePL TREEPL.config
 ```
-prime，或者说basic dating analysis的config文件示例如下：
+
+**prime**，或者说basic dating analysis的config文件示例如下：
 ```
 treefile = ../Fab.patol.353species.br.rt2024.ed.tre
 smooth = 1
@@ -88,12 +92,66 @@ max = Fabaceae_crown 70
 #cvoutfile = Fabaceae_cv6.txt
 nthreads = 10
 thorough
-#run "cross-validation" to report the best smooth value for dating (the lowest chi-square value).
-#cv
-#checkconstraints
 prime
 
+# 检查是否有祖先节点的 min 小于子孙节点的 min年龄，如果有打印警告并停止运行
+checkconstraints
+```
 
+**cv**的config文件示例如下：
+```
+treefile = ../Fab.patol.353species.br.rt2024.ed.tre
+smooth = 1
+numsites = 271036
+seed = 97867
+
+[Fabaceae]
+# F1 crown of Fabaceae: 70-65.35 Ma
+mrca = Fabaceae_crown Sigmoidotropis_speciosa_ERR7619136 Cercis_canadensis_RKFX
+min = Fabaceae_crown 65.35
+max = Fabaceae_crown 70
+
+cvoutfile = Fabaceae_cv6.txt
+nthreads = 10
+
+#run "cross-validation" to report the best smooth value for dating (the lowest chi-square value).
+
+cv
+thorough
+
+# 下面的参数需要填入prime后生成的结果，这里只是作为示例
+opt = 2
+moredetail
+optad = 2
+moredetailad
+optcvad = 1
+moredetailcvad
+```
+
+**date**的config文件示例如下：
+```
+treefile = ../Fab.patol.353species.br.rt2024.ed.tre
+smooth = 1  # 做完cv之后需要更新最合适的值
+numsites = 271036
+seed = 97867
+
+[Fabaceae]
+# F1 crown of Fabaceae: 70-65.35 Ma
+mrca = Fabaceae_crown Sigmoidotropis_speciosa_ERR7619136 Cercis_canadensis_RKFX
+min = Fabaceae_crown 65.35
+max = Fabaceae_crown 70
+
+date
+
+# 下面的参数需要填入prime后生成的结果，这里只是作为示例
+opt = 2
+moredetail
+optad = 2
+moredetailad
+optcvad = 1
+moredetailcvad
+
+outfile = Fabaceae_date6.txt
 ```
 # 三、操作注意事项
 
