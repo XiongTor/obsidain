@@ -28,13 +28,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "project/Rosaceae_fruit_type/02-tree_and_time/02-1-treePL流程简介.md",
+                "file": "project/Rosaceae_fruit_type/02-tree_and_time/02-2-mcmctree简介.md",
                 "mode": "source",
                 "source": false,
                 "backlinks": false
               },
               "icon": "lucide-file",
-              "title": "02-1-treePL流程简介"
+              "title": "02-2-mcmctree简介"
             }
           }
         ],
@@ -212,8 +212,8 @@
   },
   "active": "1458bf0ee8dc0002",
   "lastOpenFiles": [
-    "project/Rosaceae_fruit_type/02-tree_and_time/02-2-mcmctree简介.md",
     "project/Rosaceae_fruit_type/02-tree_and_time/02-1-treePL流程简介.md",
+    "project/Rosaceae_fruit_type/02-tree_and_time/02-2-mcmctree简介.md",
     "project/Rosaceae_fruit_type/01-data_download/化石记录文献核查.md",
     "project/Rosaceae_fruit_type/02-tree_and_time",
     "project/Rosaceae_fruit_type/01-data_download/PyNCBIminer_NG批量下载其它片段.md",
