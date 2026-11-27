@@ -1,7 +1,7 @@
 ---
 title: 02-2-mcmctree简介
 date: 2026-11-27
-authors: "Tao Xiong    # Gemini 4 Neno"
+authors: Tao Xiong   Gemini 4 Neno
 tags:
 ---
 ### 参考教程
