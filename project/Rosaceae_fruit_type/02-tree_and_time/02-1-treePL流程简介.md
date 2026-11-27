@@ -59,6 +59,9 @@ flowchart LR
 | `log_pen` | `log_pen` | 可选，切换为对数惩罚函数（替代默认加法惩罚） |
 | `nthreads` | `8` | 并行线程数 |
 
+
+
+
 ## 2. 单树标准三步法与 Bootstrap 置信区间流程
 - **单树定年（点估计）**：
   1. **Step 1（`prime`）**：配置文件开启 `prime` 和 `thorough`，运行 `treePL prime.cfg > prime.log 2>&1`，提取日志中 `PLACE THE LINES BELOW IN THE CONFIGURATION FILE` 之后的参数行。
@@ -78,14 +81,3 @@ flowchart LR
 
 3. **CV 搜索范围与细化验证**
    - 若最优 `smooth` 落在默认搜索区间（`1000`–`0.1`）的两端边界，说明真实最优点可能超出范围，必须外扩 `cvstart` 或缩小 `cvstop` 重跑；找到大致数量级后，可在谷底附近缩小步长（如 `cvmultstep = 0.5`）复核结果稳定性。
-
-4. **警惕硬边界“顶死”与速率扭曲**
-   - 定年完成后应逐一核对各标定节点的估算年龄：若根节点顶死 `max` 上限，或大量内部标定节点同时顶死 `min` 下限，说明部分化石约束与分子枝长存在张力或根上限过紧。应同时检查 `.r8s` 速率树中是否存在异常偏慢或偏快的分支，并做标定敏感性测试。
-
-5. **配置关键字规范与日志留存**
-   - 对数惩罚的原生关键字是 `log_pen`（而非 `log_p`），且 **CV 与正式定年必须保持惩罚模式一致**；非原生关键字（如 `date`、`primeoutfile`、`checkconstraints`）会被静默忽略。
-   - 务必保存 `treePL` 原生屏幕输出日志以确认优化真正收敛；注意 `prime` 阶段会自动写出默认文件 `out_dates.tre`，后续分析切勿将其与最终 `outfile` 混淆。
-
-6. **自动化脚本（`Auto_TreePL.py`）使用提醒**
-   - 该脚本按 `cv → prime → date` 顺序运行，仅扫描默认 5 个粗粒度 `smooth` 点，且硬编码了 `date` / `log_p` 等非原生行；当 `prime` 仅输出 5 行参数时，其截取末尾 6 行的逻辑会把提示语 `PLACE THE LINES BELOW...` 一并写入最终配置文件。
-   - 此外，该脚本仅对单棵树做点估计，不包含 Bootstrap 95% CI 计算；若用于正式论文发表，建议按标准三步法核查日志并补充 100 棵 Bootstrap 树汇总置信区间。
