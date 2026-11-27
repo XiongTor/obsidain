@@ -59,17 +59,42 @@ flowchart LR
 | `log_pen`                           | `log_pen`                 | 可选，切换为对数惩罚函数（替代默认加法惩罚）                             |
 | `nthreads`                          | `8`                       | 并行线程数                                              |
 
-
-
-
 ## 2. 单树标准三步法与 Bootstrap 置信区间流程
 - **单树定年（点估计）**：
   1. **Step 1（`prime`）**：配置文件开启 `prime` 和 `thorough`，运行 `treePL prime.cfg > prime.log 2>&1`，提取日志中 `PLACE THE LINES BELOW IN THE CONFIGURATION FILE` 之后的参数行。
   2. **Step 2（`cv`）**：将 `prime` 参数写入配置，注释 `prime` 并开启 `cv`（或 `randomcv`）与 `cvstart` / `cvstop` / `cvmultstep`，从 `cvoutfile` 中选取 `chisq` 最小的 `smooth`。
   3. **Step 3（正式定年）**：填入最优 `smooth` 与 `prime` 参数，去掉 `cv`，指定 `outfile` 运行，得到最终时间树和对应的 `.r8s` 分支速率树。
 - **获取 95% 置信区间（CI）**：
-  - 单次 treePL 不输出置信区间。发表级分析通常先用 `raxmlHPC -f j` 生成 100 组 bootstrap 比对，再用 `raxmlHPC -f e -t <固定拓扑>` 估算 100 棵枝长树并统一置根，随后对每棵树分别跑 treePL 定年，最后 `cat` 合并 100 棵时间树并用 `TreeAnnotator` 汇总各节点的 95% CI。
+  - 单次 treePL 不输出置信区间。发表级分析通常先用 `raxmlHPC -f j` 生成 100 组 bootstrap 比对，再用 `raxmlHPC -f e -t <固定拓扑>` 估算 100 棵枝长树并统一置根，随后对每棵树分别跑 treePL 定年，最后 `cat` 合并 100 棵时间树并用 `TreeAnnotator` 汇总各节点的 95% CI
 
+### 3. 运行
+配置好config文件之后，直接运行即可
+```
+treePL TREEPL.config
+```
+prime，或者说basic dating analysis的config文件示例如下：
+```
+treefile = ../Fab.patol.353species.br.rt2024.ed.tre
+smooth = 1
+numsites = 271036
+seed = 97867
+
+[Fabaceae]
+# F1 crown of Fabaceae: 70-65.35 Ma
+mrca = Fabaceae_crown Sigmoidotropis_speciosa_ERR7619136 Cercis_canadensis_RKFX
+min = Fabaceae_crown 65.35
+max = Fabaceae_crown 70
+
+#cvoutfile = Fabaceae_cv6.txt
+nthreads = 10
+thorough
+#run "cross-validation" to report the best smooth value for dating (the lowest chi-square value).
+#cv
+#checkconstraints
+prime
+
+
+```
 # 三、操作注意事项
 
 1. **输入树枝长与拓扑检查**
