@@ -86,7 +86,7 @@ df = tablequartetCF(q,t) #读取计算得到的CF值到df：基因频率
 CSV.write("tableCF.csv", df) #保存df内容为tableCF.csv文件
 ```
 
-# 4. 批量运行不同的h值
+# 4. 迭代运行不同的h值，注意是迭代运行
 将下列代码储存为runSNaQ_hn.jl
 ```julia
 #!/usr/bin/env julia  
@@ -128,7 +128,7 @@ for h in $(seq 1 6); do
 done
 
 for h in $(seq 1 6);do 
-    nohup julia script/runSNaQ_h${h}.jl ${h} > log_h${h}.log 2>&1 & 
+    julia script/runSNaQ_h${h}.jl ${h} > log_h${h}.log
 done
 
 
