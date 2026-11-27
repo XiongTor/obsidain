@@ -46,18 +46,18 @@ flowchart LR
 - **有根带枝长树（`treefile`）**：必须为带有分子替换枝长的 Newick 树（通常由 RAxML / IQ-TREE 估算，或物种树重估枝长获得），且已正确置根。
 - **配置文件（`*.config`）**：核心参数说明如下：
 
-| 参数 | 示例 | 说明 |
-| :--- | :--- | :--- |
-| `treefile` / `outfile` | `input.tre` / `dated.tre` | 输入带枝长有根树路径；输出时间树路径（同时生成 `.r8s` 速率树） |
-| `numsites` | `67367` | 用于估算枝长的比对总位点数 |
-| `mrca` / `min` / `max` | `mrca = nodeA sp1 sp2` | 通过两个后代类群定义 MRCA，并用 `min` / `max` 设定年龄上下限（通常单位为 Ma） |
-| `prime` | `prime` | 预测试各优化算法组合，输出推荐的 `opt`、`optad`、`optcvad` 等参数 |
-| `cv` / `randomcv` | `cv` | 执行交叉验证；大树建议使用 `randomcv` 加速 |
-| `cvstart` / `cvstop` / `cvmultstep` | `10000` / `0.001` / `0.1` | CV 扫描平滑参数的起止范围与倍增步长，结果写入 `cvoutfile` |
-| `smooth` | `1` | 正式定年时填入 CV 找到的最优平滑参数 |
-| `thorough` | `thorough` | 要求优化运行至收敛阈值，避免迭代过早终止 |
-| `log_pen` | `log_pen` | 可选，切换为对数惩罚函数（替代默认加法惩罚） |
-| `nthreads` | `8` | 并行线程数 |
+| 参数                                  | 示例                        | 说明                                                 |
+| :---------------------------------- | :------------------------ | :------------------------------------------------- |
+| `treefile` / `outfile`              | `input.tre` / `dated.tre` | 输入带枝长有根树路径；输出时间树路径（同时生成 `.r8s` 速率树）                |
+| `numsites`                          | `67367`                   | 用于估算枝长的比对总位点数                                      |
+| `mrca` / `min` / `max`              | `mrca = nodeA sp1 sp2`    | 通过两个后代类群定义 MRCA，并用 `min` / `max` 设定年龄上下限（通常单位为 Ma） |
+| `prime`                             | `prime`                   | 预测试各优化算法组合，输出推荐的 `opt`、`optad`、`optcvad` 等参数       |
+| `cv` / `randomcv`                   | `cv`                      | 执行交叉验证；大树建议使用 `randomcv` 加速                        |
+| `cvstart` / `cvstop` / `cvmultstep` | `10000` / `0.001` / `0.1` | CV 扫描平滑参数的起止范围与倍增步长，结果写入 `cvoutfile`               |
+| `smooth`                            | `1`                       | 正式定年时填入 CV 找到的最优平滑参数                               |
+| `thorough`                          | `thorough`                | 要求优化运行至收敛阈值，避免迭代过早终止                               |
+| `log_pen`                           | `log_pen`                 | 可选，切换为对数惩罚函数（替代默认加法惩罚）                             |
+| `nthreads`                          | `8`                       | 并行线程数                                              |
 
 
 
