@@ -74,7 +74,79 @@ flowchart LR
 - **氨基酸数据（`seqtype = 2`）**：不支持 `usedata = 1`，必须使用近似似然法。`usedata = 3` 自动生成的 `tmp*.ctl` 默认采用最简单的 Poisson 模型且无 Gamma，需删除初始 `out.BV`，手动修改 `tmp*.ctl`（如改为 `model = 2`、指定 `aaRatefile = wag.dat` 并设 `fix_alpha = 0`、`ncatG = 4`），再运行 `codeml tmp*.ctl`，最后合并生成的 `rst2` 重命名为 `in.BV`。
 - **密码子数据（`seqtype = 1`）**：开启 Gamma 时常报错，通常拆分为第 1/2/3 密码子位点 3 个核酸分区（`seqtype = 0, ndata = 3`）或翻译为氨基酸序列进行分析。
 
-# 三、操作注意事项
+
+
+# 三. 代码流程示意
+
+#### （1）使用流程开头介绍的AUTO-MCMCTREE
+
+#### 注意事项
+- `- ndata`参数的设置，一般情况下，你的`-fd`中包含了几个基因，这里ndata就要设置为对应的数量，否则最终运算不会使用全部的基因
+- `- clock`参数的设置，这里没有设置，默认为2，如果你需要测试不同的分子钟，需要调整
+- `- model`参数的设置，这里没有设置，默认为4，但是可以的话应该设置为7，特别是使用Approximate Likelihood方法
+> 自动执行脚本完全遵循Approximate Likelihood方法，这是目前主流方法，如果希望尝试其它方法，可自行查看参考教程
+```bash
+python /home/xiongtao/data/software/PhyloerKit/src/Auto_MCMCTree.py \
+  -it /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/rosaceae_sp_astral_pro3_rebranch_rt.tre \
+  -ic /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/scheme1_xiang/scheme1_xiang.config \
+  -fd /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/05-sortadate/gene_sortadate \
+  -ndata 83 \
+  -o /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/scheme1_xiang/result_ndata83 \
+  -p Rosaceae_1 \
+  --plot_tree
+  
+ # -it 带枝长的系统发育树
+ # -ic config文件
+ # -fd 所有基因序列的文件夹路径
+```
+
+
+#### （2）单独运行
+
+准备下列所需文件
+- **序列文件（`*.phy`）**
+- **标定树文件（`*.tre`）**
+- **控制文件（`mcmctree.ctl`）**
+
+##### 标准流程 --- usedata=1
+```bash
+#  运行
+mcmctree mcmctree.ctl
+
+# R收敛性测试
+
+# 创建数据
+data <- read.csv("./MCMCtree_Convergence.csv")
+
+# 绘制散点图
+plot(data$run01, data$run02, pch = 15, col = as.numeric(sub("t_n", "", data$X)),
+     xlim = c(0, max(data$run01)), ylim = c(0, max(data$run02)), #xlim和ylim参数分别设置x轴和y轴的范围
+     xlab = "run01", ylab = "run02")
+
+# 添加经过原点的线
+abline(a = 0, b = 1, col = "black")
+
+```
+
+##### 快速流程 --- usedata=3/2  主流
+```bash
+# 打开配置文件，将usedate 设置为3
+mcmctree mcmctree.ctl
+
+# 新建文件夹，拷贝树，配置文件，比对文件以及out.BV到新文件夹 上一步得到out.BV中含有各个枝的长度，gradient和Hessian的值，将out.BV更改为in.BV. 再次更改配置文件usedata=2,可见下图参考
+mkdir ../approx01  
+cd ../approx01 
+cp ../Hessian/mcmctree.ctl ../Hessian/Prunus.phylip ../Hessian/Prunus.tree ../Hessian/out.BV ./ 
+mv out.BV in.BV  
+
+mcmctree mcmctree.ctl
+
+
+```
+![](../../../imag/02-2-mcmctree简介/file-20261127151203771.png)
+
+
+# 四、结果解读
 
 1. **时间单位改变时必须同步缩放先验参数**
    - 官方推荐以 `100 Ma` 为时间单位。若改为 `1 Ma`（时间放大 $k = 100$ 倍），必须同步调整：
@@ -108,17 +180,3 @@ flowchart LR
    - 脚本仅输出双链节点均值 $R^2$，建议额外补充 Tracer 的 ESS 检查及 `usedata = 0` 先验对比。
 
 
-# 四. 代码流程示意
-```bash
-python /home/xiongtao/data/software/PhyloerKit/src/Auto_MCMCTree.py \
-  -it /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/rosaceae_sp_astral_pro3_rebranch_rt.tre \
-  -ic /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/scheme1_xiang/scheme1_xiang.config \
-  -fd /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/05-sortadate/gene_sortadate \
-  -ndata 83 \
-  -o /data/xiongtao/project/Rosaceae/Rosaceae_fruit_type/02-final_astral_tree/06-timetree/mcmctree/scheme1_xiang/result_ndata83 \
-  -p Rosaceae_1 \
-  --plot_tree
-  
- # -it 带枝长的系统发育树
- # -IC
-```
