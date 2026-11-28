@@ -29,7 +29,9 @@ $$\Psi = \ln L(t, r \mid b, N) - \lambda \cdot \Phi(r)$$
 - **交叉验证（Cross-Validation, CV）**：由于 $\lambda$ 无法直接通过最大似然估计，treePL 采用留一法（`cv`）或随机子采样（`randomcv`）逐次移除末端分支，用其余分支预测该分支长度并计算预测误差（`chisq`）。误差最低处对应的 $\lambda^*$ 即为最优平滑参数。==🔴即用来寻找最佳平滑参数smooth值==
 - **Prime-basic analysis（优化器探测）** 解决计算效率与收敛问题 ——==🔴为树挑选最合适的数值优化算法==
 - **硬边界约束（Hard bounds）**：与 MCMCTree 的软边界不同，treePL 的化石标定（`min` / `max`）为严格硬边界，优化后的节点年龄绝不会越出设定区间。
+
 > 理论上来讲，cv和prime应该是不分先后的，但是现在默认先进行prime，将prime探寻出的最佳参数直接喂给cv然后让cv去寻找最佳smooth值。
+
 ![](../../../imag/02-1-treePL流程简介/file-20261127202951444.png)
 
 ![|720](../../../imag/02-1-treePL流程简介/treepl_principle.png)
